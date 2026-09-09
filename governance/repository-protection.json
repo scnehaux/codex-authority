@@ -1,10 +1,12 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "default_branch": "main",
+  "provider_projection": "governance/github-main-ruleset.json",
   "required": {
     "changes_via_pull_request": true,
     "required_checks": [
-      "Authority Foundation"
+      "Authority Foundation",
+      "Secret Scan"
     ],
     "force_push_allowed": false,
     "deletion_allowed": false,
