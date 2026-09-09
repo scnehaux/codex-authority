@@ -1,0 +1,38 @@
+name: Authority Foundation
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  foundation:
+    name: Authority Foundation
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout without retained credentials
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: "3.13"
+
+      - name: Compile
+        run: python -I -m compileall -q src scripts tests
+
+      - name: Run unit tests
+        run: python -I -m unittest discover -s tests -v
+
+      - name: Verify foundation contracts
+        run: python -I scripts/verify_foundation.py
+
+      - name: Assert tests and verifiers leave no working-tree drift
+        run: git diff --exit-code

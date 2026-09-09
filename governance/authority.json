@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "candidate_repository": "scnehaux/codex",
+  "authority_check_context": "Codex Governance Authority",
+  "github_app_id": 4864946,
+  "execution": {
+    "location": "external",
+    "candidate_code_execution": false
+  },
+  "trust": {
+    "candidate_may_select_effective_revision": false,
+    "candidate_may_auto_deploy_authority": false,
+    "credentials_may_be_stored_in_repository": false
+  }
+}

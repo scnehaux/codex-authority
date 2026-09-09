@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "state": "foundation",
+  "effective_authority_revision": null,
+  "publisher": {
+    "enabled": false,
+    "live_proven": false
+  },
+  "deployment": {
+    "automatic_from_main": false,
+    "automatic_from_candidate": false
+  },
+  "enforcement": {
+    "effective": false
+  }
+}
