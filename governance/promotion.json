@@ -1,10 +1,17 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "state": "foundation",
-  "effective_authority_revision": null,
+  "source_identity": {
+    "codex_evaluator_source_revision": null,
+    "codex_runtime_source_revision": null,
+    "authority_service_source_revision": null,
+    "publisher_source_revision": null,
+    "deployment_artifact_digest": null
+  },
   "publisher": {
     "enabled": false,
-    "live_proven": false
+    "live_proven": false,
+    "publication_permit_required": true
   },
   "deployment": {
     "automatic_from_main": false,

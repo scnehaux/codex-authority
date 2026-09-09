@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "default_branch": "main",
+  "required": {
+    "changes_via_pull_request": true,
+    "required_checks": [
+      "Authority Foundation"
+    ],
+    "force_push_allowed": false,
+    "deletion_allowed": false,
+    "linear_history_required": true,
+    "allowed_merge_methods": [
+      "squash"
+    ]
+  },
+  "provider_state": {
+    "enforced": false,
+    "evidence": null
+  }
+}

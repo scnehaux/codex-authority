@@ -5,7 +5,8 @@ from .model import (
     AuthorityOutcome,
     CandidateRef,
     CandidateSnapshot,
-    EvaluationVerdict,
+    EvidenceRecord,
+    RuntimeDecisionEnvelope,
 )
 from .policy import AuthorityPolicy, load_authority_policy
 from .service import AuthorityService
@@ -17,6 +18,7 @@ __all__ = [
     "AuthorityService",
     "CandidateRef",
     "CandidateSnapshot",
-    "EvaluationVerdict",
+    "EvidenceRecord",
+    "RuntimeDecisionEnvelope",
     "load_authority_policy",
 ]

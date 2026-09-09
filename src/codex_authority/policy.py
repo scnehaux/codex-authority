@@ -6,6 +6,11 @@ from pathlib import Path
 from typing import Any
 
 
+EXPECTED_CANDIDATE_REPOSITORY = "scnehaux/codex"
+EXPECTED_AUTHORITY_CHECK_CONTEXT = "Codex Governance Authority"
+EXPECTED_GITHUB_APP_ID = 4864946
+
+
 @dataclass(frozen=True, slots=True)
 class AuthorityPolicy:
     candidate_repository: str
@@ -26,33 +31,39 @@ def _object(value: Any, name: str) -> dict[str, Any]:
 
 def load_authority_policy(path: str | Path) -> AuthorityPolicy:
     data = _object(json.loads(Path(path).read_text(encoding="utf-8")), "authority")
-    if data.get("schema_version") != 1:
-        raise ValueError("unsupported authority policy schema_version")
+    expected = {
+        "schema_version": 1,
+        "candidate_repository": EXPECTED_CANDIDATE_REPOSITORY,
+        "authority_check_context": EXPECTED_AUTHORITY_CHECK_CONTEXT,
+        "github_app_id": EXPECTED_GITHUB_APP_ID,
+        "execution": {
+            "location": "external",
+            "candidate_code_execution": False,
+        },
+        "trust": {
+            "candidate_may_select_effective_revision": False,
+            "candidate_may_auto_deploy_authority": False,
+            "credentials_may_be_stored_in_repository": False,
+        },
+    }
+    if data != expected:
+        raise ValueError("authority policy drifted from the fixed trust boundary")
 
-    execution = _object(data.get("execution"), "execution")
-    trust = _object(data.get("trust"), "trust")
-    app_id = data.get("github_app_id")
-    if type(app_id) is not int or app_id <= 0:
-        raise ValueError("github_app_id must be a positive integer")
-
-    policy = AuthorityPolicy(
-        candidate_repository=data.get("candidate_repository"),
-        authority_check_context=data.get("authority_check_context"),
-        github_app_id=app_id,
-        execution_location=execution.get("location"),
-        candidate_code_execution=execution.get("candidate_code_execution"),
-        candidate_may_select_effective_revision=trust.get(
+    execution = _object(data["execution"], "execution")
+    trust = _object(data["trust"], "trust")
+    return AuthorityPolicy(
+        candidate_repository=data["candidate_repository"],
+        authority_check_context=data["authority_check_context"],
+        github_app_id=data["github_app_id"],
+        execution_location=execution["location"],
+        candidate_code_execution=execution["candidate_code_execution"],
+        candidate_may_select_effective_revision=trust[
             "candidate_may_select_effective_revision"
-        ),
-        candidate_may_auto_deploy_authority=trust.get(
+        ],
+        candidate_may_auto_deploy_authority=trust[
             "candidate_may_auto_deploy_authority"
-        ),
-        credentials_may_be_stored_in_repository=trust.get(
+        ],
+        credentials_may_be_stored_in_repository=trust[
             "credentials_may_be_stored_in_repository"
-        ),
+        ],
     )
-    if not policy.candidate_repository or "/" not in policy.candidate_repository:
-        raise ValueError("candidate_repository must be owner/name")
-    if not policy.authority_check_context:
-        raise ValueError("authority_check_context is required")
-    return policy
