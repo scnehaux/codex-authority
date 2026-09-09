@@ -8,6 +8,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 AUTHORITY = ROOT / "governance/authority.json"
 PROMOTION = ROOT / "governance/promotion.json"
+PROTECTION = ROOT / "governance/repository-protection.json"
 FORBIDDEN_SECRET_SUFFIXES = {".pem", ".key", ".p12", ".pfx", ".jks"}
 
 
@@ -21,6 +22,7 @@ def load_object(path: Path) -> dict:
 def main() -> int:
     authority = load_object(AUTHORITY)
     promotion = load_object(PROMOTION)
+    protection = load_object(PROTECTION)
 
     expected_authority = {
         "schema_version": 1,
@@ -41,12 +43,19 @@ def main() -> int:
         raise SystemExit("authority foundation contract drifted")
 
     expected_promotion = {
-        "schema_version": 1,
+        "schema_version": 2,
         "state": "foundation",
-        "effective_authority_revision": None,
+        "source_identity": {
+            "codex_evaluator_source_revision": None,
+            "codex_runtime_source_revision": None,
+            "authority_service_source_revision": None,
+            "publisher_source_revision": None,
+            "deployment_artifact_digest": None,
+        },
         "publisher": {
             "enabled": False,
             "live_proven": False,
+            "publication_permit_required": True,
         },
         "deployment": {
             "automatic_from_main": False,
@@ -59,6 +68,25 @@ def main() -> int:
     if promotion != expected_promotion:
         raise SystemExit("promotion foundation contract advanced prematurely")
 
+    expected_protection = {
+        "schema_version": 1,
+        "default_branch": "main",
+        "required": {
+            "changes_via_pull_request": True,
+            "required_checks": ["Authority Foundation"],
+            "force_push_allowed": False,
+            "deletion_allowed": False,
+            "linear_history_required": True,
+            "allowed_merge_methods": ["squash"],
+        },
+        "provider_state": {
+            "enforced": False,
+            "evidence": None,
+        },
+    }
+    if protection != expected_protection:
+        raise SystemExit("repository protection desired state drifted")
+
     secret_like = [
         path.relative_to(ROOT).as_posix()
         for path in ROOT.rglob("*")
@@ -67,9 +95,17 @@ def main() -> int:
         and path.suffix.lower() in FORBIDDEN_SECRET_SUFFIXES
     ]
     if secret_like:
-        raise SystemExit("credential-like files are forbidden: " + ", ".join(secret_like))
+        raise SystemExit(
+            "credential-like files are forbidden: " + ", ".join(secret_like)
+        )
 
-    print("[PASS] authority foundation invariants")
+    legacy_adr = ROOT / "docs/decisions"
+    if legacy_adr.exists():
+        raise SystemExit(
+            "implementation-local decision notes must not masquerade as Codex ADR artifacts"
+        )
+
+    print("[PASS] authority foundation hardening invariants")
     return 0
 
 

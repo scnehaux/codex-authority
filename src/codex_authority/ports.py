@@ -2,19 +2,14 @@ from __future__ import annotations
 
 from typing import Protocol
 
-from .model import AuthorityOutcome, CandidateRef, CandidateSnapshot, EvaluationVerdict
+from .model import CandidateRef, EvidenceRecord, RuntimeDecisionEnvelope
 
 
-class CandidateCollector(Protocol):
-    def collect(self, request: CandidateRef) -> CandidateSnapshot:
-        """Collect independently observed candidate facts."""
-
-
-class GovernanceEvaluator(Protocol):
-    def evaluate(self, snapshot: CandidateSnapshot) -> EvaluationVerdict:
-        """Evaluate a verified candidate snapshot without publishing."""
+class TrustedRuntime(Protocol):
+    def evaluate(self, request: CandidateRef) -> RuntimeDecisionEnvelope:
+        """Run an independently promoted Codex runtime and return a verified envelope."""
 
 
 class EvidenceSink(Protocol):
-    def append(self, outcome: AuthorityOutcome) -> None:
-        """Persist or emit an append-only authority outcome."""
+    def append(self, record: EvidenceRecord) -> None:
+        """Persist or emit an append-only authority record."""
