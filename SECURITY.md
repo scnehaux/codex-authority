@@ -49,16 +49,34 @@ Do not overload these as one generic authority revision.
 Before any live publisher credential is introduced:
 
 1. `main` must be provider-protected against direct/force/deletion paths and
-   require the reviewed CI gate; and
+   require the reviewed CI gates; and
 2. a battle-tested repository secret-scanning control must be enabled and
    verified.
 
-The checked-in desired state is recorded in
-`governance/repository-protection.json`. Its provider enforcement flag remains
-false until external evidence proves the setting is active.
+The desired provider projection is recorded in
+`governance/github-main-ruleset.json` and the provider-neutral requirement in
+`governance/repository-protection.json`. Their enforcement claim remains false
+until live provider evidence proves the settings are active.
+
+## Secret scanning
+
+`Secret Scan` uses TruffleHog OSS as an independent, credential-free CI control.
+Both the GitHub Action source revision and scanner version are fixed in
+`governance/secret-scanning.json`. The workflow:
+
+- runs for pull requests and pushes to `main`;
+- runs a weekly full-history scan;
+- retains no checkout credentials;
+- receives no repository secrets;
+- disables scanner self-update; and
+- fails on findings and scanner errors.
+
+A successful workflow run is necessary but not sufficient to activate the
+publisher. The check must also become required by provider-side protection and
+that provider state must be evidenced before publisher credentials are used.
 
 ## Failure policy
 
-Authentication, candidate identity, source identity, runtime, evidence, and
-provider uncertainty fail closed. They must not be converted into a successful
-authority result.
+Authentication, candidate identity, source identity, runtime, evidence, secret
+scanning, and provider uncertainty fail closed. They must not be converted into
+a successful authority result.
