@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "kind": "github-repository-ruleset-evidence",
+  "repository": "scnehaux/codex-authority",
+  "observed_branch": "main",
+  "observed_head_sha": "04aede7bda750a3b4507318985f638fc9a380ab7",
+  "observed_branch_protected": true,
+  "ruleset": {
+    "id": 22679415,
+    "name": "authority-main-protection",
+    "target": "branch",
+    "source_type": "Repository",
+    "source": "scnehaux/codex-authority",
+    "enforcement": "active",
+    "default_branch_only": true,
+    "bypass_actors": [],
+    "current_user_can_bypass": "never",
+    "rules": {
+      "deletion_restricted": true,
+      "non_fast_forward_restricted": true,
+      "linear_history_required": true,
+      "pull_request": {
+        "required_approving_review_count": 0,
+        "dismiss_stale_reviews_on_push": true,
+        "require_code_owner_review": false,
+        "require_last_push_approval": false,
+        "required_review_thread_resolution": true,
+        "require_extra_approval_for_unattributed_changes": false,
+        "allowed_merge_methods": ["squash"]
+      },
+      "required_status_checks": [
+        { "context": "Authority Foundation", "integration_id": 15368 },
+        { "context": "Secret Scan", "integration_id": 15368 }
+      ],
+      "strict_required_status_checks_policy": true,
+      "do_not_enforce_on_create": false
+    }
+  },
+  "required_check_observation": [
+    {
+      "context": "Authority Foundation",
+      "check_run_id": 102601170138,
+      "head_sha": "04aede7bda750a3b4507318985f638fc9a380ab7",
+      "status": "completed",
+      "conclusion": "success",
+      "integration_id": 15368,
+      "app_slug": "github-actions",
+      "app_owner": "github"
+    },
+    {
+      "context": "Secret Scan",
+      "check_run_id": 102601170463,
+      "head_sha": "04aede7bda750a3b4507318985f638fc9a380ab7",
+      "status": "completed",
+      "conclusion": "success",
+      "integration_id": 15368,
+      "app_slug": "github-actions",
+      "app_owner": "github"
+    }
+  ],
+  "provider_observation": {
+    "ruleset_updated_at": "2026-09-10T02:51:01.545+07:00",
+    "ruleset_api": "https://api.github.com/repos/scnehaux/codex-authority/rulesets/22679415",
+    "branch_api": "https://api.github.com/repos/scnehaux/codex-authority/branches/main"
+  },
+  "claims": {
+    "provider_protection_proven": true,
+    "publisher_enabled": false,
+    "effective_governance_enforcement_claimed": false
+  }
+}

@@ -1,22 +1,26 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "default_branch": "main",
   "provider_projection": "governance/github-main-ruleset.json",
   "required": {
     "changes_via_pull_request": true,
     "required_checks": [
-      "Authority Foundation",
-      "Secret Scan"
+      { "context": "Authority Foundation", "integration_id": 15368 },
+      { "context": "Secret Scan", "integration_id": 15368 }
     ],
     "force_push_allowed": false,
     "deletion_allowed": false,
     "linear_history_required": true,
-    "allowed_merge_methods": [
-      "squash"
-    ]
+    "allowed_merge_methods": ["squash"],
+    "required_approving_review_count": 0,
+    "dismiss_stale_reviews_on_push": true,
+    "require_last_push_approval": false,
+    "require_review_thread_resolution": true,
+    "require_extra_approval_for_unattributed_changes": false,
+    "bypass_allowed": false
   },
   "provider_state": {
-    "enforced": false,
-    "evidence": null
+    "enforced": true,
+    "evidence": "governance/evidence/provider-protection-001.json"
   }
 }

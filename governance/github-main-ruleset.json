@@ -20,6 +20,7 @@
         "dismiss_stale_reviews_on_push": true,
         "require_code_owner_review": false,
         "require_last_push_approval": false,
+        "require_extra_approval_for_unattributed_changes": false,
         "required_approving_review_count": 0,
         "required_review_thread_resolution": true
       }
@@ -29,8 +30,8 @@
       "parameters": {
         "do_not_enforce_on_create": false,
         "required_status_checks": [
-          { "context": "Authority Foundation" },
-          { "context": "Secret Scan" }
+          { "context": "Authority Foundation", "integration_id": 15368 },
+          { "context": "Secret Scan", "integration_id": 15368 }
         ],
         "strict_required_status_checks_policy": true
       }
