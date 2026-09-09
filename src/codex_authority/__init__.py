@@ -9,6 +9,7 @@ from .model import (
     RuntimeDecisionEnvelope,
 )
 from .policy import AuthorityPolicy, load_authority_policy
+from .publication import PublicationPermit, issue_publication_permit
 from .service import AuthorityService
 
 __all__ = [
@@ -19,6 +20,8 @@ __all__ = [
     "CandidateRef",
     "CandidateSnapshot",
     "EvidenceRecord",
+    "PublicationPermit",
     "RuntimeDecisionEnvelope",
+    "issue_publication_permit",
     "load_authority_policy",
 ]

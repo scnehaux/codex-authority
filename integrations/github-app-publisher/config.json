@@ -1,0 +1,18 @@
+{
+  "config_version": 1,
+  "app_id": 4864946,
+  "installation_id": 159870521,
+  "client_id": "Iv23li8znPY4yr7chvFD",
+  "repository": "scnehaux/codex",
+  "check_context": "Codex Governance Authority",
+  "permit_kind": "codex-governance-publication-permit",
+  "expected_runtime_source_revision": "cbd64f78c8f72f28880d4673729a796b249d8eae",
+  "expected_evaluator_source_revision": "23b05a855419b86b61b0c9266805bb66b143c366",
+  "expected_authority_service_source_revision": null,
+  "publisher_source_revision": null,
+  "publisher_source_blobs": null,
+  "write_mode": "disabled",
+  "proof_head_sha": null,
+  "live_proven": false,
+  "proof_permit_digest": null
+}
