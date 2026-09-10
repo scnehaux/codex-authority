@@ -37,5 +37,8 @@ jobs:
       - name: Verify staged publisher contracts
         run: python -I scripts/verify_publisher.py
 
+      - name: Verify candidate-scoped publisher proof activation
+        run: python -I scripts/verify_publisher_proof.py
+
       - name: Assert verification leaves no tracked or untracked drift
         run: test -z "$(git status --porcelain --untracked-files=all)"
