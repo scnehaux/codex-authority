@@ -26,13 +26,16 @@ jobs:
           python-version: "3.13"
 
       - name: Compile
-        run: python -I -m compileall -q src scripts tests
+        run: python -I -m compileall -q src scripts tests integrations/github-app-publisher
 
       - name: Run unit tests
         run: python -I -m unittest discover -s tests -v
 
       - name: Verify hardened foundation contracts
         run: python -I scripts/verify_foundation.py
+
+      - name: Verify staged publisher contracts
+        run: python -I scripts/verify_publisher.py
 
       - name: Assert verification leaves no tracked or untracked drift
         run: test -z "$(git status --porcelain --untracked-files=all)"

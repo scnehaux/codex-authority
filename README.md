@@ -3,17 +3,22 @@
 Independent governance authority runtime for `scnehaux/codex`.
 
 This repository owns the trusted execution and publication boundary that will
-eventually run a promoted Codex runtime and publish the
-`Codex Governance Authority` GitHub Check through the dedicated GitHub App.
+run a promoted Codex runtime and publish the `Codex Governance Authority` GitHub
+Check through the dedicated GitHub App.
 
 ## Current state
 
-**Foundation only. Publication is deliberately disabled.**
+**Stage B publication boundary is staged. Remote publication is still disabled.**
 
-The repository currently establishes the authority domain model, fail-closed
-application boundary, promotion contract, CI, security rules, and
-implementation-local architecture notes. It does not contain GitHub App
-credentials, does not publish checks, and is not yet a production service.
+The provider-protection and secret-scanning prerequisites are live and governed.
+This slice adds a success-only publication permit plus a credential-isolated
+GitHub App publisher implementation, but its checked-in configuration cannot
+perform a remote write. Publisher source identity, authority-service source
+identity, proof candidate, and live evidence remain unbound until a later
+privileged promotion.
+
+No GitHub App private key, installation token, webhook secret, or other credential
+belongs in this repository.
 
 ## Trust boundary
 
@@ -25,14 +30,17 @@ credentials, does not publish checks, and is not yet a production service.
 - Candidate code is never executed by the authority.
 - The trusted evaluation runtime remains credential-free.
 - GitHub App credentials and webhook secrets are never committed.
-- Raw evaluation results are not publication capabilities.
-- Publication stays disabled until a controlled publisher proof exists.
-- Effective merge enforcement stays unclaimed until provider-side negative
-  proof exists.
+- A raw evaluation result is not a publication capability.
+- Only an evidenced PASS with exact candidate/source identity may become a
+  `PublicationPermit`.
+- The credential-bearing publisher accepts only that narrow permit and re-checks
+  the exact open PR/base/head identity immediately before publication.
+- Publication stays disabled until a privileged proof promotion pins exact
+  authority/publisher source identities and one disposable candidate SHA.
+- Effective merge enforcement stays unclaimed until provider-side negative proof
+  exists.
 
 ## Architecture
-
-The hardened foundation keeps the trusted computing base small:
 
 ```text
 GitHub event / operator request
@@ -50,26 +58,36 @@ GitHub event / operator request
             v
       Evidence Record
             |
-      [publisher absent]
+            v
+   Publication Permit Gate
+            |
+            v
+      PublicationPermit
+            |
+            v
+ GitHub App Publisher [DISABLED]
 ```
 
 The authority does **not** reimplement Codex candidate collection or governance
-evaluation semantics. A future adapter will wrap the independently promoted
-Codex runtime and must verify exact source identities before producing a
+evaluation semantics. A future runtime adapter wraps the independently promoted
+Codex runtime and verifies exact source identities before producing a
 `RuntimeDecisionEnvelope`.
 
-The publisher, webhook ingress, deployment runtime, durable operational
-evidence, and publication permit are introduced in later reviewed slices.
+The publisher is a separate, smaller credential-bearing boundary. It does not
+receive credentials during evaluation, does not execute candidate code, does not
+accept caller-selected repository/context/conclusion, and does not automatically
+retry the authority-check POST.
 
 ## Repository layout
 
 ```text
-governance/                 authority, promotion, and protection contracts
-src/codex_authority/        pure authority orchestration and trust-boundary types
-scripts/                    repository invariants
-tests/                      fail-closed behavior and contract tests
-docs/                       implementation-local architecture notes
-.github/                    CI and ownership
+governance/                         authority, promotion, protection, publisher contracts
+src/codex_authority/                pure authority orchestration and permit types
+integrations/github-app-publisher/  isolated GitHub App publication boundary
+scripts/                            repository/security invariants
+tests/                              fail-closed behavior and contract tests
+docs/                               implementation-local architecture notes
+.github/                            CI and ownership
 ```
 
 Normative architecture artifacts for Codex and Codex Authority belong in
@@ -81,20 +99,25 @@ notes and must not masquerade as Codex ADR artifacts.
 Python 3.13+:
 
 ```bash
-python -I -m compileall -q src scripts tests
+python -I -m compileall -q src scripts tests integrations/github-app-publisher
 python -I -m unittest discover -s tests -v
 python -I scripts/verify_foundation.py
+python -I scripts/verify_publisher.py
 test -z "$(git status --porcelain --untracked-files=all)"
 ```
 
-No third-party runtime dependency is required by the foundation slice.
+The authority core has no third-party runtime dependency. The credential-bearing
+publisher uses separately pinned `PyJWT` and `cryptography` dependencies only
+when a privileged authenticated run is eventually enabled.
 
 ## Evolution rule
 
-New capability is added behind explicit ports and promotion gates. In
-particular, adding a GitHub publisher does not automatically enable publication,
-and adding a deployment target does not automatically make that revision
+New capability is added behind explicit promotion gates. Adding publisher source
+does not enable publication; proving publication does not activate provider
+merge enforcement; and adding a deployment target does not make that revision
 effective.
 
-Before any live publisher credential is introduced, provider-side protection of
-`main` and a battle-tested repository secret-scanning control must be proven.
+The next privileged slice may pin this reviewed publisher source and the
+corresponding authority-service revision, bind one disposable proof candidate and exact permit digest,
+export the trusted publisher outside every Git checkout, and perform one
+controlled `Codex Governance Authority` check publication.
