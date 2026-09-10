@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "kind": "promoted-codex-runtime-adapter",
+  "candidate_repository": "scnehaux/codex",
+  "runtime": {
+    "source_revision": "cbd64f78c8f72f28880d4673729a796b249d8eae",
+    "source_path": "integrations/github-governance-evaluator/runtime.py",
+    "source_blob": "c59911e9c0800c917fed21e6f33f3181c3a61e60"
+  },
+  "evaluator": {
+    "source_revision": "23b05a855419b86b61b0c9266805bb66b143c366",
+    "source_path": "integrations/github-governance-evaluator/evaluator.py",
+    "source_blob": "ab2f152c21bd6d6f22df21172c4d027035ff8c11"
+  },
+  "execution": {
+    "location": "external",
+    "exported_copy_required": true,
+    "candidate_code_execution": false,
+    "credentials_allowed": false,
+    "transport": "runtime-owned-public-github-read",
+    "timeout_seconds": 60
+  },
+  "permit_issuance": {
+    "durable_evidence_before_permit": true,
+    "authority_source_from_clean_committed_revision": true
+  }
+}
