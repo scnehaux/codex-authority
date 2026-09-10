@@ -8,14 +8,14 @@ Check through the dedicated GitHub App.
 
 ## Current state
 
-**Stage B publication boundary is staged. Remote publication is still disabled.**
+**Stage B candidate-scoped publication proof is armed. Generic publication remains disabled.**
 
-The provider-protection and secret-scanning prerequisites are live and governed.
-This slice adds a success-only publication permit plus a credential-isolated
-GitHub App publisher implementation, but its checked-in configuration cannot
-perform a remote write. Publisher source identity, authority-service source
-identity, proof candidate, and live evidence remain unbound until a later
-privileged promotion.
+Provider protection and secret scanning are live and governed. The credential-free
+runtime adapter has produced durable PASS evidence for disposable Codex PR #17 and
+a success-only `PublicationPermit`. A separate governed proof configuration binds
+that exact candidate head, permit digest, authority-service revision, publisher
+revision, and publisher Git blobs. The default publisher configuration remains
+write-disabled and no live publication is claimed yet.
 
 No GitHub App private key, installation token, webhook secret, or other credential
 belongs in this repository.
@@ -35,8 +35,8 @@ belongs in this repository.
   `PublicationPermit`.
 - The credential-bearing publisher accepts only that narrow permit and re-checks
   the exact open PR/base/head identity immediately before publication.
-- Publication stays disabled until a privileged proof promotion pins exact
-  authority/publisher source identities and one disposable candidate SHA.
+- The default publisher stays disabled; the controlled proof uses a separate
+  candidate-scoped configuration with one exact candidate SHA and permit digest.
 - Effective merge enforcement stays unclaimed until provider-side negative proof
   exists.
 
@@ -65,12 +65,14 @@ GitHub event / operator request
       PublicationPermit
             |
             v
- GitHub App Publisher [DISABLED]
+ GitHub App Publisher
+   default: DISABLED
+   proof: exact candidate only
 ```
 
 The authority does **not** reimplement Codex candidate collection or governance
-evaluation semantics. A future runtime adapter wraps the independently promoted
-Codex runtime and verifies exact source identities before producing a
+evaluation semantics. The runtime adapter wraps the independently promoted Codex
+runtime and verifies exact source identities before producing a
 `RuntimeDecisionEnvelope`.
 
 The publisher is a separate, smaller credential-bearing boundary. It does not
@@ -103,21 +105,22 @@ python -I -m compileall -q src scripts tests integrations/github-app-publisher
 python -I -m unittest discover -s tests -v
 python -I scripts/verify_foundation.py
 python -I scripts/verify_publisher.py
+python -I scripts/verify_publisher_proof.py
 test -z "$(git status --porcelain --untracked-files=all)"
 ```
 
 The authority core has no third-party runtime dependency. The credential-bearing
 publisher uses separately pinned `PyJWT` and `cryptography` dependencies only
-when a privileged authenticated run is eventually enabled.
+for an explicit authenticated publication run.
 
 ## Evolution rule
 
 New capability is added behind explicit promotion gates. Adding publisher source
-does not enable publication; proving publication does not activate provider
+does not enable generic publication; proving publication does not activate provider
 merge enforcement; and adding a deployment target does not make that revision
 effective.
 
-The next privileged slice may pin this reviewed publisher source and the
-corresponding authority-service revision, bind one disposable proof candidate and exact permit digest,
-export the trusted publisher outside every Git checkout, and perform one
-controlled `Codex Governance Authority` check publication.
+The current proof activation is intentionally narrow: it binds only disposable
+Codex PR #17 at its exact head and exact permit digest. After one controlled live
+publication is evidenced, the proof configuration is disarmed and PR #17 is closed
+without merge before any broader authority deployment is considered.
