@@ -2,8 +2,6 @@
 
 This is the credential-bearing boundary for the fixed `Codex Governance Authority`
 check. The default checked-in `config.json` is intentionally **write-disabled**.
-A separate governed `proof-config.json` may arm one exact disposable candidate for
-a controlled publication proof without enabling generic publication.
 
 The publisher does not evaluate candidate code. It accepts only the strict
 `codex-governance-publication-permit` emitted after a durable PASS from the
@@ -15,8 +13,8 @@ App identity, check context, and successful conclusion.
 
 - Offline preview is the default and performs zero network mutations.
 - Default `config.json` remains disabled.
-- Candidate proof requires explicitly selecting the governed `proof-config.json`.
-- Proof mode is bound to one exact candidate SHA and one exact permit digest.
+- Any candidate proof must be separately governed, bound to one exact candidate
+  SHA and one exact permit digest, and removed after use.
 - Authenticated execution requires exported publisher/config/permit copies
   outside every Git checkout.
 - The exported publisher source must match the promoted Git blobs exactly.
@@ -50,15 +48,16 @@ On POSIX the publisher requires owner-only permissions (`chmod 600`). On Windows
 restrict the file ACL to the operator account; the script deliberately does not
 pretend POSIX mode bits prove Windows ACL security.
 
-## Current proof slice
+## Completed candidate proof
 
-`proof-config.json` is governed separately from the default disabled configuration.
-It pins the reviewed authority/publisher source revision, exact publisher Git blob
-set, disposable Codex PR #17 head SHA, and the exact SHA-256 digest of the
-`PublicationPermit` produced after credential-free evaluation.
+The first candidate-scoped proof completed against disposable Codex PR #17 at exact
+head `a6ed1def64503ca57c647ce45937f887873aac6f`. The dedicated GitHub App emitted
+check run `103547296485` with conclusion `success`, exact candidate/source binding
+was preserved, and the installation token was revoked.
 
-The proof configuration does not claim that publication has happened, does not
-contain a credential, and does not enable any other candidate. After the controlled
-proof is captured it must be disarmed. Generic live publication remains absent from
-this standalone tool; that belongs in a later hosted authority worker where the
-permit stays inside the trusted process.
+The governed proof configuration used for that one candidate has been removed and
+PR #17 was closed without merge. The durable provider observation lives in
+`governance/evidence/publisher-live-001.json`. This evidence does **not** enable
+generic standalone publication and does not prove effective merge enforcement.
+Generic live publication remains absent from this standalone tool; that belongs in
+a later hosted authority worker where the permit stays inside the trusted process.

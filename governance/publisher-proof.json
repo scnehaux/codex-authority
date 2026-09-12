@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "kind": "github-publisher-candidate-proof-activation",
+  "kind": "github-publisher-candidate-proof-result",
   "provider": "github",
   "repository": "scnehaux/codex",
   "pull_request": 17,
@@ -22,7 +22,6 @@
       "publisher_contract.py": "4b2ab8d9a5da6bda794586b43255688d7dc961fe",
       "publisher_transport.py": "03d54b7ea54296e17688eaa40a5ff0de9bbb61ca"
     },
-    "config": "integrations/github-app-publisher/proof-config.json",
     "check_context": "Codex Governance Authority",
     "app_id": 4864946,
     "installation_id": 159870521,
@@ -30,9 +29,12 @@
     "exported_copy_required": true
   },
   "activation": {
-    "mode": "candidate-proof",
+    "mode": "candidate-proof-completed",
     "generic_publisher_enabled": false,
-    "live_proven": false,
+    "live_proven": true,
+    "proof_disarmed": true,
+    "candidate_closed_without_merge": true,
+    "evidence": "governance/evidence/publisher-live-001.json",
     "effective_enforcement_claimed": false
   }
 }

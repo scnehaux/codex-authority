@@ -8,14 +8,21 @@ Check through the dedicated GitHub App.
 
 ## Current state
 
-**Stage B candidate-scoped publication proof is armed. Generic publication remains disabled.**
+**Stage B candidate-scoped live publication proof is captured and disarmed. Generic publication remains disabled.**
 
 Provider protection and secret scanning are live and governed. The credential-free
-runtime adapter has produced durable PASS evidence for disposable Codex PR #17 and
-a success-only `PublicationPermit`. A separate governed proof configuration binds
-that exact candidate head, permit digest, authority-service revision, publisher
-revision, and publisher Git blobs. The default publisher configuration remains
-write-disabled and no live publication is claimed yet.
+runtime adapter produced durable PASS evidence for disposable Codex PR #17 and a
+success-only `PublicationPermit`. The separately governed proof configuration then
+bound that exact candidate head, permit digest, authority-service revision,
+publisher revision, and publisher Git blobs.
+
+The controlled external publisher successfully emitted `Codex Governance Authority`
+check run `103547296485` through the dedicated GitHub App on the exact candidate
+head. The installation token was revoked, the provider observation is recorded in
+`governance/evidence/publisher-live-001.json`, the candidate PR was closed without
+merge, and the candidate-scoped proof configuration has been removed. The default
+publisher configuration remains write-disabled. Effective merge enforcement is
+still explicitly unclaimed.
 
 No GitHub App private key, installation token, webhook secret, or other credential
 belongs in this repository.
@@ -35,10 +42,10 @@ belongs in this repository.
   `PublicationPermit`.
 - The credential-bearing publisher accepts only that narrow permit and re-checks
   the exact open PR/base/head identity immediately before publication.
-- The default publisher stays disabled; the controlled proof uses a separate
-  candidate-scoped configuration with one exact candidate SHA and permit digest.
-- Effective merge enforcement stays unclaimed until provider-side negative proof
-  exists.
+- The default publisher remains disabled; the completed candidate proof is a
+  historical evidence record, not a reusable publication capability.
+- Effective merge enforcement stays unclaimed until provider-side activation and
+  negative proof complete.
 
 ## Architecture
 
@@ -67,7 +74,7 @@ GitHub event / operator request
             v
  GitHub App Publisher
    default: DISABLED
-   proof: exact candidate only
+   candidate proof: COMPLETED + DISARMED
 ```
 
 The authority does **not** reimplement Codex candidate collection or governance
@@ -120,7 +127,8 @@ does not enable generic publication; proving publication does not activate provi
 merge enforcement; and adding a deployment target does not make that revision
 effective.
 
-The current proof activation is intentionally narrow: it binds only disposable
-Codex PR #17 at its exact head and exact permit digest. After one controlled live
-publication is evidenced, the proof configuration is disarmed and PR #17 is closed
-without merge before any broader authority deployment is considered.
+The completed publisher proof is now evidence for the next Codex activation slice.
+That later slice must independently bind the authority revision and publisher
+evidence, project the external authority check into provider protection, and prove
+merge denial when the authority check is absent before effective enforcement can
+be claimed.
