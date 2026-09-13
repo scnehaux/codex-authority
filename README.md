@@ -8,21 +8,33 @@ Check through the dedicated GitHub App.
 
 ## Current state
 
-**Stage B candidate-scoped live publication proof is captured and disarmed. Generic publication remains disabled.**
+**Stage C provider activation is live and missing-authority merge denial is proven. Effective enforcement remains explicitly unclaimed.**
 
-Provider protection and secret scanning are live and governed. The credential-free
-runtime adapter produced durable PASS evidence for disposable Codex PR #17 and a
-success-only `PublicationPermit`. The separately governed proof configuration then
-bound that exact candidate head, permit digest, authority-service revision,
-publisher revision, and publisher Git blobs.
+The earlier candidate-scoped publisher proof is captured and disarmed. The
+credential-free runtime adapter produced durable PASS evidence for disposable Codex
+PR #17, a success-only `PublicationPermit`, and the dedicated GitHub App emitted
+`Codex Governance Authority` check run `103547296485` on the exact candidate head.
+That proof configuration was then removed and the default publisher configuration
+remains write-disabled.
 
-The controlled external publisher successfully emitted `Codex Governance Authority`
-check run `103547296485` through the dedicated GitHub App on the exact candidate
-head. The installation token was revoked, the provider observation is recorded in
-`governance/evidence/publisher-live-001.json`, the candidate PR was closed without
-merge, and the candidate-scoped proof configuration has been removed. The default
-publisher configuration remains write-disabled. Effective merge enforcement is
-still explicitly unclaimed.
+Codex provider ruleset `main-governance` is now active as repository ruleset
+`23193929` on the default branch with no bypass actors. It requires both
+`Governance Qualification` and `Codex Governance Authority`; the external authority
+context is bound to GitHub App integration ID `4864946`.
+
+A ready, non-draft disposable Codex PR #20 then completed every normal candidate
+check successfully while intentionally receiving no `Codex Governance Authority`
+check. GitHub reported the PR as conflict-free (`mergeable: true`) but provider
+blocked (`mergeable_state: blocked`). There were no reviews or review threads and
+the PR was closed without merge. The observation is recorded in
+`governance/evidence/provider-enforcement-001.json`.
+
+This is deliberately still a partial enforcement proof. Wrong-source authority,
+delete/non-fast-forward enforcement, and a trusted privileged-maintenance path for
+protected Codex governance mutations are not yet proven. In particular, the pinned
+read-only Codex runtime does not independently source privileged-validation facts,
+so protected Codex mutations remain fail-closed rather than silently acquiring a
+merge path.
 
 No GitHub App private key, installation token, webhook secret, or other credential
 belongs in this repository.
@@ -44,8 +56,9 @@ belongs in this repository.
   the exact open PR/base/head identity immediately before publication.
 - The default publisher remains disabled; the completed candidate proof is a
   historical evidence record, not a reusable publication capability.
-- Effective merge enforcement stays unclaimed until provider-side activation and
-  negative proof complete.
+- Provider ruleset activation does not by itself prove every enforcement concern.
+- Effective enforcement remains unclaimed until the remaining negative proofs and
+  privileged maintenance path are independently evidenced.
 
 ## Architecture
 
@@ -75,6 +88,10 @@ GitHub event / operator request
  GitHub App Publisher
    default: DISABLED
    candidate proof: COMPLETED + DISARMED
+            |
+            v
+ GitHub main-governance ruleset
+   ACTIVE / no bypass
 ```
 
 The authority does **not** reimplement Codex candidate collection or governance
@@ -123,12 +140,12 @@ for an explicit authenticated publication run.
 ## Evolution rule
 
 New capability is added behind explicit promotion gates. Adding publisher source
-does not enable generic publication; proving publication does not activate provider
-merge enforcement; and adding a deployment target does not make that revision
-effective.
+does not enable generic publication; proving publication does not by itself prove
+provider enforcement; and activating provider enforcement does not invent a
+trusted path for privileged governance mutation.
 
-The completed publisher proof is now evidence for the next Codex activation slice.
-That later slice must independently bind the authority revision and publisher
-evidence, project the external authority check into provider protection, and prove
-merge denial when the authority check is absent before effective enforcement can
-be claimed.
+The next slice must preserve the active ruleset while proving the remaining trust
+properties: wrong-source authority cannot satisfy the source-bound context,
+destructive provider rules behave as configured, and protected Codex mutations
+have an independently verified privileged-validation/promotion path. Only after
+those facts are durable should `effective_enforcement_proven` advance.
