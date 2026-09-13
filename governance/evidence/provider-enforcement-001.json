@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "kind": "codex-provider-enforcement-negative-proof-evidence",
+  "provider": "github",
+  "repository": "scnehaux/codex",
+  "evidence_id": "provider-enforcement-001",
+  "activation": {
+    "ruleset_id": 23193929,
+    "ruleset_name": "main-governance",
+    "target": "branch",
+    "enforcement": "active",
+    "default_branch": "main",
+    "main_sha": "0f9dab0091746ac1232174c75ed6330b53dff750",
+    "main_protected": true,
+    "bypass_actors": [],
+    "current_user_can_bypass": "never",
+    "created_at": "2026-09-14T00:32:07.896+07:00",
+    "required_status_checks": [
+      {"context": "Governance Qualification"},
+      {"context": "Codex Governance Authority", "integration_id": 4864946}
+    ]
+  },
+  "negative_proof": {
+    "pull_request": 20,
+    "base_sha": "0f9dab0091746ac1232174c75ed6330b53dff750",
+    "head_sha": "11340b578404913f440c0eda381a2e6f471db693",
+    "draft": false,
+    "state_at_observation": "open",
+    "mergeable": true,
+    "mergeable_state": "blocked",
+    "changed_files": [".gitignore"],
+    "required_candidate_check": {
+      "name": "Governance Qualification",
+      "check_run_id": 103765919148,
+      "status": "completed",
+      "conclusion": "success",
+      "source_app_id": 15368
+    },
+    "other_candidate_checks_successful": [
+      {"name": "Governance Evaluator Runtime Source Promotion", "check_run_id": 103765918996},
+      {"name": "Local App Tooling (ubuntu-24.04)", "check_run_id": 103765918956},
+      {"name": "Local App Tooling (windows-2025)", "check_run_id": 103765918890}
+    ],
+    "external_authority_check_present": false,
+    "reviews": 0,
+    "review_threads": 0,
+    "closed_without_merge": true,
+    "closed_at": "2026-09-13T17:58:30Z"
+  },
+  "claims": {
+    "provider_ruleset_live": true,
+    "missing_external_authority_merge_denial_proven": true,
+    "external_authority_source_binding_configured": true,
+    "wrong_source_authority_rejection_proven": false,
+    "deletion_enforcement_proven": false,
+    "non_fast_forward_enforcement_proven": false,
+    "privileged_governance_maintenance_path_proven": false,
+    "effective_enforcement_proven": false
+  }
+}
