@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "state": "staged-disabled",
+  "candidate_repository": "scnehaux/codex",
+  "attestation": {
+    "repository": "scnehaux/codex-authority",
+    "default_branch": "main",
+    "path_prefix": "governance/privileged-validations/",
+    "contract_version": 1,
+    "kind": "codex-privileged-validation-attestation",
+    "append_only": true,
+    "exact_candidate_binding": true
+  },
+  "bootstrap": {
+    "enabled": false,
+    "candidate": null,
+    "allowed_runtime_blockers": [
+      "privileged-validation-missing",
+      "runtime-critical-mutation-requires-privileged-validation"
+    ],
+    "publication_mode": "candidate-proof",
+    "candidate_code_execution": false,
+    "evaluation_credentials_allowed": false
+  },
+  "permanent_runtime": {
+    "owner_repository": "scnehaux/codex",
+    "state": "not-implemented",
+    "attestation_read": "public-read-only"
+  },
+  "claims": {
+    "privileged_governance_maintenance_path_proven": false,
+    "effective_enforcement_proven": false
+  }
+}
