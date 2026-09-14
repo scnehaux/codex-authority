@@ -8,7 +8,7 @@ Check through the dedicated GitHub App.
 
 ## Current state
 
-**Stage C provider activation is live and missing-authority merge denial is proven. Effective enforcement remains explicitly unclaimed.**
+**Stage C provider activation is live; missing-authority merge denial and wrong-source authority rejection are proven. Effective enforcement remains explicitly unclaimed.**
 
 The earlier candidate-scoped publisher proof is captured and disarmed. The
 credential-free runtime adapter produced durable PASS evidence for disposable Codex
@@ -22,19 +22,27 @@ Codex provider ruleset `main-governance` is now active as repository ruleset
 `Governance Qualification` and `Codex Governance Authority`; the external authority
 context is bound to GitHub App integration ID `4864946`.
 
-A ready, non-draft disposable Codex PR #20 then completed every normal candidate
-check successfully while intentionally receiving no `Codex Governance Authority`
-check. GitHub reported the PR as conflict-free (`mergeable: true`) but provider
-blocked (`mergeable_state: blocked`). There were no reviews or review threads and
-the PR was closed without merge. The observation is recorded in
+A ready, non-draft disposable Codex PR #20 completed every normal candidate check
+successfully while intentionally receiving no `Codex Governance Authority` check.
+GitHub reported the PR as conflict-free (`mergeable: true`) but provider blocked
+(`mergeable_state: blocked`). There were no reviews or review threads and the PR
+was closed without merge. The observation is recorded in
 `governance/evidence/provider-enforcement-001.json`.
 
-This is deliberately still a partial enforcement proof. Wrong-source authority,
-delete/non-fast-forward enforcement, and a trusted privileged-maintenance path for
-protected Codex governance mutations are not yet proven. In particular, the pinned
-read-only Codex runtime does not independently source privileged-validation facts,
-so protected Codex mutations remain fail-closed rather than silently acquiring a
-merge path.
+A second ready, non-draft disposable Codex PR #21 then completed every normal
+candidate check successfully. An operator-owned commit status named exactly
+`Codex Governance Authority` was published as `success` on the exact candidate
+head, but it was created by user `anshacerbia2` rather than the dedicated authority
+GitHub App. GitHub still reported `mergeable_state: blocked`, proving that a
+same-name success from the wrong source cannot satisfy the rule bound to integration
+ID `4864946`. The PR was closed without merge and the observation is recorded in
+`governance/evidence/provider-wrong-source-001.json`.
+
+This is deliberately still a partial enforcement proof. Delete/non-fast-forward
+enforcement and a trusted privileged-maintenance path for protected Codex governance
+mutations are not yet proven. In particular, the pinned read-only Codex runtime does
+not independently source privileged-validation facts, so protected Codex mutations
+remain fail-closed rather than silently acquiring a merge path.
 
 No GitHub App private key, installation token, webhook secret, or other credential
 belongs in this repository.
@@ -57,7 +65,7 @@ belongs in this repository.
 - The default publisher remains disabled; the completed candidate proof is a
   historical evidence record, not a reusable publication capability.
 - Provider ruleset activation does not by itself prove every enforcement concern.
-- Effective enforcement remains unclaimed until the remaining negative proofs and
+- Effective enforcement remains unclaimed until destructive provider rules and the
   privileged maintenance path are independently evidenced.
 
 ## Architecture
@@ -145,7 +153,6 @@ provider enforcement; and activating provider enforcement does not invent a
 trusted path for privileged governance mutation.
 
 The next slice must preserve the active ruleset while proving the remaining trust
-properties: wrong-source authority cannot satisfy the source-bound context,
-destructive provider rules behave as configured, and protected Codex mutations
-have an independently verified privileged-validation/promotion path. Only after
-those facts are durable should `effective_enforcement_proven` advance.
+properties: destructive provider rules behave as configured and protected Codex
+mutations have an independently verified privileged-validation/promotion path. Only
+after those facts are durable should `effective_enforcement_proven` advance.
