@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "kind": "codex-provider-wrong-source-authority-rejection-evidence",
+  "provider": "github",
+  "repository": "scnehaux/codex",
+  "evidence_id": "provider-wrong-source-001",
+  "activation": {
+    "ruleset_id": 23193929,
+    "ruleset_name": "main-governance",
+    "target": "branch",
+    "enforcement": "active",
+    "default_branch": "main",
+    "bypass_actors": [],
+    "current_user_can_bypass": "never",
+    "required_external_context": "Codex Governance Authority",
+    "required_external_integration_id": 4864946
+  },
+  "negative_proof": {
+    "pull_request": 21,
+    "base_sha": "0f9dab0091746ac1232174c75ed6330b53dff750",
+    "head_sha": "55b1c6cf31b16a8099c0ef8b45804e9d26055f58",
+    "draft": false,
+    "state_at_observation": "open",
+    "mergeable": true,
+    "mergeable_state": "blocked",
+    "changed_files": [".gitignore"],
+    "candidate_checks": [
+      {
+        "name": "Governance Qualification",
+        "check_run_id": 103774545264,
+        "status": "completed",
+        "conclusion": "success",
+        "source_app_id": 15368
+      },
+      {
+        "name": "Governance Evaluator Runtime Source Promotion",
+        "check_run_id": 103774545172,
+        "status": "completed",
+        "conclusion": "success",
+        "source_app_id": 15368
+      },
+      {
+        "name": "Local App Tooling (ubuntu-24.04)",
+        "check_run_id": 103774544653,
+        "status": "completed",
+        "conclusion": "success",
+        "source_app_id": 15368
+      },
+      {
+        "name": "Local App Tooling (windows-2025)",
+        "check_run_id": 103774544771,
+        "status": "completed",
+        "conclusion": "success",
+        "source_app_id": 15368
+      }
+    ],
+    "wrong_source_status": {
+      "status_id": 54096778055,
+      "context": "Codex Governance Authority",
+      "state": "success",
+      "description": "Wrong-source enforcement proof; must not satisfy App-bound rule",
+      "creator_login": "anshacerbia2",
+      "source_type": "user-commit-status",
+      "expected_authority_integration_id": 4864946,
+      "bound_authority_source_satisfied": false
+    },
+    "reviews": 0,
+    "review_threads": 0,
+    "closed_without_merge": true,
+    "closed_at": "2026-09-14T06:36:48Z"
+  },
+  "claims": {
+    "provider_ruleset_live": true,
+    "missing_external_authority_merge_denial_proven": true,
+    "external_authority_source_binding_configured": true,
+    "wrong_source_authority_rejection_proven": true,
+    "deletion_enforcement_proven": false,
+    "non_fast_forward_enforcement_proven": false,
+    "privileged_governance_maintenance_path_proven": false,
+    "effective_enforcement_proven": false
+  }
+}
