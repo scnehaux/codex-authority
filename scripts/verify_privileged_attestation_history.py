@@ -23,12 +23,7 @@ def _git(*args: str) -> str:
 
 
 def main() -> int:
-    try:
-        base = _git("merge-base", "origin/main", "HEAD")
-    except SystemExit:
-        print("[PASS] privileged attestation history check skipped without origin/main")
-        return 0
-
+    base = _git("merge-base", "origin/main", "HEAD")
     output = _git(
         "diff",
         "--name-status",
