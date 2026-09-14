@@ -40,5 +40,11 @@ jobs:
       - name: Verify candidate-scoped publisher proof activation
         run: python -I scripts/verify_publisher_proof.py
 
+      - name: Verify privileged maintenance contracts
+        run: python -I scripts/verify_privileged_maintenance.py
+
+      - name: Verify privileged attestation history
+        run: python -I scripts/verify_privileged_attestation_history.py
+
       - name: Assert verification leaves no tracked or untracked drift
         run: test -z "$(git status --porcelain --untracked-files=all)"

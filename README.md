@@ -8,7 +8,7 @@ Check through the dedicated GitHub App.
 
 ## Current state
 
-**Stage C provider activation is live; missing-authority merge denial and wrong-source authority rejection are proven. Effective enforcement remains explicitly unclaimed.**
+**Stage C provider activation is live; missing-authority merge denial and wrong-source authority rejection are proven. Stage D privileged maintenance is staged but disabled. Effective enforcement remains explicitly unclaimed.**
 
 The earlier candidate-scoped publisher proof is captured and disarmed. The
 credential-free runtime adapter produced durable PASS evidence for disposable Codex
@@ -38,11 +38,19 @@ same-name success from the wrong source cannot satisfy the rule bound to integra
 ID `4864946`. The PR was closed without merge and the observation is recorded in
 `governance/evidence/provider-wrong-source-001.json`.
 
+Stage D now defines the independently administered privileged-validation boundary
+needed for protected Codex governance maintenance. Exact candidate attestations
+live under `governance/privileged-validations/` and bind repository, PR, base/head
+SHAs, and the complete sorted changed-file set. The one-candidate bootstrap is
+strictly disabled in checked-in governance and may only resolve the two existing
+privilege-gate failures; it cannot override qualification, identity, source, or
+candidate-drift failures. The permanent Codex public-read-only attestation reader
+is not implemented yet, so the maintenance path is not claimed proven.
+
 This is deliberately still a partial enforcement proof. Delete/non-fast-forward
-enforcement and a trusted privileged-maintenance path for protected Codex governance
-mutations are not yet proven. In particular, the pinned read-only Codex runtime does
-not independently source privileged-validation facts, so protected Codex mutations
-remain fail-closed rather than silently acquiring a merge path.
+enforcement and the end-to-end privileged-maintenance path remain unproven.
+Protected Codex mutations therefore remain fail-closed until the separately
+evidenced bootstrap installs the permanent reader and is disarmed again.
 
 No GitHub App private key, installation token, webhook secret, or other credential
 belongs in this repository.
@@ -64,6 +72,8 @@ belongs in this repository.
   the exact open PR/base/head identity immediately before publication.
 - The default publisher remains disabled; the completed candidate proof is a
   historical evidence record, not a reusable publication capability.
+- Privileged attestations are independently administered and exact-candidate-bound;
+  existing JSON records are immutable and new approvals are additive.
 - Provider ruleset activation does not by itself prove every enforcement concern.
 - Effective enforcement remains unclaimed until destructive provider rules and the
   privileged maintenance path are independently evidenced.
@@ -82,6 +92,14 @@ GitHub event / operator request
             |
             v
  Verified Runtime Envelope
+            |
+            +---- privilege-only failure ----+
+            |                                |
+            |                                v
+            |                    Exact Authority Attestation
+            |                    bootstrap: DISABLED by default
+            |                                |
+            +--------------- verified -------+
             |
             v
       Evidence Record
@@ -115,10 +133,10 @@ retry the authority-check POST.
 ## Repository layout
 
 ```text
-governance/                         authority, promotion, protection, publisher contracts
-src/codex_authority/                pure authority orchestration and permit types
+governance/                         authority, promotion, protection, publisher and privileged-maintenance contracts
+src/codex_authority/                pure authority orchestration, permit, and privileged-boundary types
 integrations/github-app-publisher/  isolated GitHub App publication boundary
-scripts/                            repository/security invariants
+scripts/                            repository/security invariants and controlled issuers
 tests/                              fail-closed behavior and contract tests
 docs/                               implementation-local architecture notes
 .github/                            CI and ownership
@@ -138,6 +156,8 @@ python -I -m unittest discover -s tests -v
 python -I scripts/verify_foundation.py
 python -I scripts/verify_publisher.py
 python -I scripts/verify_publisher_proof.py
+python -I scripts/verify_privileged_maintenance.py
+python -I scripts/verify_privileged_attestation_history.py
 test -z "$(git status --porcelain --untracked-files=all)"
 ```
 
@@ -149,10 +169,12 @@ for an explicit authenticated publication run.
 
 New capability is added behind explicit promotion gates. Adding publisher source
 does not enable generic publication; proving publication does not by itself prove
-provider enforcement; and activating provider enforcement does not invent a
-trusted path for privileged governance mutation.
+provider enforcement; activating provider enforcement does not invent a trusted
+path for privileged governance mutation; and staging a privileged bootstrap does
+not prove or enable the permanent maintenance path.
 
-The next slice must preserve the active ruleset while proving the remaining trust
-properties: destructive provider rules behave as configured and protected Codex
-mutations have an independently verified privileged-validation/promotion path. Only
-after those facts are durable should `effective_enforcement_proven` advance.
+The next slice must preserve the active ruleset while using one exact attested
+Codex candidate to install the permanent public-read-only attestation reader, then
+disarm the bootstrap. Destructive provider rules are proven separately on a
+disposable branch. Only after those facts are durable should
+`effective_enforcement_proven` advance.
