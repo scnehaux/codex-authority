@@ -32,3 +32,13 @@ A bootstrap PASS is still not a GitHub write capability. Durable authority evide
 7. Disarm the bootstrap and record the proof. Future protected maintenance uses the permanent attestation reader, not the bootstrap.
 
 Until that lifecycle completes, `privileged_governance_maintenance_path_proven` and `effective_enforcement_proven` remain false.
+
+## Recommendation and decision traceability
+
+Read the [Stage D recommendation and decision ledger](implementation-notes/0002-stage-d-recommendation-ledger.md)
+when preparing the next implementation slice. It records the project owner's
+request to communicate and retain material recommendations, their primary sources,
+alternatives, plan impact, acceptance criteria, and subsequent decision history.
+Proposed recommendations are not implementation authorization or proof. This
+implementation-local note does not replace the lifecycle or governed contracts
+above, and recording a recommendation does not activate the bootstrap.
