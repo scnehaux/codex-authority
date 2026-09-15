@@ -178,3 +178,13 @@ Codex candidate to install the permanent public-read-only attestation reader, th
 disarm the bootstrap. Destructive provider rules are proven separately on a
 disposable branch. Only after those facts are durable should
 `effective_enforcement_proven` advance.
+
+## Recommendation and decision records
+
+The [Stage D recommendation and decision ledger](docs/implementation-notes/0002-stage-d-recommendation-ledger.md)
+records material recommendations, their primary references, trade-offs, plan
+impact, validation criteria, and decision history. Read it alongside the
+[privileged-maintenance lifecycle](docs/privileged-maintenance.md) before preparing
+the next slice. Recommendations remain separate from accepted decisions and
+implementation evidence; documentation alone never promotes a runtime, enables
+publication, or changes governance claims.
