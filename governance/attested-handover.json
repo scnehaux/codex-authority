@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "kind": "codex-attested-runtime-handover",
+  "state": "staged-disabled",
+  "candidate_repository": "scnehaux/codex",
+  "reviewed_input": {
+    "pull_request": 22,
+    "head_sha": "eaa5b41cd84fcc77fd1ff464120d4be83c57d1cd",
+    "entrypoint_blob": "c9a0c3bf2fd3c33be4deb1b1e5fc624d1b0b796a",
+    "result_schema_version": 2
+  },
+  "runtime_package": null,
+  "execution": {
+    "enabled": false,
+    "timeout_seconds": 120,
+    "max_output_bytes": 512000,
+    "candidate_code_execution": false,
+    "credentials_allowed": false
+  },
+  "publication": {
+    "write_enabled": false,
+    "mode": "offline-preview-only"
+  },
+  "claims": {
+    "privileged_governance_maintenance_path_proven": false,
+    "effective_enforcement_proven": false
+  }
+}
