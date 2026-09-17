@@ -1,0 +1,39 @@
+name: Attested Handover Compatibility
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  offline-compatibility:
+    name: Attested Handover Compatibility
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout Authority candidate without credentials
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          path: authority
+          persist-credentials: false
+      - name: Checkout exact Codex test input without credentials
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: scnehaux/codex
+          ref: eaa5b41cd84fcc77fd1ff464120d4be83c57d1cd
+          path: codex-input
+          persist-credentials: false
+      - name: Setup Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.13'
+      - name: Exercise actual reader with synthetic APIs and offline publisher preview
+        run: python -I authority/scripts/verify_attested_compatibility.py --codex-root codex-input
+      - name: Assert both input checkouts remain unchanged
+        shell: bash
+        run: |
+          test -z "$(git -C authority status --porcelain --untracked-files=all)"
+          test -z "$(git -C codex-input status --porcelain --untracked-files=all)"
