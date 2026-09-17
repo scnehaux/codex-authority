@@ -1,0 +1,167 @@
+{
+  "authority_binding_advanced": false,
+  "base_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "candidate_code_executed": false,
+  "candidate_evidence": {
+    "api_changed_file_records": 2,
+    "base_ref": "main",
+    "changed_files_verified": true,
+    "files_pages_read": 1,
+    "identity_verified": true,
+    "pull_state": "open",
+    "source": "github-pull-request-api",
+    "touched_paths": 2
+  },
+  "candidate_manifest": {
+    "base_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "changed_files": [
+      "governance/scm/enforcement-policy.yaml",
+      "scripts/example.py"
+    ],
+    "head_sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "pull_request": 220,
+    "repository": "scnehaux/codex",
+    "schema_version": 1
+  },
+  "candidate_sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "credentials_used": false,
+  "effective_enforcement_proven": false,
+  "evaluator_result": {
+    "authority_promoted": false,
+    "authority_source_revision": "23b05a855419b86b61b0c9266805bb66b143c366",
+    "base_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "candidate_code_executed": false,
+    "candidate_qualification": "pass",
+    "candidate_sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "check_context": "Codex Governance Authority",
+    "credentials_used": false,
+    "decision_scope": "staging-offline",
+    "effective_enforcement_proven": false,
+    "facts_provenance_verified": false,
+    "failure_reasons": [],
+    "governance_decision": "pass",
+    "notice": "Synthetic test fixture; not an operational evaluation or approval.",
+    "privileged_validation": "pass",
+    "protected_mutations": [
+      "governance/scm/enforcement-policy.yaml"
+    ],
+    "publish_enabled": false,
+    "pull_request": 220,
+    "repository": "scnehaux/codex",
+    "requires_privileged_validation": true,
+    "schema_version": 2,
+    "status": "evaluation_complete"
+  },
+  "facts_collected_independently": true,
+  "facts_provenance_verified": false,
+  "failure_reasons": [],
+  "governance_decision": "pass",
+  "kind": "codex-attested-runtime-result",
+  "notice": "Synthetic test fixture; no live GitHub reads, promotion, or approval.",
+  "original_evaluation": {
+    "evaluator_result": {
+      "authority_promoted": false,
+      "authority_source_revision": "23b05a855419b86b61b0c9266805bb66b143c366",
+      "base_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "candidate_code_executed": false,
+      "candidate_qualification": "pass",
+      "candidate_sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "check_context": "Codex Governance Authority",
+      "credentials_used": false,
+      "decision_scope": "staging-offline",
+      "effective_enforcement_proven": false,
+      "facts_provenance_verified": false,
+      "failure_reasons": [
+        "privileged-validation-missing"
+      ],
+      "governance_decision": "fail",
+      "notice": "Synthetic test fixture; not an operational evaluation or approval.",
+      "privileged_validation": "not_required",
+      "protected_mutations": [
+        "governance/scm/enforcement-policy.yaml"
+      ],
+      "publish_enabled": false,
+      "pull_request": 220,
+      "repository": "scnehaux/codex",
+      "requires_privileged_validation": true,
+      "schema_version": 2,
+      "status": "evaluation_complete"
+    },
+    "governance_decision": "fail",
+    "runtime_failure_reasons": [
+      "runtime-critical-mutation-requires-privileged-validation"
+    ]
+  },
+  "privileged_validation_evidence": {
+    "attestation_digest": "b8c8c11042aee8f35ddb7d2d60668ae41dd3cfa5145224b0f083b96f3ded8a0d",
+    "authority_repository": "scnehaux/codex-authority",
+    "authority_revision": "cccccccccccccccccccccccccccccccccccccccc",
+    "blob_sha": "82ccfcd57822b23bfbdc779d0142484933ea1b45",
+    "path": "governance/privileged-validations/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.json",
+    "raw_sha256": "b8c8c11042aee8f35ddb7d2d60668ae41dd3cfa5145224b0f083b96f3ded8a0d",
+    "record": {
+      "authority": {
+        "default_branch": "main",
+        "mode": "privileged-explicit",
+        "repository": "scnehaux/codex-authority"
+      },
+      "candidate": {
+        "base_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "changed_files": [
+          "governance/scm/enforcement-policy.yaml",
+          "scripts/example.py"
+        ],
+        "head_sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "pull_request": 220,
+        "repository": "scnehaux/codex"
+      },
+      "claims": {
+        "candidate_code_executed": false,
+        "credentials_used": false,
+        "exact_candidate_binding": true
+      },
+      "contract_version": 1,
+      "decision": "pass",
+      "kind": "codex-privileged-validation-attestation",
+      "scope": "protected-governance-maintenance"
+    },
+    "status": "verified",
+    "tree_chain": [
+      "dddddddddddddddddddddddddddddddddddddddd",
+      "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "ffffffffffffffffffffffffffffffffffffffff"
+    ]
+  },
+  "publish_enabled": false,
+  "pull_request": 220,
+  "qualification_evidence": {
+    "app_id": 15368,
+    "app_slug": "github-actions",
+    "check_run_id": 12345,
+    "conclusion": "success",
+    "details_url": "https://github.com/scnehaux/codex/actions/runs/99/job/12345",
+    "head_sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "name": "Governance Qualification",
+    "source": "github-checks-api",
+    "source_verified": true,
+    "status": "completed"
+  },
+  "repository": "scnehaux/codex",
+  "runtime_failure_reasons": [],
+  "runtime_only_protected_mutations": [
+    "scripts/example.py"
+  ],
+  "runtime_source_promoted": false,
+  "schema_version": 2,
+  "source_dependencies": {
+    "blobs": {
+      "evaluator.py": "ab2f152c21bd6d6f22df21172c4d027035ff8c11",
+      "promotion.json": "f8f67280baf1c8725f67592d015ff37be2c4a4c3",
+      "runtime-promotion.json": "83658bf5a44d22804d1628074dd8f27a7047d68e",
+      "runtime.py": "c59911e9c0800c917fed21e6f33f3181c3a61e60"
+    },
+    "collector_revision": "cbd64f78c8f72f28880d4673729a796b249d8eae",
+    "evaluator_revision": "23b05a855419b86b61b0c9266805bb66b143c366"
+  },
+  "status": "attested_runtime_evaluation_complete"
+}
