@@ -126,17 +126,19 @@ class PrivilegedMaintenanceTests(unittest.TestCase):
             )
         self.assertEqual(error.exception.code, "attestation-snapshot")
 
-    def test_checked_in_policy_is_exact_pr22_bootstrap_activation(self):
+    def test_checked_in_policy_is_disarmed_with_permanent_runtime_promoted(self):
         policy = target.load_maintenance_policy(
             ROOT / "governance" / "privileged-maintenance.json"
         )
-        self.assertEqual(policy["state"], "bootstrap-proof")
-        self.assertTrue(policy["bootstrap"]["enabled"])
+        self.assertEqual(policy["state"], "permanent-runtime")
+        self.assertFalse(policy["bootstrap"]["enabled"])
+        self.assertIsNone(policy["bootstrap"]["candidate"])
         self.assertEqual(
-            policy["bootstrap"]["candidate"],
+            policy["permanent_runtime"],
             {
-                "pull_request": 22,
-                "head_sha": "eaa5b41cd84fcc77fd1ff464120d4be83c57d1cd",
+                "owner_repository": "scnehaux/codex",
+                "state": "promoted",
+                "attestation_read": "public-read-only",
             },
         )
         self.assertFalse(

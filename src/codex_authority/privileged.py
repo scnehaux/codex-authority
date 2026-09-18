@@ -237,26 +237,45 @@ def load_maintenance_policy(path: str | Path) -> dict[str, Any]:
     ):
         raise PrivilegedMaintenanceError("maintenance-policy", "Bootstrap safety boundary drifted.")
 
+    permanent_runtime = data["permanent_runtime"]
+    if not isinstance(permanent_runtime, dict):
+        raise PrivilegedMaintenanceError("maintenance-policy", "Permanent runtime policy must be an object.")
+    _exact_keys(
+        permanent_runtime,
+        {"owner_repository", "state", "attestation_read"},
+        "maintenance-policy",
+    )
+    if (
+        permanent_runtime["owner_repository"] != CANDIDATE_REPOSITORY
+        or permanent_runtime["attestation_read"] != "public-read-only"
+        or permanent_runtime["state"] not in {"not-implemented", "promoted"}
+    ):
+        raise PrivilegedMaintenanceError("maintenance-policy", "Permanent runtime policy drifted.")
+
     if bootstrap["enabled"] is False:
-        if data["state"] != "staged-disabled" or bootstrap["candidate"] is not None:
+        if bootstrap["candidate"] is not None:
             raise PrivilegedMaintenanceError("maintenance-policy", "Disabled bootstrap must not bind a candidate.")
+        expected_state = (
+            "permanent-runtime"
+            if permanent_runtime["state"] == "promoted"
+            else "staged-disabled"
+        )
+        if data["state"] != expected_state:
+            raise PrivilegedMaintenanceError("maintenance-policy", "Maintenance state does not match permanent-runtime promotion.")
     elif bootstrap["enabled"] is True:
         candidate = bootstrap["candidate"]
-        if data["state"] != "bootstrap-proof" or not isinstance(candidate, dict):
-            raise PrivilegedMaintenanceError("maintenance-policy", "Enabled bootstrap requires one exact candidate binding.")
+        if (
+            data["state"] != "bootstrap-proof"
+            or permanent_runtime["state"] != "not-implemented"
+            or not isinstance(candidate, dict)
+        ):
+            raise PrivilegedMaintenanceError("maintenance-policy", "Enabled bootstrap requires one exact candidate binding before permanent promotion.")
         _exact_keys(candidate, {"pull_request", "head_sha"}, "maintenance-policy")
         if type(candidate["pull_request"]) is not int or candidate["pull_request"] <= 0:
             raise PrivilegedMaintenanceError("maintenance-policy", "Bootstrap pull request must be positive.")
         _require_sha(candidate["head_sha"], "maintenance-policy")
     else:
         raise PrivilegedMaintenanceError("maintenance-policy", "Bootstrap enabled flag must be boolean.")
-
-    if data["permanent_runtime"] != {
-        "owner_repository": CANDIDATE_REPOSITORY,
-        "state": "not-implemented",
-        "attestation_read": "public-read-only",
-    }:
-        raise PrivilegedMaintenanceError("maintenance-policy", "Permanent runtime state advanced before implementation.")
     if data["claims"] != {
         "privileged_governance_maintenance_path_proven": False,
         "effective_enforcement_proven": False,
