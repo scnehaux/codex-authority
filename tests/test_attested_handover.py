@@ -339,21 +339,30 @@ class AttestedPipelineTests(unittest.TestCase):
 
 
 class AttestedPolicyTests(unittest.TestCase):
-    def test_checked_in_state_is_disabled_and_unbound(self):
+    def test_checked_in_state_is_exact_merged_runtime_promotion(self):
         policy = target.HandoverPolicy.load(target.POLICY_PATH)
-        self.assertIsNone(policy.package)
+        self.assertIsNotNone(policy.package)
+        self.assertEqual(
+            policy.package.source_revision,
+            "d835991afe6ada47a66d012a3ddc2c4350cd9ff8",
+        )
+        self.assertEqual(policy.package.entrypoint_blob, target.REVIEW_BLOB)
         self.assertEqual(policy.timeout_seconds, 120)
 
-    def test_public_entrypoint_stops_before_execution_or_writes(self):
-        with patch.object(target, "_authority_revision") as identity, patch.object(target, "AttestedCodexRuntime") as runtime, patch.object(target, "_write_bound") as write:
-            with self.assertRaises(contract.HandoverError) as error:
-                target.prepare_attested_permit(REQUEST, "absent", "absent", "absent")
-            self.assertEqual(error.exception.code, "handover-disabled")
-            identity.assert_not_called(); runtime.assert_not_called(); write.assert_not_called()
+    def test_public_entrypoint_uses_promoted_package_and_fixed_authority_policy(self):
+        sentinel = object()
+        with patch.object(target, "_authority_revision", return_value=SERVICE_REVISION),              patch.object(target, "load_authority_policy", return_value=POLICY),              patch.object(target, "AttestedCodexRuntime") as runtime,              patch.object(target, "_evaluate_and_prepare", return_value=sentinel) as prepare:
+            result = target.prepare_attested_permit(REQUEST, "runtime", "decision", "receipt")
+        self.assertIs(result, sentinel)
+        package = runtime.call_args.args[1]
+        self.assertEqual(package.source_revision, "d835991afe6ada47a66d012a3ddc2c4350cd9ff8")
+        self.assertEqual(package.entrypoint_blob, target.REVIEW_BLOB)
+        prepare.assert_called_once()
 
     def test_policy_rejects_partial_binding_claim_and_enable_drift(self):
         baseline = json.loads(target.POLICY_PATH.read_text())
-        mutations = [("schema_version", True), ("state", "runtime-promoted"), ("runtime_package", {}),
+        mutations = [("schema_version", True), ("state", "staged-disabled"), ("runtime_package", {}),
+                     ("execution", {**baseline["execution"], "enabled": False}),
                      ("publication", {"write_enabled": True, "mode": "offline-preview-only"}),
                      ("claims", {"privileged_governance_maintenance_path_proven": 0, "effective_enforcement_proven": False})]
         for key, value in mutations:
@@ -363,13 +372,12 @@ class AttestedPolicyTests(unittest.TestCase):
                 with self.subTest(key=key):
                     with self.assertRaises(contract.HandoverError): target.HandoverPolicy.load(path)
 
-    def test_future_explicit_promotion_shape_is_not_review_head(self):
-        data=json.loads(target.POLICY_PATH.read_text()); data["state"]="runtime-promoted"
-        data["execution"]["enabled"]=True
-        data["runtime_package"]=adapter.RuntimePackage(RUNTIME_REVISION,target.REVIEW_BLOB).to_mapping()
+    def test_promoted_policy_rejects_unmerged_review_head(self):
+        data=json.loads(target.POLICY_PATH.read_text())
         with tempfile.TemporaryDirectory() as temp:
-            path=Path(temp)/"policy.json"; path.write_text(json.dumps(data))
-            self.assertEqual(target.HandoverPolicy.load(path).package.source_revision, RUNTIME_REVISION)
+            path=Path(temp)/"policy.json"
+            self.assertEqual(target.HandoverPolicy.load(target.POLICY_PATH).package.source_revision,
+                             "d835991afe6ada47a66d012a3ddc2c4350cd9ff8")
             data["runtime_package"]["source_revision"]=target.REVIEW_HEAD
             path.write_text(json.dumps(data))
             with self.assertRaises(contract.HandoverError): target.HandoverPolicy.load(path)

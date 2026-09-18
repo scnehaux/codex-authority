@@ -1,0 +1,47 @@
+{
+  "authority": {
+    "bootstrap_evidence_revision": "76d7bc3ee858ff6231e595dbeacc7eda0528080f",
+    "publication_activation_revision": "b18cd29fb01b65d39d6b178199edf4afcd7e82a1",
+    "publisher_source_revision": "76d7bc3ee858ff6231e595dbeacc7eda0528080f"
+  },
+  "bundle": {
+    "activation_digest": "cbdf358b4ce6678b99ec459cc3a7c56fc1638eb545d541b3fe834000523311f5",
+    "evidence_sha256": "d8b3f5e7e8c789bffd9b658d538f75c8a51d7bb4f42a3c13be406238bab92d26",
+    "permit_digest": "ddf28dbc0a59fd55af354458948980c6677ca78cc26f020746732104de704d4c",
+    "receipt_sha256": "acbb2351a4cd56c11b284c065c20279e747b39cfcc93f570ef07d28a2e1f9147"
+  },
+  "candidate": {
+    "base_sha": "0f9dab0091746ac1232174c75ed6330b53dff750",
+    "head_sha": "eaa5b41cd84fcc77fd1ff464120d4be83c57d1cd",
+    "merge_commit_sha": "d835991afe6ada47a66d012a3ddc2c4350cd9ff8",
+    "pull_request": 22,
+    "repository": "scnehaux/codex"
+  },
+  "claims": {
+    "effective_enforcement_proven": false,
+    "privileged_governance_maintenance_path_proven": false
+  },
+  "kind": "codex-pr22-bootstrap-publication-evidence",
+  "provider_enforcement": {
+    "merge_commit_sha": "d835991afe6ada47a66d012a3ddc2c4350cd9ff8",
+    "merge_completed": true,
+    "required_check_integration_id": 4864946,
+    "ruleset_id": 23193929
+  },
+  "publication": {
+    "app": {
+      "id": 4864946,
+      "owner": "scnehaux",
+      "slug": "scnehaux-codex-authority"
+    },
+    "check_context": "Codex Governance Authority",
+    "check_post_attempted": true,
+    "check_run_id": 105581555853,
+    "conclusion": "success",
+    "head_sha": "eaa5b41cd84fcc77fd1ff464120d4be83c57d1cd",
+    "status": "completed",
+    "token_revoked": true
+  },
+  "recorded_at": "2026-09-18T11:23:22Z",
+  "schema_version": 1
+}

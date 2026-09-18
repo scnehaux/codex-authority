@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "kind": "codex-attested-runtime-handover",
-  "state": "staged-disabled",
+  "state": "runtime-promoted",
   "candidate_repository": "scnehaux/codex",
   "reviewed_input": {
     "pull_request": 22,
@@ -9,9 +9,20 @@
     "entrypoint_blob": "c9a0c3bf2fd3c33be4deb1b1e5fc624d1b0b796a",
     "result_schema_version": 2
   },
-  "runtime_package": null,
+  "runtime_package": {
+    "repository": "scnehaux/codex",
+    "source_revision": "d835991afe6ada47a66d012a3ddc2c4350cd9ff8",
+    "entrypoint": "attested_runtime.py",
+    "blobs": {
+      "attested_runtime.py": "c9a0c3bf2fd3c33be4deb1b1e5fc624d1b0b796a",
+      "runtime.py": "c59911e9c0800c917fed21e6f33f3181c3a61e60",
+      "evaluator.py": "ab2f152c21bd6d6f22df21172c4d027035ff8c11",
+      "promotion.json": "f8f67280baf1c8725f67592d015ff37be2c4a4c3",
+      "runtime-promotion.json": "83658bf5a44d22804d1628074dd8f27a7047d68e"
+    }
+  },
   "execution": {
-    "enabled": false,
+    "enabled": true,
     "timeout_seconds": 120,
     "max_output_bytes": 512000,
     "candidate_code_execution": false,

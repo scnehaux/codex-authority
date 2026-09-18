@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "state": "bootstrap-proof",
+  "state": "permanent-runtime",
   "candidate_repository": "scnehaux/codex",
   "attestation": {
     "repository": "scnehaux/codex-authority",
@@ -12,11 +12,8 @@
     "exact_candidate_binding": true
   },
   "bootstrap": {
-    "enabled": true,
-    "candidate": {
-      "pull_request": 22,
-      "head_sha": "eaa5b41cd84fcc77fd1ff464120d4be83c57d1cd"
-    },
+    "enabled": false,
+    "candidate": null,
     "allowed_runtime_blockers": [
       "privileged-validation-missing",
       "runtime-critical-mutation-requires-privileged-validation"
@@ -27,7 +24,7 @@
   },
   "permanent_runtime": {
     "owner_repository": "scnehaux/codex",
-    "state": "not-implemented",
+    "state": "promoted",
     "attestation_read": "public-read-only"
   },
   "claims": {
