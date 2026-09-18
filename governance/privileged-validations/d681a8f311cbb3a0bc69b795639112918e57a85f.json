@@ -1,0 +1,25 @@
+{
+  "authority": {
+    "default_branch": "main",
+    "mode": "privileged-explicit",
+    "repository": "scnehaux/codex-authority"
+  },
+  "candidate": {
+    "base_sha": "d835991afe6ada47a66d012a3ddc2c4350cd9ff8",
+    "changed_files": [
+      "governance/scm/trust-boundary.yaml"
+    ],
+    "head_sha": "d681a8f311cbb3a0bc69b795639112918e57a85f",
+    "pull_request": 23,
+    "repository": "scnehaux/codex"
+  },
+  "claims": {
+    "candidate_code_executed": false,
+    "credentials_used": false,
+    "exact_candidate_binding": true
+  },
+  "contract_version": 1,
+  "decision": "pass",
+  "kind": "codex-privileged-validation-attestation",
+  "scope": "protected-governance-maintenance"
+}
