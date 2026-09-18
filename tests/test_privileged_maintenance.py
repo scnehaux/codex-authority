@@ -141,7 +141,7 @@ class PrivilegedMaintenanceTests(unittest.TestCase):
                 "attestation_read": "public-read-only",
             },
         )
-        self.assertFalse(
+        self.assertTrue(
             policy["claims"]["privileged_governance_maintenance_path_proven"]
         )
         self.assertFalse(policy["claims"]["effective_enforcement_proven"])

@@ -1,0 +1,53 @@
+{
+  "authority": {
+    "attestation_and_service_revision": "586b6e589ac941fec84a5f74328ad72ab7b039c9",
+    "bootstrap_enabled": false,
+    "mode": "attested-v2",
+    "permanent_runtime_source_revision": "d835991afe6ada47a66d012a3ddc2c4350cd9ff8",
+    "publication_activation_revision": "24249edbe7cdccb3249458c2b430682244ebd17f",
+    "publisher_source_revision": "586b6e589ac941fec84a5f74328ad72ab7b039c9"
+  },
+  "bundle": {
+    "activation_digest": "77a8f610ff445a401c353a96c994df94be330b7d71bbf761cc18d4a4c4a123af",
+    "evidence_sha256": "995b9a9c3781647ca9286fc8c969629ecbfccb4e891bc3f83a02d643ed92f37d",
+    "permit_digest": "bd6c7f8afb76554a4afb7a1920dcebb660a66f373bea313cea27371f02d7972d",
+    "receipt_sha256": "5f23e6421ba1a2f3bfb3bb2de657adc8d6c303e065b13697330932ebc0901535"
+  },
+  "candidate": {
+    "base_sha": "d835991afe6ada47a66d012a3ddc2c4350cd9ff8",
+    "changed_files": [
+      "governance/scm/trust-boundary.yaml"
+    ],
+    "head_sha": "d681a8f311cbb3a0bc69b795639112918e57a85f",
+    "merge_commit_sha": "362d5c072fe407c915e2307bc455720739b20154",
+    "pull_request": 23,
+    "repository": "scnehaux/codex"
+  },
+  "claims": {
+    "effective_enforcement_proven": false,
+    "privileged_governance_maintenance_path_proven": true
+  },
+  "kind": "codex-permanent-maintenance-proof-evidence",
+  "provider_enforcement": {
+    "merge_commit_sha": "362d5c072fe407c915e2307bc455720739b20154",
+    "merge_completed": true,
+    "required_check_integration_id": 4864946,
+    "ruleset_id": 23193929
+  },
+  "publication": {
+    "app": {
+      "id": 4864946,
+      "owner": "scnehaux",
+      "slug": "scnehaux-codex-authority"
+    },
+    "check_context": "Codex Governance Authority",
+    "check_post_attempted": true,
+    "check_run_id": 105585648922,
+    "conclusion": "success",
+    "head_sha": "d681a8f311cbb3a0bc69b795639112918e57a85f",
+    "status": "completed",
+    "token_revoked": true
+  },
+  "recorded_at": "2026-09-18T11:39:12Z",
+  "schema_version": 1
+}

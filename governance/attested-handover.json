@@ -33,7 +33,7 @@
     "mode": "offline-preview-only"
   },
   "claims": {
-    "privileged_governance_maintenance_path_proven": false,
+    "privileged_governance_maintenance_path_proven": true,
     "effective_enforcement_proven": false
   }
 }

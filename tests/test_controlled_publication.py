@@ -170,26 +170,8 @@ class ControlledPublicationTests(unittest.TestCase):
         self.assertTrue(result["token_revoked"])
         self.assertEqual(len([c for c in transport.calls if c[0] == "POST" and c[1].endswith("/check-runs")]), 1)
 
-    def test_checked_in_config_is_exact_pr23_permanent_path_proof(self):
-        a = target.load_configuration(target.CONFIG_PATH)
-        self.assertIsNotNone(a)
-        self.assertEqual(a["mode"], "attested-v2")
-        self.assertEqual(a["candidate"], {
-            "repository": "scnehaux/codex",
-            "pull_request": 23,
-            "base_sha": "d835991afe6ada47a66d012a3ddc2c4350cd9ff8",
-            "head_sha": "d681a8f311cbb3a0bc69b795639112918e57a85f",
-        })
-        self.assertEqual(a["permit_digest"], "bd6c7f8afb76554a4afb7a1920dcebb660a66f373bea313cea27371f02d7972d")
-        self.assertEqual(a["evidence_sha256"], "995b9a9c3781647ca9286fc8c969629ecbfccb4e891bc3f83a02d643ed92f37d")
-        self.assertEqual(a["receipt_sha256"], "5f23e6421ba1a2f3bfb3bb2de657adc8d6c303e065b13697330932ebc0901535")
-
-    def test_disabled_configuration_still_short_circuits(self):
-        config = self.directory / "disabled.json"
-        config.write_bytes(canonical({"schema_version": 1, "kind": "codex-controlled-publication",
-            "state": "disabled", "activation": None,
-            "claims": {"live_publication_proven": False, "effective_enforcement_proven": False}}))
-        with patch.object(target, "CONFIG_PATH", config), patch.object(target, "make_jwt") as key, patch.object(target, "_request") as request:
+    def test_checked_in_config_is_disabled_after_permanent_path_proof(self):
+        with patch.object(target, "make_jwt") as key, patch.object(target, "_request") as request:
             result = target.execute("absent", "absent", "absent")
             self.assertEqual(result["status"], "controlled_publication_disabled")
             with self.assertRaises(HandoverError):
