@@ -408,6 +408,22 @@ class ControlledBootstrapTests(unittest.TestCase):
         self.assertIsNone(result.permit)
         self.assertEqual(result.outcome.decision, AuthorityDecision.BLOCKED)
 
+    def test_committed_file_reads_exact_git_object_not_checkout_bytes(self):
+        path = core.ATTESTATION_PREFIX + REQUEST.head_sha + ".json"
+        raw = b'{"contract_version":1}\n'
+        oid = blob_id(raw)
+        outputs = [
+            (f"100644 blob {oid}\t{path}\n").encode(),
+            (str(len(raw)) + "\n").encode(),
+            raw,
+        ]
+        completed = [type("Completed", (), {"stdout": value})() for value in outputs]
+        with patch.object(core.subprocess, "run", side_effect=completed), \
+             patch.object(core, "read_regular", side_effect=AssertionError("working tree must not be read")):
+            observed, observed_oid = core._committed_file(SERVICE_REVISION, path, 128_000)
+        self.assertEqual(observed, raw)
+        self.assertEqual(observed_oid, oid)
+
     def test_committed_attestation_modes_and_blobs_checked(self):
         path = core.ATTESTATION_PREFIX + REQUEST.head_sha + ".json"
         fake = type("Completed", (), {"stdout": ("120000 blob " + "a" * 40 + "\t" + path + "\n").encode()})()

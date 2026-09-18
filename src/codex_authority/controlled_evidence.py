@@ -174,9 +174,13 @@ def _committed_file(revision: str, relative: str, limit: int) -> tuple[bytes, st
     metadata = parts[0].split()
     require(len(metadata) == 3 and metadata[:2] == ["100644", "blob"], "bootstrap-committed-mode")
     expected = sha(metadata[2])
-    # Read bounded working bytes, and bind to the exact tree entry, not filtered Git text.
-    raw = read_regular(ROOT / relative, limit)
-    require(blob_id(raw) == expected, "bootstrap-committed-blob")
+    # Read the exact committed object bytes, not checkout-filtered working-tree bytes.
+    size_text = git("cat-file", "-s", expected).decode("ascii").strip()
+    require(size_text.isdigit(), "bootstrap-committed-size")
+    size = int(size_text)
+    require(0 < size <= limit, "bootstrap-committed-size")
+    raw = git("cat-file", "blob", expected)
+    require(len(raw) == size and blob_id(raw) == expected, "bootstrap-committed-blob")
     return raw, expected
 
 
@@ -195,7 +199,9 @@ def prepare_bootstrap_permit(request, runtime_dir, evidence_path, receipt_path):
             "bootstrap-policy-candidate")
     revision = _authority_revision()
     committed_policy, _ = _committed_file(revision, MAINTENANCE_PATH, 64_000)
-    require(committed_policy == maintenance_raw, "bootstrap-policy-drift")
+    committed_data = decode_object(committed_policy, 64_000)
+    require(canonical(committed_data) == canonical(data), "bootstrap-policy-drift")
+    maintenance_raw = committed_policy
     relative = ATTESTATION_PREFIX + sha(request.head_sha) + ".json"
     raw, blob = _committed_file(revision, relative, 128_000)
     origin = {
