@@ -276,11 +276,26 @@ def load_maintenance_policy(path: str | Path) -> dict[str, Any]:
         _require_sha(candidate["head_sha"], "maintenance-policy")
     else:
         raise PrivilegedMaintenanceError("maintenance-policy", "Bootstrap enabled flag must be boolean.")
-    if data["claims"] != {
-        "privileged_governance_maintenance_path_proven": False,
-        "effective_enforcement_proven": False,
-    }:
-        raise PrivilegedMaintenanceError("maintenance-policy", "Privileged-maintenance claims advanced before proof.")
+    claims = data["claims"]
+    if not isinstance(claims, dict):
+        raise PrivilegedMaintenanceError("maintenance-policy", "Privileged-maintenance claims must be an object.")
+    _exact_keys(
+        claims,
+        {"privileged_governance_maintenance_path_proven", "effective_enforcement_proven"},
+        "maintenance-policy",
+    )
+    if (
+        type(claims["privileged_governance_maintenance_path_proven"]) is not bool
+        or type(claims["effective_enforcement_proven"]) is not bool
+        or claims["effective_enforcement_proven"] is not False
+    ):
+        raise PrivilegedMaintenanceError("maintenance-policy", "Privileged-maintenance claims drifted.")
+    if claims["privileged_governance_maintenance_path_proven"] is True and not (
+        bootstrap["enabled"] is False
+        and permanent_runtime["state"] == "promoted"
+        and data["state"] == "permanent-runtime"
+    ):
+        raise PrivilegedMaintenanceError("maintenance-policy", "Maintenance proof requires disarmed bootstrap and promoted permanent runtime.")
     return data
 
 

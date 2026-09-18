@@ -59,7 +59,12 @@ class HandoverPolicy:
         claims = object_fields(data["claims"], {
             "privileged_governance_maintenance_path_proven", "effective_enforcement_proven",
         }, "handover-claims")
-        require(all(value is False for value in claims.values()), "handover-claims")
+        require(
+            type(claims["privileged_governance_maintenance_path_proven"]) is bool
+            and type(claims["effective_enforcement_proven"]) is bool
+            and claims["effective_enforcement_proven"] is False,
+            "handover-claims",
+        )
         package = None
         if execution["enabled"] is False:
             require(data["state"] == "staged-disabled" and data["runtime_package"] is None, "handover-disabled-binding")
@@ -70,6 +75,11 @@ class HandoverPolicy:
             require(source["source_revision"] != REVIEW_HEAD, "unmerged-review-source")
             require(source["blobs"] == {"attested_runtime.py": REVIEW_BLOB, **dict(DEPENDENCY_BLOBS)}, "handover-package-blobs")
             package = RuntimePackage(sha(source["source_revision"]), REVIEW_BLOB)
+        if claims["privileged_governance_maintenance_path_proven"] is True:
+            require(
+                execution["enabled"] is True and package is not None and data["state"] == "runtime-promoted",
+                "handover-claims",
+            )
         return cls(package, execution["timeout_seconds"])
 
 
