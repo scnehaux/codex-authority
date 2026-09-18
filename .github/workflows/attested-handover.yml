@@ -32,6 +32,8 @@ jobs:
           python-version: '3.13'
       - name: Exercise actual reader with synthetic APIs and offline publisher preview
         run: python -I authority/scripts/verify_attested_compatibility.py --codex-root codex-input
+      - name: Exercise controlled publication with actual outputs and synthetic transport
+        run: python -I authority/scripts/verify_controlled_compatibility.py --codex-root codex-input
       - name: Assert both input checkouts remain unchanged
         shell: bash
         run: |
