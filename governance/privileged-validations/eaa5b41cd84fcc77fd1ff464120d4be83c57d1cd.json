@@ -1,0 +1,27 @@
+{
+  "authority": {
+    "default_branch": "main",
+    "mode": "privileged-explicit",
+    "repository": "scnehaux/codex-authority"
+  },
+  "candidate": {
+    "base_sha": "0f9dab0091746ac1232174c75ed6330b53dff750",
+    "changed_files": [
+      "integrations/github-governance-evaluator/ATTESTED_RUNTIME.md",
+      "integrations/github-governance-evaluator/attested_runtime.py",
+      "integrations/github-governance-evaluator/tests/test_attested_runtime.py"
+    ],
+    "head_sha": "eaa5b41cd84fcc77fd1ff464120d4be83c57d1cd",
+    "pull_request": 22,
+    "repository": "scnehaux/codex"
+  },
+  "claims": {
+    "candidate_code_executed": false,
+    "credentials_used": false,
+    "exact_candidate_binding": true
+  },
+  "contract_version": 1,
+  "decision": "pass",
+  "kind": "codex-privileged-validation-attestation",
+  "scope": "protected-governance-maintenance"
+}

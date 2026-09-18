@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "state": "staged-disabled",
+  "state": "bootstrap-proof",
   "candidate_repository": "scnehaux/codex",
   "attestation": {
     "repository": "scnehaux/codex-authority",
@@ -12,8 +12,11 @@
     "exact_candidate_binding": true
   },
   "bootstrap": {
-    "enabled": false,
-    "candidate": null,
+    "enabled": true,
+    "candidate": {
+      "pull_request": 22,
+      "head_sha": "eaa5b41cd84fcc77fd1ff464120d4be83c57d1cd"
+    },
     "allowed_runtime_blockers": [
       "privileged-validation-missing",
       "runtime-critical-mutation-requires-privileged-validation"
