@@ -57,10 +57,16 @@ now record isolated direct-update, non-fast-forward, deletion, unresolved-thread
 merge-method, and failing-check controls with positive comparisons. The fixture
 repository was archived; production rules and main were unchanged.
 
+A subsequent [stale-review experiment](docs/implementation-notes/0016-stale-review-observation.md)
+observed review `5258210954` from the authorized non-author account change from
+APPROVED to DISMISSED after a new reviewable commit, without manual dismissal.
+The fixture was closed/archived and its temporary Write grant removed. This proves
+the isolated account-based mechanism, not independently controlled human reviewers
+or a merge-blocking requirement under the current zero-approval bootstrap.
+
 The complete mirror was rejected because GitHub did not admit the Authority App
-integration ID in that fixture. Its installation scope was not widened. Stale
-approval handling still needs a separately authorized non-author reviewer, and
-final acceptance must explicitly map the limited fixture evidence to production.
+integration ID in the earlier fixture. Its installation scope was not widened.
+Final acceptance must explicitly map the limited fixture evidence to production.
 Therefore the broader effective-enforcement claim remains false. The
 [acceptance plan](docs/implementation-notes/0014-provider-negative-acceptance-plan.md)
 remains authoritative for those remaining obligations; configuration parity or
@@ -215,3 +221,7 @@ acceptance matrix, and cleanup. Its planner emits payloads only, not live eviden
 The [live disposable observation record](docs/implementation-notes/0015-provider-negative-observations.md)
 executes REC-D-016/017 with scoped API evidence, positive controls, archived cleanup,
 and explicit mirror-admission and non-author-reviewer limits.
+
+The [stale-review follow-up](docs/implementation-notes/0016-stale-review-observation.md)
+records the later actual approval/dismissal transition, temporary-access cleanup,
+and the distinction between account identity, independent review, and full acceptance.
