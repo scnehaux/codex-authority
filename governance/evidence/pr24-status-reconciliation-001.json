@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "kind": "codex-status-reconciliation-publication-evidence",
+  "recorded_at": "2026-09-19T20:07:29Z",
+  "candidate": {
+    "repository": "scnehaux/codex",
+    "pull_request": 24,
+    "base_sha": "362d5c072fe407c915e2307bc455720739b20154",
+    "head_sha": "3deeb147dc3cff647021357dfedf1fc3faf3bde4",
+    "merge_commit_sha": "107f0dc53e873ef6d24a9f12cd28da7348f79331"
+  },
+  "source": {
+    "runtime_source_revision": "d835991afe6ada47a66d012a3ddc2c4350cd9ff8",
+    "authority_service_source_revision": "854dbb0576473b53c3ef20d0bb5f3cbc6895ece3",
+    "publisher_source_revision": "854dbb0576473b53c3ef20d0bb5f3cbc6895ece3"
+  },
+  "bundle": {
+    "permit_digest": "ce6e0d96f83f452a591fa552655ee3242128368354b7c4ce13cf5c07f7fbc015",
+    "evidence_sha256": "35a7cbe7e31b733a9eed2ae1b756597291990e23477438573681146a6d51bc01",
+    "receipt_sha256": "35e45c7efce43f710eef60a51b23fa358a2ce1ed7e2ada98a6d07d51bab0b215"
+  },
+  "provider": {
+    "ruleset_id": 23193929,
+    "required_check_context": "Codex Governance Authority",
+    "required_check_app_id": 4864946,
+    "check_run_id": 105959467617,
+    "check_name": "Codex Governance Authority",
+    "check_head_sha": "3deeb147dc3cff647021357dfedf1fc3faf3bde4",
+    "check_status": "completed",
+    "check_conclusion": "success",
+    "check_app_id": 4864946,
+    "check_app_slug": "scnehaux-codex-authority",
+    "token_revoked": true
+  },
+  "lifecycle": {
+    "bootstrap_enabled": false,
+    "permanent_runtime_promoted": true,
+    "publication_disarmed_after_use": true
+  },
+  "claims": {
+    "status_reconciliation_merge_proven": true,
+    "effective_enforcement_proven": false
+  }
+}
