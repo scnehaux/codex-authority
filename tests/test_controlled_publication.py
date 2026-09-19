@@ -170,8 +170,26 @@ class ControlledPublicationTests(unittest.TestCase):
         self.assertTrue(result["token_revoked"])
         self.assertEqual(len([c for c in transport.calls if c[0] == "POST" and c[1].endswith("/check-runs")]), 1)
 
-    def test_checked_in_config_is_disabled_after_permanent_path_proof(self):
-        with patch.object(target, "make_jwt") as key, patch.object(target, "_request") as request:
+    def test_checked_in_config_is_exact_pr24_status_reconciliation(self):
+        a = target.load_configuration(target.CONFIG_PATH)
+        self.assertIsNotNone(a)
+        self.assertEqual(a["mode"], "attested-v2")
+        self.assertEqual(a["candidate"], {
+            "repository": "scnehaux/codex",
+            "pull_request": 24,
+            "base_sha": "362d5c072fe407c915e2307bc455720739b20154",
+            "head_sha": "3deeb147dc3cff647021357dfedf1fc3faf3bde4",
+        })
+        self.assertEqual(a["permit_digest"], "ce6e0d96f83f452a591fa552655ee3242128368354b7c4ce13cf5c07f7fbc015")
+        self.assertEqual(a["evidence_sha256"], "35a7cbe7e31b733a9eed2ae1b756597291990e23477438573681146a6d51bc01")
+        self.assertEqual(a["receipt_sha256"], "35e45c7efce43f710eef60a51b23fa358a2ce1ed7e2ada98a6d07d51bab0b215")
+
+    def test_disabled_configuration_still_short_circuits(self):
+        config = self.directory / "disabled.json"
+        config.write_bytes(canonical({"schema_version": 1, "kind": "codex-controlled-publication",
+            "state": "disabled", "activation": None,
+            "claims": {"live_publication_proven": False, "effective_enforcement_proven": False}}))
+        with patch.object(target, "CONFIG_PATH", config), patch.object(target, "make_jwt") as key, patch.object(target, "_request") as request:
             result = target.execute("absent", "absent", "absent")
             self.assertEqual(result["status"], "controlled_publication_disabled")
             with self.assertRaises(HandoverError):
