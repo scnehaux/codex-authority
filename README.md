@@ -52,10 +52,19 @@ retains the evidence and publication cleanup. No standing controlled-publication
 activation is enabled. Exact attestations remain append-only and candidate-bound.
 
 The maintenance-path claim is true under its existing promoted/disarmed invariants.
-The broader effective-enforcement claim remains false: destructive-rule tests,
-review/merge negative cases, evidence applicability, and cleanup still need the
-[provider-negative acceptance plan](docs/implementation-notes/0014-provider-negative-acceptance-plan.md).
-Configuration parity alone does not close those behavioral obligations.
+[Disposable provider observations](docs/implementation-notes/0015-provider-negative-observations.md)
+now record isolated direct-update, non-fast-forward, deletion, unresolved-thread,
+merge-method, and failing-check controls with positive comparisons. The fixture
+repository was archived; production rules and main were unchanged.
+
+The complete mirror was rejected because GitHub did not admit the Authority App
+integration ID in that fixture. Its installation scope was not widened. Stale
+approval handling still needs a separately authorized non-author reviewer, and
+final acceptance must explicitly map the limited fixture evidence to production.
+Therefore the broader effective-enforcement claim remains false. The
+[acceptance plan](docs/implementation-notes/0014-provider-negative-acceptance-plan.md)
+remains authoritative for those remaining obligations; configuration parity or
+isolated control success alone does not close the whole phase.
 
 No GitHub App private key, installation token, webhook secret, or other credential
 belongs in this repository.
@@ -202,3 +211,7 @@ publication, or changes governance claims.
 The [provider-negative acceptance plan](docs/implementation-notes/0014-provider-negative-acceptance-plan.md)
 records REC-D-016/017, admin admission, fixture equivalence limits, the ten-row
 acceptance matrix, and cleanup. Its planner emits payloads only, not live evidence.
+
+The [live disposable observation record](docs/implementation-notes/0015-provider-negative-observations.md)
+executes REC-D-016/017 with scoped API evidence, positive controls, archived cleanup,
+and explicit mirror-admission and non-author-reviewer limits.
