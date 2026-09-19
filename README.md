@@ -8,7 +8,7 @@ Check through the dedicated GitHub App.
 
 ## Current state
 
-**Stage C provider activation is live; missing-authority merge denial and wrong-source authority rejection are proven. Stage D privileged maintenance is staged but disabled. Effective enforcement remains explicitly unclaimed.**
+**Stage C provider activation is live. Stage D permanent privileged maintenance is proven, with bootstrap disabled. The remaining Phase 10 provider-negative acceptance matrix is still open; effective enforcement remains explicitly unclaimed.**
 
 The earlier candidate-scoped publisher proof is captured and disarmed. The
 credential-free runtime adapter produced durable PASS evidence for disposable Codex
@@ -38,19 +38,24 @@ same-name success from the wrong source cannot satisfy the rule bound to integra
 ID `4864946`. The PR was closed without merge and the observation is recorded in
 `governance/evidence/provider-wrong-source-001.json`.
 
-Stage D now defines the independently administered privileged-validation boundary
-needed for protected Codex governance maintenance. Exact candidate attestations
-live under `governance/privileged-validations/` and bind repository, PR, base/head
-SHAs, and the complete sorted changed-file set. The one-candidate bootstrap is
-strictly disabled in checked-in governance and may only resolve the two existing
-privilege-gate failures; it cannot override qualification, identity, source, or
-candidate-drift failures. The permanent Codex public-read-only attestation reader
-is not implemented yet, so the maintenance path is not claimed proven.
+Codex PR #22 installed the permanent attestation reader. Authority separately
+promoted its merged source `d835991afe6ada47a66d012a3ddc2c4350cd9ff8` and disarmed
+the bootstrap. Codex PR #23 then completed protected maintenance through that
+permanent reader with bootstrap disabled; see the
+[post-disarm proof](docs/implementation-notes/0011-permanent-maintenance-proof-complete.md)
+and `governance/evidence/permanent-maintenance-proof-001.json`.
 
-This is deliberately still a partial enforcement proof. Delete/non-fast-forward
-enforcement and the end-to-end privileged-maintenance path remain unproven.
-Protected Codex mutations therefore remain fail-closed until the separately
-evidenced bootstrap installs the permanent reader and is disarmed again.
+Codex PR #24 subsequently reconciled PLAN/ROADMAP through the same promoted
+runtime and dedicated-App publication boundary. Its
+[completion record](docs/implementation-notes/0013-pr24-status-reconciliation-complete.md)
+retains the evidence and publication cleanup. No standing controlled-publication
+activation is enabled. Exact attestations remain append-only and candidate-bound.
+
+The maintenance-path claim is true under its existing promoted/disarmed invariants.
+The broader effective-enforcement claim remains false: destructive-rule tests,
+review/merge negative cases, evidence applicability, and cleanup still need the
+[provider-negative acceptance plan](docs/implementation-notes/0014-provider-negative-acceptance-plan.md).
+Configuration parity alone does not close those behavioral obligations.
 
 No GitHub App private key, installation token, webhook secret, or other credential
 belongs in this repository.
@@ -75,8 +80,8 @@ belongs in this repository.
 - Privileged attestations are independently administered and exact-candidate-bound;
   existing JSON records are immutable and new approvals are additive.
 - Provider ruleset activation does not by itself prove every enforcement concern.
-- Effective enforcement remains unclaimed until destructive provider rules and the
-  privileged maintenance path are independently evidenced.
+- Effective enforcement remains unclaimed until every applicable Phase 10
+  acceptance obligation is evidenced, not merely the completed maintenance path.
 
 ## Architecture
 
@@ -119,6 +124,10 @@ GitHub event / operator request
  GitHub main-governance ruleset
    ACTIVE / no bypass
 ```
+
+The diagram retains the historical bootstrap adapter path for context; bootstrap
+is disabled. In the promoted permanent path, attestation reading occurs inside the
+Codex attested runtime and the version-2 result retains its original verdict.
 
 The authority does **not** reimplement Codex candidate collection or governance
 evaluation semantics. The runtime adapter wraps the independently promoted Codex
@@ -173,11 +182,12 @@ provider enforcement; activating provider enforcement does not invent a trusted
 path for privileged governance mutation; and staging a privileged bootstrap does
 not prove or enable the permanent maintenance path.
 
-The next slice must preserve the active ruleset while using one exact attested
-Codex candidate to install the permanent public-read-only attestation reader, then
-disarm the bootstrap. Destructive provider rules are proven separately on a
-disposable branch. Only after those facts are durable should
-`effective_enforcement_proven` advance.
+The next slice preserves the active production ruleset and the already-proven
+permanent maintenance path. Remaining provider behavior is tested only in a new
+synthetic disposable scope, with full-mirror and isolated-control results clearly
+distinguished. A copied ruleset is not itself production behavioral proof. Every
+applicable Phase 10 row and cleanup obligation needs reviewed evidence before
+`effective_enforcement_proven` can advance.
 
 ## Recommendation and decision records
 
@@ -188,3 +198,7 @@ impact, validation criteria, and decision history. Read it alongside the
 the next slice. Recommendations remain separate from accepted decisions and
 implementation evidence; documentation alone never promotes a runtime, enables
 publication, or changes governance claims.
+
+The [provider-negative acceptance plan](docs/implementation-notes/0014-provider-negative-acceptance-plan.md)
+records REC-D-016/017, admin admission, fixture equivalence limits, the ten-row
+acceptance matrix, and cleanup. Its planner emits payloads only, not live evidence.
