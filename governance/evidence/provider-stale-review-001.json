@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "kind": "codex-provider-stale-review-observation",
+  "run_id": "20260919t224050z-0478aef8",
+  "scope": "isolated-pull-request-control",
+  "result": "OBSERVED_AUTOMATIC_DISMISSAL",
+  "source": {
+    "repository": "scnehaux/codex",
+    "revision_before": "107f0dc53e873ef6d24a9f12cd28da7348f79331",
+    "revision_after": "107f0dc53e873ef6d24a9f12cd28da7348f79331",
+    "ruleset_id": 23193929,
+    "authority_baseline": "6c8d8edfd1cf15c8383c646ac9a1f5b990b92f78",
+    "complete_production_ruleset_unchanged": true,
+    "copied_rule": {
+      "type": "pull_request",
+      "parameters": {
+        "allowed_merge_methods": ["squash"],
+        "dismiss_stale_reviews_on_push": true,
+        "dismissal_restriction": {"allowed_actors": [], "enabled": false},
+        "require_code_owner_review": false,
+        "require_extra_approval_for_unattributed_changes": true,
+        "require_last_push_approval": false,
+        "required_approving_review_count": 0,
+        "required_review_thread_resolution": true,
+        "required_reviewers": []
+      }
+    }
+  },
+  "fixture": {
+    "repository": "scnehaux/codex-provider-proof-20260919t224050z-0478aef8",
+    "repository_id": 1377674304,
+    "pull_request": 1,
+    "url": "https://github.com/scnehaux/codex-provider-proof-20260919t224050z-0478aef8/pull/1",
+    "base_ref": "isolate-stale-approval",
+    "head_ref": "stale-review-candidate",
+    "ruleset_id": 23711520,
+    "enforcement": "active",
+    "bypass_actors": [],
+    "rule_matches_source_before_and_after": true,
+    "only_copied_rule": "pull_request",
+    "omitted_rule_types": ["deletion", "non_fast_forward", "required_linear_history", "required_status_checks"],
+    "selector_delta": "named fixture branch instead of production default branch",
+    "author": {"login": "anshacerbia2", "id": 108260133},
+    "reviewer": {"login": "scnehaux-org", "id": 261198920, "permission_at_review": "write"},
+    "initial_main": "e94594127187c246cf422e9246212e5be9133f9c",
+    "changed_files": ["fixture.txt"]
+  },
+  "before": {
+    "recorded_at": "2026-09-19T23:05:38.914516+00:00",
+    "base_sha": "f4b5a66248cf340a51e65c313ccaa0a31f2f2436",
+    "head_sha": "c2bbd8664bfdef3d377703f7dd0a1826722a3419",
+    "review_id": 5258210954,
+    "review_state": "APPROVED",
+    "review_commit_id": "c2bbd8664bfdef3d377703f7dd0a1826722a3419",
+    "review_submitted_at": "2026-09-19T23:03:00Z",
+    "reviews_record": "0049",
+    "fixture_content_after_baseline": "review-before-new-commit"
+  },
+  "change": {
+    "parent_sha": "c2bbd8664bfdef3d377703f7dd0a1826722a3419",
+    "new_head_sha": "5f890322f22f9c86498d2a3fad6f2ae99819f2c0",
+    "ref_update_record": "0059",
+    "ref_update_method": "PATCH",
+    "force": false,
+    "status": 200,
+    "fixture_content_after_change": "new-reviewable-change-after-user-approval"
+  },
+  "after": {
+    "recorded_at": "2026-09-19T23:05:53.524264+00:00",
+    "base_sha": "f4b5a66248cf340a51e65c313ccaa0a31f2f2436",
+    "head_sha": "5f890322f22f9c86498d2a3fad6f2ae99819f2c0",
+    "review_id": 5258210954,
+    "review_state": "DISMISSED",
+    "review_commit_id": "c2bbd8664bfdef3d377703f7dd0a1826722a3419",
+    "polls": [
+      {"record": "0060", "state": "APPROVED", "observed_at": "2026-09-19T23:05:47.309781+00:00"},
+      {"record": "0061", "state": "DISMISSED", "observed_at": "2026-09-19T23:05:51.113858+00:00"}
+    ],
+    "approval_submitted_by_assistant": false,
+    "manual_dismissal_performed": false,
+    "merge_blocking_test_performed": false
+  },
+  "provider_event": {
+    "id": 31463296946,
+    "event": "review_dismissed",
+    "created_at": "2026-09-19T23:05:47Z",
+    "review_id": 5258210954,
+    "prior_state": "approved",
+    "dismissal_commit_id": "5f890322f22f9c86498d2a3fad6f2ae99819f2c0",
+    "dismissal_message": null,
+    "timeline_capture_record": "0067",
+    "url": "https://api.github.com/repos/scnehaux/codex-provider-proof-20260919t224050z-0478aef8/issues/events/31463296946"
+  },
+  "cleanup": {
+    "pr_closed_without_merge": true,
+    "close_record": "0069",
+    "open_prs": 0,
+    "open_prs_record": "0070",
+    "direct_collaborator_grant_removed": true,
+    "removal_record": "0072",
+    "removal_http_status": 204,
+    "permission_after_removal": "read",
+    "permission_record": "0073",
+    "organization_or_team_membership_changed": false,
+    "repository_archived": true,
+    "archive_record": "0077",
+    "archive_readback_record": "0078",
+    "repository_deleted": false,
+    "fixture_main_unchanged": true,
+    "production_readback_records": ["0079", "0080"]
+  },
+  "operator_capture": {
+    "directory_relative_to_operational_runs": "provider-negative-20260919t224050z-0478aef8",
+    "request_outcome_pairs": 80,
+    "sequence_first": "0001",
+    "sequence_last": "0080",
+    "snapshot_files": ["stale-approval-before-push.json", "stale-approval-after-push.json", "stale-approval-timeline.json", "stale-approval-cleanup.json"],
+    "capture_storage": "operator-local exclusive JSON files with file fsync; request IDs and timestamps retained",
+    "this_artifact": "selected observation summary, not a byte-for-byte copy of the complete HTTP capture or a provider signature"
+  },
+  "claims": {
+    "stale_approval_dismissal_observed_in_fixture": true,
+    "distinct_account_review_observed": true,
+    "independent_human_review_proven": false,
+    "production_mutations_performed": false,
+    "full_mirror_equivalence_proven": false,
+    "effective_enforcement_proven": false
+  }
+}
