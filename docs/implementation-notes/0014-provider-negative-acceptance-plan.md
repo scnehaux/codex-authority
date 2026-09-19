@@ -200,3 +200,20 @@ CI and operator-machine results belong in the PR verification record.
 Provider review/merge semantics are documented at
 https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets .
 These references describe mechanisms, not certification of this implementation.
+
+## Operator verification observation
+
+On the existing Windows checkout, unittest discovery ran 134 tests: 133 passed
+and one host-restricted symlink case was skipped. Foundation, staged publisher,
+privileged-maintenance and attestation-history verifiers passed. The historical
+`verify_publisher_proof.py` stopped on checkout-byte drift in
+`integrations/github-app-publisher/github_app_publisher.py`: working blob
+`e304f29b46804e6e02672fae4d55093d80698697`, committed blob
+`4ee2e9937b17bb157b702bcc8f6d10a33ca71e6c`. The file contained CRLF and converting
+only CRLF to LF produced the committed bytes exactly.
+
+No historical verifier, publisher source or proof hash was modified to hide that
+result. This is the checkout representation distinction already discussed in
+[REC-D-014](0006-git-object-byte-portability.md). It is not a full Windows gate PASS.
+The unchanged historical gate must still pass in the repository's GitHub CI;
+operational publisher exports continue to require exact committed bytes.
