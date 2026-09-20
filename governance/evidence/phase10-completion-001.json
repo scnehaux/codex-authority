@@ -1,0 +1,334 @@
+{
+  "acceptance": {
+    "decision_record": "https://github.com/scnehaux/codex-authority/issues/28#issuecomment-5752319468",
+    "git_blob": "1c9c00cdd2c411fa3ce677c06de722cc2eb1c169",
+    "method": "REC-D-018",
+    "path": "governance/evidence/phase10-acceptance-001.json",
+    "repository": "scnehaux/codex-authority",
+    "revision": "360d9729310bf2903f4456f5b4464aaac17f873a"
+  },
+  "bundle": {
+    "evidence_sha256": "949d31463a22b75b6fdd9d4db07a496c1d21f06bcae85dd2249740a6e8c52247",
+    "permit_digest": "51a00232ede8227ef287af873256ca014d8721c83d837a16c4467ed36af7aa93",
+    "receipt_sha256": "f864e570fc91855de79d0f3373cd350624e2603668ed71b5ca01db3ac4e63415"
+  },
+  "candidate": {
+    "base_sha": "107f0dc53e873ef6d24a9f12cd28da7348f79331",
+    "changed_files": [
+      "PLAN.md",
+      "ROADMAP.md"
+    ],
+    "head_sha": "07a393a24c29d19de8da703c49e22a1ce30f6b51",
+    "merge_commit_sha": "915d24e861ededec0c516e9b9a95b4ca83796651",
+    "merge_method": "squash",
+    "merged_at": "2026-09-20T20:24:51Z",
+    "pull_request": 26,
+    "repository": "scnehaux/codex"
+  },
+  "claims": {
+    "effective_enforcement_proven": true,
+    "full_mirror_equivalence_proven": false,
+    "governance_1_0_ready": false,
+    "independent_human_review_proven": false,
+    "native_git_default_deletion_observed": false,
+    "phase10_status_finalized": true,
+    "standing_publication_capability": false
+  },
+  "disarm": {
+    "canonical_data_sha256": "62ff9985af29002d2ed988f4a2e2dd195492d431be5114d00c197d51fd2124b6",
+    "configuration_in_this_change": {
+      "activation": null,
+      "claims": {
+        "effective_enforcement_proven": false,
+        "live_publication_proven": false
+      },
+      "kind": "codex-controlled-publication",
+      "schema_version": 1,
+      "state": "disabled"
+    },
+    "path": "governance/controlled-publication.json",
+    "privileged_bootstrap_enabled": false,
+    "proof_captured_before_write": true,
+    "review_bootstrap_active": true,
+    "scope": "takes effect on normal merge of this completion change"
+  },
+  "kind": "codex-phase10-governed-completion",
+  "limits": [
+    "Acceptance remains bounded by the unchanged REC-D-018 scope and invalidation events.",
+    "Selected provider reads are sequential and not a signature or an atomic snapshot.",
+    "Historical component and packaging flags remain unchanged; system claims belong to scoped acceptance and this completion record.",
+    "The old 5bcff61 head bundle was superseded before publication; only the corrected 07a393a head was published.",
+    "The disarm configuration is recorded in this change; its merge and clean-main readback must be confirmed in the PR checkpoint."
+  ],
+  "next_planned_slice": "11.1 Declarative Framework Contract",
+  "postmerge": {
+    "default_branch_history_not_rewritten": true,
+    "observer": {
+      "evidence": {
+        "drift": [],
+        "drift_state": "aligned",
+        "effective_policy": {
+          "allowed_merge_methods": [
+            "squash"
+          ],
+          "bypass_allowed": false,
+          "candidate_check_context": "Governance Qualification",
+          "candidate_check_required": true,
+          "candidate_check_strict": true,
+          "changes_require_review": true,
+          "deletion_allowed": false,
+          "dismiss_stale_on_push": true,
+          "external_authority_check_context": "Codex Governance Authority",
+          "external_authority_check_required": true,
+          "external_authority_source_bound": true,
+          "force_push_allowed": false,
+          "linear_history_required": true,
+          "require_last_push_approval": false,
+          "require_qualified_owner_approval": false,
+          "require_thread_resolution": true,
+          "required_approvals": 0
+        },
+        "enforcement_state": "active",
+        "installed_state": "installed",
+        "notes": [
+          "branch-protection observation unavailable: HTTP 401: Unauthorized"
+        ],
+        "observation_state": "observed",
+        "observation_time": "2026-09-20T20:25:22.849691+00:00",
+        "observed_revision": "915d24e861ededec0c516e9b9a95b4ca83796651",
+        "provider": "github",
+        "repository": "scnehaux/codex"
+      },
+      "exit_code": 0,
+      "recorded_at": "2026-09-20T20:25:22.868728+00:00",
+      "stderr": ""
+    },
+    "reads": {
+      "effective": {
+        "completed_at": "2026-09-20T20:26:15.696257+00:00",
+        "endpoint": "repos/scnehaux/codex/rules/branches/main?per_page=100",
+        "headers": {
+          "date": "Sun, 20 Sep 2026 20:26:15 GMT",
+          "x-github-request-id": "E1E6:3C6A5D:2ED2F3B:312AEB3:6AB04167"
+        },
+        "http_status": 200,
+        "selected_body": [
+          {
+            "parameters": null,
+            "ruleset_id": 23193929,
+            "ruleset_source": "scnehaux/codex",
+            "ruleset_source_type": "Repository",
+            "type": "deletion"
+          },
+          {
+            "parameters": null,
+            "ruleset_id": 23193929,
+            "ruleset_source": "scnehaux/codex",
+            "ruleset_source_type": "Repository",
+            "type": "non_fast_forward"
+          },
+          {
+            "parameters": null,
+            "ruleset_id": 23193929,
+            "ruleset_source": "scnehaux/codex",
+            "ruleset_source_type": "Repository",
+            "type": "required_linear_history"
+          },
+          {
+            "parameters": {
+              "allowed_merge_methods": [
+                "squash"
+              ],
+              "dismiss_stale_reviews_on_push": true,
+              "dismissal_restriction": {
+                "allowed_actors": [],
+                "enabled": false
+              },
+              "require_code_owner_review": false,
+              "require_extra_approval_for_unattributed_changes": true,
+              "require_last_push_approval": false,
+              "required_approving_review_count": 0,
+              "required_review_thread_resolution": true,
+              "required_reviewers": []
+            },
+            "ruleset_id": 23193929,
+            "ruleset_source": "scnehaux/codex",
+            "ruleset_source_type": "Repository",
+            "type": "pull_request"
+          },
+          {
+            "parameters": {
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "Governance Qualification"
+                },
+                {
+                  "context": "Codex Governance Authority",
+                  "integration_id": 4864946
+                }
+              ],
+              "strict_required_status_checks_policy": true
+            },
+            "ruleset_id": 23193929,
+            "ruleset_source": "scnehaux/codex",
+            "ruleset_source_type": "Repository",
+            "type": "required_status_checks"
+          }
+        ],
+        "started_at": "2026-09-20T20:26:15.060452+00:00"
+      },
+      "pull": {
+        "completed_at": "2026-09-20T20:26:14.435422+00:00",
+        "endpoint": "repos/scnehaux/codex/pulls/26",
+        "headers": {
+          "date": "Sun, 20 Sep 2026 20:26:14 GMT",
+          "x-github-request-id": "FCB2:338821:2F98361:31F020D:6AB04165"
+        },
+        "http_status": 200,
+        "selected_body": {
+          "base_sha": "107f0dc53e873ef6d24a9f12cd28da7348f79331",
+          "head_sha": "07a393a24c29d19de8da703c49e22a1ce30f6b51",
+          "merge_commit_sha": "915d24e861ededec0c516e9b9a95b4ca83796651",
+          "merged": true,
+          "merged_at": "2026-09-20T20:24:51Z",
+          "number": 26,
+          "state": "closed"
+        },
+        "started_at": "2026-09-20T20:26:13.625055+00:00"
+      },
+      "ruleset": {
+        "completed_at": "2026-09-20T20:26:15.060389+00:00",
+        "endpoint": "repos/scnehaux/codex/rulesets/23193929",
+        "headers": {
+          "date": "Sun, 20 Sep 2026 20:26:14 GMT",
+          "x-github-request-id": "D418:202500:2F1B9FF:317285A:6AB04166"
+        },
+        "http_status": 200,
+        "selected_body": {
+          "bypass_actors": [],
+          "conditions": {
+            "ref_name": {
+              "exclude": [],
+              "include": [
+                "~DEFAULT_BRANCH"
+              ]
+            }
+          },
+          "enforcement": "active",
+          "id": 23193929,
+          "rules": [
+            {
+              "type": "deletion"
+            },
+            {
+              "type": "non_fast_forward"
+            },
+            {
+              "type": "required_linear_history"
+            },
+            {
+              "parameters": {
+                "allowed_merge_methods": [
+                  "squash"
+                ],
+                "dismiss_stale_reviews_on_push": true,
+                "dismissal_restriction": {
+                  "allowed_actors": [],
+                  "enabled": false
+                },
+                "require_code_owner_review": false,
+                "require_extra_approval_for_unattributed_changes": true,
+                "require_last_push_approval": false,
+                "required_approving_review_count": 0,
+                "required_review_thread_resolution": true,
+                "required_reviewers": []
+              },
+              "type": "pull_request"
+            },
+            {
+              "parameters": {
+                "do_not_enforce_on_create": false,
+                "required_status_checks": [
+                  {
+                    "context": "Governance Qualification"
+                  },
+                  {
+                    "context": "Codex Governance Authority",
+                    "integration_id": 4864946
+                  }
+                ],
+                "strict_required_status_checks_policy": true
+              },
+              "type": "required_status_checks"
+            }
+          ]
+        },
+        "started_at": "2026-09-20T20:26:14.435487+00:00"
+      }
+    },
+    "semantic_policy_unchanged": true,
+    "tested_rules_unchanged": true
+  },
+  "publication": {
+    "activation_commit_sha": "144ce1edc92fe39694df49a90989fb93ac81f219",
+    "activation_pr": 32,
+    "duplicate_publication_attempted": false,
+    "journal": {
+      "activation_digest": "37dae2207f0b3d47102733905898209327eeb657a105fa4b497d9152cd92a772",
+      "candidate": {
+        "base_sha": "107f0dc53e873ef6d24a9f12cd28da7348f79331",
+        "head_sha": "07a393a24c29d19de8da703c49e22a1ce30f6b51",
+        "pull_request": 26,
+        "repository": "scnehaux/codex"
+      },
+      "check_post_attempted": true,
+      "check_run_id": 106143120366,
+      "effective_enforcement_proven": false,
+      "kind": "codex-publication-outcome",
+      "permit_digest": "51a00232ede8227ef287af873256ca014d8721c83d837a16c4467ed36af7aa93",
+      "schema_version": 1,
+      "status": "published",
+      "token_revoked": true
+    },
+    "journal_canonical_sha256": "dc307752237976bdc6c04dc9339a0c601cb94da9db784126835c9e51599f7620",
+    "provider_read": {
+      "completed_at": "2026-09-20T20:26:13.624996+00:00",
+      "endpoint": "repos/scnehaux/codex/check-runs/106143120366",
+      "headers": {
+        "date": "Sun, 20 Sep 2026 20:26:13 GMT",
+        "x-github-request-id": "FCB1:19830:300CC4C:32652C5:6AB04165"
+      },
+      "http_status": 200,
+      "selected_body": {
+        "app": {
+          "id": 4864946,
+          "owner": "scnehaux",
+          "slug": "scnehaux-codex-authority"
+        },
+        "completed_at": "2026-09-20T20:21:41Z",
+        "conclusion": "success",
+        "head_sha": "07a393a24c29d19de8da703c49e22a1ce30f6b51",
+        "id": 106143120366,
+        "name": "Codex Governance Authority",
+        "started_at": "2026-09-20T20:21:41Z",
+        "status": "completed"
+      },
+      "started_at": "2026-09-20T20:26:12.883265+00:00"
+    },
+    "qualification_check_run_id": 106142550431
+  },
+  "recorded_at": "2026-09-20T20:26:15.981518+00:00",
+  "schema_version": 1,
+  "source": {
+    "authority_baseline_before_disarm": "144ce1edc92fe39694df49a90989fb93ac81f219",
+    "publisher_revision": "360d9729310bf2903f4456f5b4464aaac17f873a",
+    "runtime_revision": "d835991afe6ada47a66d012a3ddc2c4350cd9ff8",
+    "semantic_policy_blobs_unchanged": {
+      "governance/scm/enforcement-policy.yaml": "0d982747e46fed16363b0509f031366bab50b3f4",
+      "governance/scm/trust-boundary.yaml": "d46bb0f6454c3552bccd5967196844846d83bd79"
+    },
+    "service_revision": "360d9729310bf2903f4456f5b4464aaac17f873a"
+  },
+  "state": "status-merged-publication-disarmed-in-this-change"
+}

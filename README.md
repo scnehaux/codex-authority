@@ -8,7 +8,7 @@ Check through the dedicated GitHub App.
 
 ## Current state
 
-**Stage C activation and Stage D permanent maintenance are proven. Phase 10 reference-provider acceptance is recorded under owner-approved REC-D-018; the governed Codex status-closure PR remains pending. Privileged bootstrap and standing publication are disabled.**
+**Phase 10 is DONE for the declared GitHub reference-provider scope under owner-approved REC-D-018. Codex PR #26 merged through the dedicated App gate. The publication activation is disarmed by this completion change; privileged bootstrap stays disabled. Slice 11.1 is next planned, not implemented.**
 
 The earlier candidate-scoped publisher proof is captured and disarmed. The
 credential-free runtime adapter produced durable PASS evidence for disposable Codex
@@ -66,13 +66,14 @@ or a merge-blocking requirement under the current zero-approval bootstrap.
 
 The complete mirror was rejected because GitHub did not admit the Authority App
 integration ID in the earlier fixture. Its installation scope was not widened.
-Final acceptance must explicitly map the limited fixture evidence to production.
+The owner-approved scoped acceptance explicitly maps the limited fixture evidence to production.
 Those earlier records remain historical. The current scoped assessment is recorded in
 [note 0019](docs/implementation-notes/0019-phase10-scoped-acceptance.md) and
 `governance/evidence/phase10-acceptance-001.json`; it does not claim full-mirror equivalence. The
 [acceptance plan](docs/implementation-notes/0014-provider-negative-acceptance-plan.md)
-remains authoritative for those remaining obligations; configuration parity or
-isolated control success alone does not close the whole phase.
+is preserved as the original test plan; configuration parity or isolated control
+success alone did not close the phase. The later owner decision, scoped acceptance
+and governed status merge are recorded separately.
 
 No GitHub App private key, installation token, webhook secret, or other credential
 belongs in this repository.
@@ -104,8 +105,8 @@ claim is advanced by adding these historical evidence files.
 - Privileged attestations are independently administered and exact-candidate-bound;
   existing JSON records are immutable and new approvals are additive.
 - Provider ruleset activation does not by itself prove every enforcement concern.
-- Effective enforcement remains unclaimed until every applicable Phase 10
-  acceptance obligation is evidenced, not merely the completed maintenance path.
+- System-level enforcement acceptance is source- and scope-bound by the ten-row
+  assessment; maintenance proof or component self-reports alone cannot replace it.
 
 ## Architecture
 
@@ -206,12 +207,11 @@ provider enforcement; activating provider enforcement does not invent a trusted
 path for privileged governance mutation; and staging a privileged bootstrap does
 not prove or enable the permanent maintenance path.
 
-The next slice preserves the active production ruleset and the already-proven
-permanent maintenance path. Remaining provider behavior is tested only in a new
-synthetic disposable scope, with full-mirror and isolated-control results clearly
-distinguished. A copied ruleset is not itself production behavioral proof. Every
-applicable Phase 10 row and cleanup obligation needs reviewed evidence before
-`effective_enforcement_proven` can advance.
+The next planned Codex slice is 11.1, Declarative Framework Contract. Preserve
+the active production ruleset, the permanent maintenance boundary and existing
+semantics. Scoped Phase 10 acceptance does not certify later phases, a full mirror,
+independent human review or future provider behavior. Relevant changes require
+reassessment; publication always needs a new exact-candidate authorization.
 
 ## Recommendation and decision records
 
@@ -237,5 +237,7 @@ and the distinction between account identity, independent review, and full accep
 
 The [scoped acceptance record](docs/implementation-notes/0019-phase10-scoped-acceptance.md)
 owns the source-bound system assessment. Historical component false flags do not
-constitute a current global status. Codex status closure and post-merge publication
-disarm require their own governed completion record.
+constitute a current global status. The [completion record](docs/implementation-notes/0021-phase10-completion.md)
+links actual Codex PR #26 merge, source-bound publication, post-merge ALIGNED
+observation and the reviewed disarm. The review bootstrap remains active;
+Governance 1.0 and later phases are not declared ready.
