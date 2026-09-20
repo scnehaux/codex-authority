@@ -8,7 +8,7 @@
       "repository": "scnehaux/codex",
       "pull_request": 26,
       "base_sha": "107f0dc53e873ef6d24a9f12cd28da7348f79331",
-      "head_sha": "5bcff612189cf36fb66d771259f6964c3667884b"
+      "head_sha": "07a393a24c29d19de8da703c49e22a1ce30f6b51"
     },
     "runtime_package": {
       "blobs": {
@@ -44,11 +44,11 @@
       "integrations/github-app-publisher/publisher_transport.py": "03d54b7ea54296e17688eaa40a5ff0de9bbb61ca",
       "integrations/github-app-publisher/requirements.txt": "2f756e9cdf32147dcb4112754fd490c7bd90e27b"
     },
-    "permit_digest": "84d3f4749e1204661e417cf034dc514ec1128369b57b66d620a3448cbd15cab3",
-    "evidence_sha256": "abd7eb679d2b15c5e8c903e0d0a50e4a95e941a7ae0a0c85c796798609ae639c",
-    "receipt_sha256": "369fd2935407cce0e49181f4657b81dfc71e835c3f5ddb84e8f0691d16fda0c3",
-    "not_before": "2026-09-20T20:16:12Z",
-    "expires_at": "2026-09-20T20:30:12Z"
+    "permit_digest": "51a00232ede8227ef287af873256ca014d8721c83d837a16c4467ed36af7aa93",
+    "evidence_sha256": "949d31463a22b75b6fdd9d4db07a496c1d21f06bcae85dd2249740a6e8c52247",
+    "receipt_sha256": "f864e570fc91855de79d0f3373cd350624e2603668ed71b5ca01db3ac4e63415",
+    "not_before": "2026-09-20T20:19:29Z",
+    "expires_at": "2026-09-20T20:33:29Z"
   },
   "claims": {
     "live_publication_proven": false,

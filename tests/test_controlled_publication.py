@@ -173,10 +173,10 @@ class ControlledPublicationTests(unittest.TestCase):
     def test_checked_in_config_is_exact_pr26_closure_activation(self):
         a = target.load_configuration(target.CONFIG_PATH)
         self.assertEqual(a["mode"], "attested-v2")
-        self.assertEqual(a["candidate"], {'repository': 'scnehaux/codex', 'pull_request': 26, 'base_sha': '107f0dc53e873ef6d24a9f12cd28da7348f79331', 'head_sha': '5bcff612189cf36fb66d771259f6964c3667884b'})
-        self.assertEqual(a["permit_digest"], "84d3f4749e1204661e417cf034dc514ec1128369b57b66d620a3448cbd15cab3")
-        self.assertEqual(a["evidence_sha256"], "abd7eb679d2b15c5e8c903e0d0a50e4a95e941a7ae0a0c85c796798609ae639c")
-        self.assertEqual(a["receipt_sha256"], "369fd2935407cce0e49181f4657b81dfc71e835c3f5ddb84e8f0691d16fda0c3")
+        self.assertEqual(a["candidate"], {'repository': 'scnehaux/codex', 'pull_request': 26, 'base_sha': '107f0dc53e873ef6d24a9f12cd28da7348f79331', 'head_sha': '07a393a24c29d19de8da703c49e22a1ce30f6b51'})
+        self.assertEqual(a["permit_digest"], "51a00232ede8227ef287af873256ca014d8721c83d837a16c4467ed36af7aa93")
+        self.assertEqual(a["evidence_sha256"], "949d31463a22b75b6fdd9d4db07a496c1d21f06bcae85dd2249740a6e8c52247")
+        self.assertEqual(a["receipt_sha256"], "f864e570fc91855de79d0f3373cd350624e2603668ed71b5ca01db3ac4e63415")
 
     def test_disabled_configuration_still_short_circuits(self):
         config = self.directory / "disabled.json"
