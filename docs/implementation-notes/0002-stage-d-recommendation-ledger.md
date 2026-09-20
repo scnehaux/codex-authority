@@ -414,3 +414,14 @@ edits do not silently change this review's baseline.
 [R7]: https://github.com/scnehaux/codex-authority/blob/ba90331fe31b401c613f81aaf3ceea3e11d045a2/README.md
 [R8]: https://github.com/scnehaux/codex/blob/0f9dab0091746ac1232174c75ed6330b53dff750/PLAN.md
 [R9]: https://github.com/scnehaux/codex/blob/0f9dab0091746ac1232174c75ed6330b53dff750/ROADMAP.md
+
+
+## REC-D-018 decision follow-up ? accepted scoped evidence method
+
+The owner explicitly accepted REC-D-018 after the proposed dossier (PR #30),
+recorded in [issue #28](https://github.com/scnehaux/codex-authority/issues/28#issuecomment-5752319468).
+Use composed production and causally controlled disposable evidence without
+widening the production App installation. No obligation is waived and the blocked
+full mirror remains blocked. [Note 0019](0019-phase10-scoped-acceptance.md) records
+the fresh preflight, row-by-row assessment, residual limits, and separation of
+system acceptance from component self-reports and the later Codex status closure.

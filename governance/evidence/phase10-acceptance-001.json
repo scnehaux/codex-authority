@@ -1,0 +1,221 @@
+{
+  "assessed_at": "2026-09-20T20:09:34.910871+00:00",
+  "authority_revision": "251451c98eda2332674384cd56f5f02a0c42e032",
+  "claims": {
+    "all_ten_obligations_accepted_in_declared_scope": true,
+    "effective_enforcement_proven": true,
+    "full_mirror_equivalence_proven": false,
+    "independent_human_review_proven": false,
+    "native_git_default_deletion_observed": false,
+    "new_live_destructive_tests_performed": false,
+    "phase10_status_finalized": false,
+    "publication_capability_granted": false
+  },
+  "codex_revision": "107f0dc53e873ef6d24a9f12cd28da7348f79331",
+  "decision": {
+    "assessment_by": "assistant under owner-approved evidence method",
+    "independent_human_acceptance_claimed": false,
+    "method_status": "Accepted",
+    "owner_response": "oke gas",
+    "recommendation": "REC-D-018",
+    "record": "https://github.com/scnehaux/codex-authority/issues/28#issuecomment-5752319468",
+    "recorded_by": "assistant on behalf of project owner"
+  },
+  "dossier": {
+    "git_blob": "83edaf7540991ca63a7d03ac03d8903c5b02d1a6",
+    "path": "governance/evidence/phase10-acceptance-dossier-001.json",
+    "source_inventory": {
+      "isolated": {
+        "git_blob": "bc69b86743bc366072215b345a0d03b8240833b9",
+        "path": "governance/evidence/provider-negative-001.json"
+      },
+      "maintenance": {
+        "git_blob": "48fa70d93461e3b7b773ea3669445f5443f13023",
+        "path": "governance/evidence/permanent-maintenance-proof-001.json"
+      },
+      "missing_authority": {
+        "git_blob": "e7e48d7d16cfbebd483007244cb6dd77085459a4",
+        "path": "governance/evidence/provider-enforcement-001.json"
+      },
+      "native_git": {
+        "git_blob": "120270fe584ded7972e970e96bc33d36c3e70f7f",
+        "path": "governance/evidence/provider-git-transport-001.json"
+      },
+      "qualification": {
+        "git_blob": "29557244841665b5116dbebcf9989bccf35a4a30",
+        "path": "governance/evidence/provider-qualification-negative-001.json"
+      },
+      "runtime": {
+        "git_blob": "662883622642315e05b7ac72fa2f58c3a5c0f69f",
+        "path": "governance/evidence/provider-qualification-negative-001.runtime.json"
+      },
+      "stale_review": {
+        "git_blob": "1a52b9698b126311ed43246640fe492474e87e31",
+        "path": "governance/evidence/provider-stale-review-001.json"
+      },
+      "wrong_source": {
+        "git_blob": "a3530cc0227c6584f3cb361dc90fff12916c1e2e",
+        "path": "governance/evidence/provider-wrong-source-001.json"
+      }
+    }
+  },
+  "invalidation_events": [
+    "relevant provider rule or inherited/legacy protection change",
+    "semantic policy or review-bootstrap applicability change",
+    "authority App identity or permissions change",
+    "promoted runtime or privileged boundary change",
+    "contradictory provider observation"
+  ],
+  "kind": "codex-phase10-scoped-acceptance",
+  "next_step": "Codex PLAN/ROADMAP status closure through ordinary qualification, evidenced permit, dedicated-App publication and normal PR merge; then publication disarm.",
+  "preflight": {
+    "canonical_data_sha256": "92a45334ceea002a494ee8819cea18f357b32816cacfced73cca9ee7a3129a8e",
+    "path": "governance/evidence/phase10-final-preflight-001.json"
+  },
+  "qualification": {
+    "conclusion": "success",
+    "event": "push",
+    "head_sha": "107f0dc53e873ef6d24a9f12cd28da7348f79331",
+    "job": "Governance Qualification",
+    "job_id": 105959532913,
+    "observed_run_updated_at": "2026-09-19T20:08:54Z",
+    "qualify_governance_control_plane": "success",
+    "reexecuted": false,
+    "repository": "scnehaux/codex",
+    "run_attempt": 1,
+    "run_id": 35466444121,
+    "url": "https://github.com/scnehaux/codex/actions/runs/35466444121/job/105959532913",
+    "workflow": "Scnehaux Governance"
+  },
+  "residual_limits": [
+    "Full mirror remains BLOCKED; no claim of testing all combined interactions in an identical repository.",
+    "Native default-deletion evidence is REST native guard plus isolated custom deletion; unsent Git deletion has no proof credit.",
+    "Production qualification refusal had failed and missing checks; isolated status controls provide separate causal attribution.",
+    "Review bootstrap is still active; two accounts are not two independent humans.",
+    "Historical component and runtime false flags retain their local meaning; this acceptance record owns the scoped system-level assessment."
+  ],
+  "rows": [
+    {
+      "assessment": "accepted-under-rec-d-018",
+      "evidence_sources": [
+        "native_git",
+        "isolated"
+      ],
+      "id": 1,
+      "limit": "No actual Git push to production main; the original complete-mirror requirement needs an explicit method decision.",
+      "obligation": "direct-push",
+      "observation": "Observed disposable default-branch Git rejection plus successful control."
+    },
+    {
+      "assessment": "accepted-under-rec-d-018",
+      "evidence_sources": [
+        "native_git",
+        "isolated"
+      ],
+      "id": 2,
+      "limit": "Copied non-fast-forward rule on a different repository and ref; no destructive production attempt.",
+      "obligation": "force-push",
+      "observation": "Observed genuine forced rollback rejection plus matching successful control."
+    },
+    {
+      "assessment": "accepted-under-rec-d-018",
+      "evidence_sources": [
+        "isolated",
+        "native_git"
+      ],
+      "id": 3,
+      "limit": "Native Git default deletion remains unobserved; native guard is not custom-ruleset attribution.",
+      "obligation": "default-deletion",
+      "observation": "Observed REST native default guard and separately isolated custom deletion."
+    },
+    {
+      "assessment": "accepted-under-rec-d-018",
+      "evidence_sources": [
+        "qualification",
+        "runtime",
+        "isolated",
+        "missing_authority",
+        "wrong_source"
+      ],
+      "id": 4,
+      "limit": "Production refusal has two unmet checks; separate synthetic status controls supply causal isolation.",
+      "obligation": "failing-qualification",
+      "observation": "Real failing check, promoted runtime FAIL, no permit, and normal merge refusal."
+    },
+    {
+      "assessment": "accepted-under-rec-d-018",
+      "evidence_sources": [
+        "isolated",
+        "maintenance",
+        "stale_review"
+      ],
+      "id": 5,
+      "limit": "Does not satisfy the normative independent-review target or terminate its bootstrap exception.",
+      "obligation": "bootstrap-review",
+      "observation": "Zero-review squash and governed maintenance are observed under active zero-approval policy."
+    },
+    {
+      "assessment": "accepted-under-rec-d-018",
+      "evidence_sources": [
+        "isolated"
+      ],
+      "id": 6,
+      "limit": "Copied isolated PR rule, not all production gates in one mirrored environment.",
+      "obligation": "unresolved-thread",
+      "observation": "Same candidate denied before thread resolution and merged after resolution."
+    },
+    {
+      "assessment": "accepted-under-rec-d-018",
+      "evidence_sources": [
+        "stale_review"
+      ],
+      "id": 7,
+      "limit": "Distinct accounts are not independent humans; zero required approvals does not imply merge blocking after dismissal.",
+      "obligation": "stale-review",
+      "observation": "Same actual user approval became DISMISSED after a reviewable commit."
+    },
+    {
+      "assessment": "accepted-under-rec-d-018",
+      "evidence_sources": [
+        "isolated"
+      ],
+      "id": 8,
+      "limit": "Isolated PR-rule restriction; not a claim about all provider transports.",
+      "obligation": "merge-method",
+      "observation": "Merge and rebase denied while repo settings permit them; same candidate squash succeeds."
+    },
+    {
+      "assessment": "accepted-under-rec-d-018",
+      "evidence_sources": [
+        "isolated"
+      ],
+      "id": 9,
+      "limit": "Non-atomic point-in-time observation, not continuous monitoring; full details and original observer note retained in preflight.",
+      "obligation": "configuration-parity",
+      "observation": "Fresh named, effective and inherited rules match tested controls; admin legacy read reports Branch not protected; observer installed/active/aligned."
+    },
+    {
+      "assessment": "accepted-under-rec-d-018",
+      "evidence_sources": [
+        "maintenance",
+        "wrong_source"
+      ],
+      "id": 10,
+      "limit": "Static/CI evidence is separate from provider behavior; this is not a new full test execution.",
+      "obligation": "neutral-semantics",
+      "observation": "Authored neutral contract and existing exact-main qualification support the source boundary."
+    }
+  ],
+  "schema_version": 1,
+  "scope": {
+    "authority_app_id": 4864946,
+    "future_states_automatically_accepted": false,
+    "method": "composed-production-and-causally-controlled-disposable-evidence",
+    "obligation_waiver": false,
+    "provider": "github",
+    "repository": "scnehaux/codex",
+    "review_exception": "active-zero-mandatory-approvals",
+    "ruleset_id": 23193929
+  },
+  "state": "accepted-reference-provider-scope"
+}

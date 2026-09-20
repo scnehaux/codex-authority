@@ -8,7 +8,7 @@ Check through the dedicated GitHub App.
 
 ## Current state
 
-**Stage C provider activation is live. Stage D permanent privileged maintenance is proven, with bootstrap disabled. The remaining Phase 10 provider-negative acceptance matrix is still open; effective enforcement remains explicitly unclaimed.**
+**Stage C activation and Stage D permanent maintenance are proven. Phase 10 reference-provider acceptance is recorded under owner-approved REC-D-018; the governed Codex status-closure PR remains pending. Privileged bootstrap and standing publication are disabled.**
 
 The earlier candidate-scoped publisher proof is captured and disarmed. The
 credential-free runtime adapter produced durable PASS evidence for disposable Codex
@@ -67,7 +67,9 @@ or a merge-blocking requirement under the current zero-approval bootstrap.
 The complete mirror was rejected because GitHub did not admit the Authority App
 integration ID in the earlier fixture. Its installation scope was not widened.
 Final acceptance must explicitly map the limited fixture evidence to production.
-Therefore the broader effective-enforcement claim remains false. The
+Those earlier records remain historical. The current scoped assessment is recorded in
+[note 0019](docs/implementation-notes/0019-phase10-scoped-acceptance.md) and
+`governance/evidence/phase10-acceptance-001.json`; it does not claim full-mirror equivalence. The
 [acceptance plan](docs/implementation-notes/0014-provider-negative-acceptance-plan.md)
 remains authoritative for those remaining obligations; configuration parity or
 isolated control success alone does not close the whole phase.
@@ -232,3 +234,8 @@ and explicit mirror-admission and non-author-reviewer limits.
 The [stale-review follow-up](docs/implementation-notes/0016-stale-review-observation.md)
 records the later actual approval/dismissal transition, temporary-access cleanup,
 and the distinction between account identity, independent review, and full acceptance.
+
+The [scoped acceptance record](docs/implementation-notes/0019-phase10-scoped-acceptance.md)
+owns the source-bound system assessment. Historical component false flags do not
+constitute a current global status. Codex status closure and post-merge publication
+disarm require their own governed completion record.
