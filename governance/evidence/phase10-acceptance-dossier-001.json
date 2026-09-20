@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "kind": "codex-phase10-acceptance-dossier",
+  "state": "proposed-awaiting-owner-decision",
+  "prepared_on": "2026-09-21",
+  "decision_issue": "https://github.com/scnehaux/codex-authority/issues/28",
+  "baselines": {
+    "authority_repository": "scnehaux/codex-authority",
+    "authority_revision": "c21caa337fc70c44feef9f4920658e641c31a970",
+    "codex_repository": "scnehaux/codex",
+    "codex_revision": "107f0dc53e873ef6d24a9f12cd28da7348f79331"
+  },
+  "method": {
+    "recommendation": "REC-D-018",
+    "status": "Proposed",
+    "owner_decision": null,
+    "full_mirror_status": "BLOCKED",
+    "full_mirror_reason": "Invalid integration ids",
+    "requires_explicit_scope_transfer": true,
+    "requirement_waiver": false
+  },
+  "source_inventory": {
+    "isolated": {"path": "governance/evidence/provider-negative-001.json", "git_blob": "bc69b86743bc366072215b345a0d03b8240833b9"},
+    "native_git": {"path": "governance/evidence/provider-git-transport-001.json", "git_blob": "120270fe584ded7972e970e96bc33d36c3e70f7f"},
+    "qualification": {"path": "governance/evidence/provider-qualification-negative-001.json", "git_blob": "29557244841665b5116dbebcf9989bccf35a4a30"},
+    "runtime": {"path": "governance/evidence/provider-qualification-negative-001.runtime.json", "git_blob": "662883622642315e05b7ac72fa2f58c3a5c0f69f"},
+    "stale_review": {"path": "governance/evidence/provider-stale-review-001.json", "git_blob": "1a52b9698b126311ed43246640fe492474e87e31"},
+    "missing_authority": {"path": "governance/evidence/provider-enforcement-001.json", "git_blob": "e7e48d7d16cfbebd483007244cb6dd77085459a4"},
+    "wrong_source": {"path": "governance/evidence/provider-wrong-source-001.json", "git_blob": "a3530cc0227c6584f3cb361dc90fff12916c1e2e"},
+    "maintenance": {"path": "governance/evidence/permanent-maintenance-proof-001.json", "git_blob": "48fa70d93461e3b7b773ea3669445f5443f13023"}
+  },
+  "external_source_anchors": [
+    {"repository": "scnehaux/codex", "revision": "107f0dc53e873ef6d24a9f12cd28da7348f79331", "path": "PLAN.md", "git_blob": "7afca9ac483df975c79606b125e95fe0df7e1589", "section": "Slice 10.10 and Phase 10 Exit"},
+    {"repository": "scnehaux/codex", "revision": "107f0dc53e873ef6d24a9f12cd28da7348f79331", "path": "governance/scm/enforcement-policy.yaml", "git_blob": "0d982747e46fed16363b0509f031366bab50b3f4", "section": "provider-neutral contract and review bootstrap"}
+  ],
+  "rows": [
+    {
+      "id": 1, "obligation": "direct-push", "evidence_sources": ["native_git", "isolated"],
+      "assessment": "evidence-mapped-not-accepted",
+      "observation": "Observed disposable default-branch Git rejection plus successful control.",
+      "limit": "No actual Git push to production main; the original complete-mirror requirement needs an explicit method decision."
+    },
+    {
+      "id": 2, "obligation": "force-push", "evidence_sources": ["native_git", "isolated"],
+      "assessment": "evidence-mapped-not-accepted",
+      "observation": "Observed genuine forced rollback rejection plus matching successful control.",
+      "limit": "Copied non-fast-forward rule on a different repository and ref; no destructive production attempt."
+    },
+    {
+      "id": 3, "obligation": "default-deletion", "evidence_sources": ["isolated", "native_git"],
+      "assessment": "evidence-mapped-not-accepted",
+      "observation": "Observed REST native default guard and separately isolated custom deletion.",
+      "limit": "Native Git default deletion remains unobserved; native guard is not custom-ruleset attribution."
+    },
+    {
+      "id": 4, "obligation": "failing-qualification", "evidence_sources": ["qualification", "runtime", "isolated", "missing_authority", "wrong_source"],
+      "assessment": "evidence-mapped-not-accepted",
+      "observation": "Real failing check, promoted runtime FAIL, no permit, and normal merge refusal.",
+      "limit": "Production refusal has two unmet checks; separate synthetic status controls supply causal isolation."
+    },
+    {
+      "id": 5, "obligation": "bootstrap-review", "evidence_sources": ["isolated", "maintenance", "stale_review"],
+      "assessment": "evidence-mapped-not-accepted",
+      "observation": "Zero-review squash and governed maintenance are observed under active zero-approval policy.",
+      "limit": "Does not satisfy the normative independent-review target or terminate its bootstrap exception."
+    },
+    {
+      "id": 6, "obligation": "unresolved-thread", "evidence_sources": ["isolated"],
+      "assessment": "evidence-mapped-not-accepted",
+      "observation": "Same candidate denied before thread resolution and merged after resolution.",
+      "limit": "Copied isolated PR rule, not all production gates in one mirrored environment."
+    },
+    {
+      "id": 7, "obligation": "stale-review", "evidence_sources": ["stale_review"],
+      "assessment": "evidence-mapped-not-accepted",
+      "observation": "Same actual user approval became DISMISSED after a reviewable commit.",
+      "limit": "Distinct accounts are not independent humans; zero required approvals does not imply merge blocking after dismissal."
+    },
+    {
+      "id": 8, "obligation": "merge-method", "evidence_sources": ["isolated"],
+      "assessment": "evidence-mapped-not-accepted",
+      "observation": "Merge and rebase denied while repo settings permit them; same candidate squash succeeds.",
+      "limit": "Isolated PR-rule restriction; not a claim about all provider transports."
+    },
+    {
+      "id": 9, "obligation": "configuration-parity", "evidence_sources": ["isolated"],
+      "assessment": "evidence-mapped-not-accepted",
+      "observation": "Historical observer ALIGNED; this session re-read unchanged main, full named ruleset and inherited listing.",
+      "limit": "No new observer execution; effective branch-rule endpoint unsupported and legacy protection not refreshed."
+    },
+    {
+      "id": 10, "obligation": "neutral-semantics", "evidence_sources": ["maintenance", "wrong_source"],
+      "assessment": "evidence-mapped-not-accepted",
+      "observation": "Authored neutral contract and existing exact-main qualification support the source boundary.",
+      "limit": "Static/CI evidence is separate from provider behavior; this is not a new full test execution."
+    }
+  ],
+  "connector_recheck": {
+    "transport": "GitHub connector GETs; selected response metadata, not a signed capture",
+    "atomic_snapshot": false,
+    "http_capture_times_and_request_ids_available": false,
+    "repository_id": 1283007458,
+    "default_branch": "main",
+    "main_sha": "107f0dc53e873ef6d24a9f12cd28da7348f79331",
+    "ruleset_id": 23193929,
+    "enforcement": "active",
+    "bypass_actors": [],
+    "selector": {"include": ["~DEFAULT_BRANCH"], "exclude": []},
+    "rule_types": ["deletion", "non_fast_forward", "required_linear_history", "pull_request", "required_status_checks"],
+    "ruleset_updated_at": "2026-09-14T00:32:07.980+07:00",
+    "required_approving_review_count": 0,
+    "dismiss_stale_reviews_on_push": true,
+    "required_review_thread_resolution": true,
+    "allowed_rule_merge_methods": ["squash"],
+    "repository_merge_settings": {"allow_merge_commit": true, "allow_rebase_merge": true, "allow_squash_merge": true},
+    "required_status_checks": [{"context": "Governance Qualification"}, {"context": "Codex Governance Authority", "integration_id": 4864946}],
+    "inherited_listing_ids": [23193929],
+    "fixture_archives": [
+      {"repository": "scnehaux/codex-provider-proof-20260919t215355z-fd04cae4", "id": 1377645819, "archived": true},
+      {"repository": "scnehaux/codex-provider-proof-20260919t224050z-0478aef8", "id": 1377674304, "archived": true},
+      {"repository": "scnehaux/codex-provider-proof-20260920t144552z-7ef80d36", "id": 1378442804, "archived": true}
+    ],
+    "effective_branch_rules": "not_refreshed_connector_endpoint_unsupported",
+    "legacy_branch_protection": "not_refreshed_requires_admin_read",
+    "operator_device": "offline",
+    "observer_reexecuted": false,
+    "complete_live_preflight": false
+  },
+  "exact_main_ci": {
+    "repository": "scnehaux/codex",
+    "head_sha": "107f0dc53e873ef6d24a9f12cd28da7348f79331",
+    "run_id": 35466444121,
+    "job_id": 105959532913,
+    "event": "push",
+    "workflow": "Scnehaux Governance",
+    "job": "Governance Qualification",
+    "conclusion": "success",
+    "qualify_governance_control_plane": "success",
+    "run_attempt": 1,
+    "observed_run_updated_at": "2026-09-19T20:08:54Z",
+    "reexecuted": false,
+    "url": "https://github.com/scnehaux/codex/actions/runs/35466444121/job/105959532913"
+  },
+  "remaining_gates": ["owner-rec-d-018-scope-decision", "fresh-complete-source-policy-cleanup-preflight", "governed-finalization-and-unchanged-ci"],
+  "claims": {
+    "phase10_acceptance_completed": false,
+    "effective_enforcement_proven": false,
+    "full_mirror_equivalence_proven": false,
+    "independent_human_review_proven": false,
+    "new_live_behavior_tests_performed": false,
+    "production_configuration_changed": false
+  },
+  "history_policy": "Existing evidence, packaging-time flags and runtime self-reports remain immutable; later acceptance needs a separate record."
+}
