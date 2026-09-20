@@ -1,0 +1,262 @@
+{
+  "api_unknowns": [
+    {
+      "exit_code": 1,
+      "http_status": null,
+      "proof_credit": false,
+      "source_file": "0026.outcome.json",
+      "time": "2026-09-20T14:47:01.472703+00:00"
+    },
+    {
+      "exit_code": 1,
+      "http_status": null,
+      "proof_credit": false,
+      "source_file": "0054.outcome.json",
+      "time": "2026-09-20T14:54:25.676121+00:00"
+    },
+    {
+      "proof_credit": false,
+      "source_file": "0076.outcome.json",
+      "state": "UNKNOWN_TIMEOUT",
+      "time": "2026-09-20T14:59:08.200698+00:00"
+    },
+    {
+      "proof_credit": false,
+      "representation": "state reported in prior operator record; timestamp not included in this selection",
+      "source_file": "0080.outcome.json",
+      "state": "UNKNOWN_TIMEOUT"
+    }
+  ],
+  "claims": {
+    "effective_enforcement_proven": false,
+    "full_mirror_equivalence_proven": false,
+    "native_default_deletion_proven": false,
+    "native_direct_update_denial_observed_in_fixture": true,
+    "native_non_fast_forward_denial_observed_in_fixture": true,
+    "production_ref_mutations": 0
+  },
+  "cleanup": {
+    "archive": {
+      "archived": true,
+      "full_name": "scnehaux/codex-provider-proof-20260920t144552z-7ef80d36",
+      "http_status": 200,
+      "repository_id": 1378442804,
+      "request_id": "3A1D:2EC393:27B6B03:29A7B05:6AAFF497",
+      "source_file": "0074.outcome.json",
+      "time": "2026-09-20T14:58:32.312196+00:00"
+    },
+    "open_prs": {
+      "body": [],
+      "http_status": 200,
+      "request_id": "3AC0:258095:283D64A:2A30169:6AAFF56A",
+      "source_file": "0078.outcome.json",
+      "time": "2026-09-20T15:02:02.667618+00:00"
+    },
+    "repository_deleted": false
+  },
+  "excluded_attempts": {
+    "03-control-force": {
+      "original_client_exit_known": false,
+      "proof_credit": false,
+      "reconciled_remote_sha": "3aaa08ce7bec866520177057897c1cb98bdded82",
+      "reconciliation_file": "03-control-force.reconciliation.json",
+      "reconciliation_time": "2026-09-20T14:54:14.392959+00:00",
+      "source_file": "03-control-force.git-unknown.json",
+      "state": "UNKNOWN_LOCAL_PROCESS_HANG",
+      "time": "2026-09-20T14:53:43.876604+00:00"
+    },
+    "11-delete-positive": {
+      "after": null,
+      "exit_code": 1,
+      "proof_credit": false,
+      "source_file": "11-delete-positive.git-outcome.json",
+      "state": "CLIENT_ERROR_AND_REF_ABSENT",
+      "stderr": "error: failed to push some refs to 'https://github.com/scnehaux/codex-provider-proof-20260920t144552z-7ef80d36.git'\n",
+      "stdout": "To https://github.com/scnehaux/codex-provider-proof-20260920t144552z-7ef80d36.git\n!\t:refs/heads/control-delete\t[remote rejected] (cannot lock ref 'refs/heads/control-delete': unable to resolve reference 'refs/heads/control-delete')\nDone\n",
+      "time": "2026-09-20T14:56:48.483074+00:00"
+    }
+  },
+  "final_native_deletion_sequence": {
+    "proof_credit": false,
+    "provider_denial_observed": false,
+    "state": "BLOCKED_BY_TOOL_SAFETY_NOT_SENT"
+  },
+  "fixture": {
+    "baseline": "7710e75a5e45e16bfbbefc15104d4c143519a23a",
+    "child": "3aaa08ce7bec866520177057897c1cb98bdded82",
+    "full_name": "scnehaux/codex-provider-proof-20260920t144552z-7ef80d36",
+    "id": 1378442804,
+    "rules_scope": "isolated-controls-not-full-production-mirror",
+    "rulesets": {
+      "deletion": 23730755,
+      "non_fast_forward": 23730754,
+      "pull_request": 23730753
+    },
+    "source_revision": "107f0dc53e873ef6d24a9f12cd28da7348f79331"
+  },
+  "kind": "codex-provider-native-git-observation",
+  "references": [
+    "https://github.com/scnehaux/codex-authority/issues/28"
+  ],
+  "results": [
+    {
+      "intent": {
+        "arguments": [
+          "push",
+          "--porcelain",
+          "https://github.com/scnehaux/codex-provider-proof-20260920t144552z-7ef80d36.git",
+          "3aaa08ce7bec866520177057897c1cb98bdded82:refs/heads/control-update"
+        ],
+        "before": "7710e75a5e45e16bfbbefc15104d4c143519a23a",
+        "expected": "allow",
+        "fixture": "scnehaux/codex-provider-proof-20260920t144552z-7ef80d36",
+        "fixture_id": 1378442804,
+        "force_with_explicit_lease": false,
+        "ref": "refs/heads/control-update",
+        "target": "3aaa08ce7bec866520177057897c1cb98bdded82",
+        "time": "2026-09-20T14:50:17.630061+00:00"
+      },
+      "outcome": {
+        "after": "3aaa08ce7bec866520177057897c1cb98bdded82",
+        "exit_code": 0,
+        "expected_rejection": false,
+        "label": "01-control-update",
+        "stderr": "",
+        "stdout": "To https://github.com/scnehaux/codex-provider-proof-20260920t144552z-7ef80d36.git\n \t3aaa08ce7bec866520177057897c1cb98bdded82:refs/heads/control-update\t7710e75..3aaa08c\nDone\n",
+        "time": "2026-09-20T14:50:26.135171+00:00"
+      },
+      "source_intent_file": "01-control-update.git-intent.json",
+      "source_outcome_file": "01-control-update.git-outcome.json"
+    },
+    {
+      "intent": {
+        "arguments": [
+          "push",
+          "--porcelain",
+          "https://github.com/scnehaux/codex-provider-proof-20260920t144552z-7ef80d36.git",
+          "3aaa08ce7bec866520177057897c1cb98bdded82:refs/heads/main"
+        ],
+        "before": "7710e75a5e45e16bfbbefc15104d4c143519a23a",
+        "expected": "reject",
+        "fixture": "scnehaux/codex-provider-proof-20260920t144552z-7ef80d36",
+        "fixture_id": 1378442804,
+        "force_with_explicit_lease": false,
+        "ref": "refs/heads/main",
+        "target": "3aaa08ce7bec866520177057897c1cb98bdded82",
+        "time": "2026-09-20T14:50:28.139106+00:00"
+      },
+      "outcome": {
+        "after": "7710e75a5e45e16bfbbefc15104d4c143519a23a",
+        "exit_code": 1,
+        "expected_rejection": true,
+        "label": "02-direct-default-denial",
+        "stderr": "remote: error: GH013: Repository rule violations found for refs/heads/main.        \nremote: Review all repository rules at https://github.com/scnehaux/codex-provider-proof-20260920t144552z-7ef80d36/rules?ref=refs%2Fheads%2Fmain        \nremote: \nremote: - Changes must be made through a pull request.        \nremote: \nerror: failed to push some refs to 'https://github.com/scnehaux/codex-provider-proof-20260920t144552z-7ef80d36.git'\n",
+        "stdout": "To https://github.com/scnehaux/codex-provider-proof-20260920t144552z-7ef80d36.git\n!\t3aaa08ce7bec866520177057897c1cb98bdded82:refs/heads/main\t[remote rejected] (push declined due to repository rule violations)\nDone\n",
+        "time": "2026-09-20T14:50:31.672078+00:00"
+      },
+      "source_intent_file": "02-direct-default-denial.git-intent.json",
+      "source_outcome_file": "02-direct-default-denial.git-outcome.json"
+    },
+    {
+      "intent": {
+        "arguments": [
+          "push",
+          "--porcelain",
+          "--force-with-lease=refs/heads/control-force-03:",
+          "https://github.com/scnehaux/codex-provider-proof-20260920t144552z-7ef80d36.git",
+          "3aaa08ce7bec866520177057897c1cb98bdded82:refs/heads/control-force-03"
+        ],
+        "before": null,
+        "expected": "allow",
+        "fixture": "scnehaux/codex-provider-proof-20260920t144552z-7ef80d36",
+        "fixture_id": 1378442804,
+        "force_with_explicit_lease": true,
+        "ref": "refs/heads/control-force-03",
+        "target": "3aaa08ce7bec866520177057897c1cb98bdded82",
+        "time": "2026-09-20T14:55:54.823334+00:00"
+      },
+      "outcome": {
+        "after": "3aaa08ce7bec866520177057897c1cb98bdded82",
+        "exit_code": 0,
+        "expected_rejection": false,
+        "label": "08-new-force-control",
+        "stderr": "remote: \nremote: Create a pull request for 'control-force-03' on GitHub by visiting:        \nremote:      https://github.com/scnehaux/codex-provider-proof-20260920t144552z-7ef80d36/pull/new/control-force-03        \nremote: \n",
+        "stdout": "To https://github.com/scnehaux/codex-provider-proof-20260920t144552z-7ef80d36.git\n*\t3aaa08ce7bec866520177057897c1cb98bdded82:refs/heads/control-force-03\t[new branch]\nDone\n",
+        "time": "2026-09-20T14:56:02.178595+00:00"
+      },
+      "source_intent_file": "08-new-force-control.git-intent.json",
+      "source_outcome_file": "08-new-force-control.git-outcome.json"
+    },
+    {
+      "intent": {
+        "arguments": [
+          "push",
+          "--porcelain",
+          "--force-with-lease=refs/heads/control-force-03:3aaa08ce7bec866520177057897c1cb98bdded82",
+          "https://github.com/scnehaux/codex-provider-proof-20260920t144552z-7ef80d36.git",
+          "7710e75a5e45e16bfbbefc15104d4c143519a23a:refs/heads/control-force-03"
+        ],
+        "before": "3aaa08ce7bec866520177057897c1cb98bdded82",
+        "expected": "allow",
+        "fixture": "scnehaux/codex-provider-proof-20260920t144552z-7ef80d36",
+        "fixture_id": 1378442804,
+        "force_with_explicit_lease": true,
+        "ref": "refs/heads/control-force-03",
+        "target": "7710e75a5e45e16bfbbefc15104d4c143519a23a",
+        "time": "2026-09-20T14:56:03.981091+00:00"
+      },
+      "outcome": {
+        "after": "7710e75a5e45e16bfbbefc15104d4c143519a23a",
+        "exit_code": 0,
+        "expected_rejection": false,
+        "label": "09-force-positive",
+        "stderr": "",
+        "stdout": "To https://github.com/scnehaux/codex-provider-proof-20260920t144552z-7ef80d36.git\n+\t7710e75a5e45e16bfbbefc15104d4c143519a23a:refs/heads/control-force-03\t3aaa08c...7710e75 (forced update)\nDone\n",
+        "time": "2026-09-20T14:56:08.076599+00:00"
+      },
+      "source_intent_file": "09-force-positive.git-intent.json",
+      "source_outcome_file": "09-force-positive.git-outcome.json"
+    },
+    {
+      "intent": {
+        "arguments": [
+          "push",
+          "--porcelain",
+          "--force-with-lease=refs/heads/isolate-force:3aaa08ce7bec866520177057897c1cb98bdded82",
+          "https://github.com/scnehaux/codex-provider-proof-20260920t144552z-7ef80d36.git",
+          "7710e75a5e45e16bfbbefc15104d4c143519a23a:refs/heads/isolate-force"
+        ],
+        "before": "3aaa08ce7bec866520177057897c1cb98bdded82",
+        "expected": "reject",
+        "fixture": "scnehaux/codex-provider-proof-20260920t144552z-7ef80d36",
+        "fixture_id": 1378442804,
+        "force_with_explicit_lease": true,
+        "ref": "refs/heads/isolate-force",
+        "target": "7710e75a5e45e16bfbbefc15104d4c143519a23a",
+        "time": "2026-09-20T14:56:17.483881+00:00"
+      },
+      "outcome": {
+        "after": "3aaa08ce7bec866520177057897c1cb98bdded82",
+        "exit_code": 1,
+        "expected_rejection": true,
+        "label": "10-force-negative",
+        "stderr": "remote: error: GH013: Repository rule violations found for refs/heads/isolate-force.        \nremote: Review all repository rules at https://github.com/scnehaux/codex-provider-proof-20260920t144552z-7ef80d36/rules?ref=refs%2Fheads%2Fisolate-force        \nremote: \nremote: - Cannot force-push to this branch        \nremote: \nerror: failed to push some refs to 'https://github.com/scnehaux/codex-provider-proof-20260920t144552z-7ef80d36.git'\n",
+        "stdout": "To https://github.com/scnehaux/codex-provider-proof-20260920t144552z-7ef80d36.git\n!\t7710e75a5e45e16bfbbefc15104d4c143519a23a:refs/heads/isolate-force\t[remote rejected] (push declined due to repository rule violations)\nDone\n",
+        "time": "2026-09-20T14:56:20.964401+00:00"
+      },
+      "source_intent_file": "10-force-negative.git-intent.json",
+      "source_outcome_file": "10-force-negative.git-outcome.json"
+    }
+  ],
+  "run_id": "20260920t144552z-7ef80d36",
+  "schema_version": 1,
+  "source": {
+    "complete_original_capture_included": false,
+    "operator_run": "provider-negative-20260920t144552z-7ef80d36",
+    "original_api_pairs_retained_locally": 80,
+    "representation": "selected-projection-of-read-only-operator-captures",
+    "state_file": "state.json",
+    "summary_file": "git-observations.json"
+  },
+  "transport": "git-receive-pack-over-https"
+}

@@ -1,0 +1,206 @@
+{
+  "candidate": {
+    "base_sha": "107f0dc53e873ef6d24a9f12cd28da7348f79331",
+    "changed_files": [
+      "provider-qualification-negative.md"
+    ],
+    "head_sha": "e1b58e898fe2428faebbc8f5aba2941fc7ef9b1e",
+    "pull_request": 25,
+    "repository": "scnehaux/codex"
+  },
+  "claims": {
+    "effective_enforcement_proven": false,
+    "full_framework_suite_ran_on_candidate": false,
+    "production_main_mutated": false,
+    "qualification_only_merge_denial_proven": false,
+    "real_qualification_failure_observed": true
+  },
+  "cleanup": {
+    "branch_retained_for_inspection": true,
+    "closed_without_merge": true,
+    "reported_by": "provider-negative-summary.json",
+    "underlying_capture_file": "10-close.outcome.json"
+  },
+  "issuer": {
+    "authority_check_published": false,
+    "decision": "fail",
+    "evidence_recorded": true,
+    "permit_issued": false,
+    "reasons": [
+      "candidate-qualification-failed"
+    ],
+    "receipt_issued": false,
+    "reported_status": "blocked",
+    "runtime_result_sha256": "11fc9baebef84a6f56fe4aca4e7ef2b02a90c635ece797f40dec6fbe1e48f811"
+  },
+  "kind": "codex-provider-qualification-negative-observation",
+  "main_observation": {
+    "after": {
+      "capture_file": "08-main-after.outcome.json",
+      "http_status": 200,
+      "request_id": "387E:D62CA:27BF9F9:29AE6C2:6AAFF2E4",
+      "sha": "107f0dc53e873ef6d24a9f12cd28da7348f79331",
+      "time": "2026-09-20T14:51:17.595018+00:00"
+    },
+    "before": {
+      "capture_file": "03-main-before.outcome.json",
+      "http_status": 200,
+      "request_id": "386F:289E6F:26E7D1C:28D7E1E:6AAFF2DE",
+      "sha": "107f0dc53e873ef6d24a9f12cd28da7348f79331",
+      "time": "2026-09-20T14:51:11.163025+00:00"
+    }
+  },
+  "merge_attempt": {
+    "body": {
+      "merge_method": "squash",
+      "sha": "e1b58e898fe2428faebbc8f5aba2941fc7ef9b1e"
+    },
+    "endpoint": "repos/scnehaux/codex/pulls/25/merge",
+    "exit_code": 1,
+    "http_status": 405,
+    "intent_file": "07-merge-denial.intent.json",
+    "intent_time": "2026-09-20T14:51:13.814215+00:00",
+    "message": "Repository rule violations found\n\n2 of 2 required status checks have not succeeded: 1 expected and 1 failing.\n\n",
+    "method": "PUT",
+    "outcome_file": "07-merge-denial.outcome.json",
+    "qualification_only_causal_isolation": false,
+    "request_id": "3878:363034:26EAE81:28D8D69:6AAFF2E2",
+    "response_time": "2026-09-20T14:51:15.960489+00:00"
+  },
+  "recorded_at": "2026-09-20T14:51:20.273487+00:00",
+  "references": [
+    "https://github.com/scnehaux/codex/pull/25",
+    "https://github.com/scnehaux/codex/pull/25#issuecomment-5750631347",
+    "https://github.com/scnehaux/codex-authority/issues/28"
+  ],
+  "schema_version": 1,
+  "scope_limits": [
+    "Real production-repository PR, not a mutation of production main.",
+    "Formatting failure is the deliberately tested qualification failure; later steps were skipped.",
+    "Merge refusal had two unmet required checks; no synthetic Authority success was created.",
+    "Prior isolated status tests provide separate causal controls, not automatic full acceptance."
+  ],
+  "source": {
+    "authority_baseline": "11d13b4ec7b9dd0051116d73e33d785f3d2651fa",
+    "complete_original_capture_included": false,
+    "operator_run": "pr25-qualification-failure-e1b58e8-01",
+    "original_request_outcome_pairs_retained_locally": 10,
+    "representation": "selected-projection-of-read-only-operator-captures",
+    "runtime_artifact": "provider-qualification-negative-001.runtime.json",
+    "summary_file": "provider-negative-summary.json"
+  },
+  "workflow": {
+    "capture_file": "05-workflow-jobs.outcome.json",
+    "capture_http_status": 200,
+    "capture_request_id": "3875:A4CC5:26F53A2:28E3085:6AAFF2E0",
+    "capture_time": "2026-09-20T14:51:12.855757+00:00",
+    "check_run_id": 106095659722,
+    "completed_at": "2026-09-20T14:45:32Z",
+    "conclusion": "failure",
+    "failed_step": "Validate document formatting",
+    "head_sha": "e1b58e898fe2428faebbc8f5aba2941fc7ef9b1e",
+    "job_id": 106095659722,
+    "name": "Governance Qualification",
+    "run_id": 35517446154,
+    "started_at": "2026-09-20T14:45:16Z",
+    "status": "completed",
+    "steps_through_qualification": [
+      {
+        "conclusion": "success",
+        "name": "Set up job",
+        "number": 1
+      },
+      {
+        "conclusion": "success",
+        "name": "Checkout exact revision",
+        "number": 2
+      },
+      {
+        "conclusion": "success",
+        "name": "Setup Python",
+        "number": 3
+      },
+      {
+        "conclusion": "success",
+        "name": "Setup Node",
+        "number": 4
+      },
+      {
+        "conclusion": "success",
+        "name": "Install deterministic Python toolchain",
+        "number": 5
+      },
+      {
+        "conclusion": "success",
+        "name": "Resolve committed mutation baseline",
+        "number": 6
+      },
+      {
+        "conclusion": "success",
+        "name": "Validate SCM trust-boundary contract",
+        "number": 7
+      },
+      {
+        "conclusion": "success",
+        "name": "Validate provider-neutral SCM desired-state semantics",
+        "number": 8
+      },
+      {
+        "conclusion": "success",
+        "name": "Validate GitHub reference-provider projection",
+        "number": 9
+      },
+      {
+        "conclusion": "success",
+        "name": "Validate Python quality",
+        "number": 10
+      },
+      {
+        "conclusion": "skipped",
+        "name": "Explain Python formatting drift",
+        "number": 11
+      },
+      {
+        "conclusion": "failure",
+        "name": "Validate document formatting",
+        "number": 12
+      },
+      {
+        "conclusion": "skipped",
+        "name": "Verify generated projections",
+        "number": 13
+      },
+      {
+        "conclusion": "skipped",
+        "name": "Explain generated projection drift",
+        "number": 14
+      },
+      {
+        "conclusion": "skipped",
+        "name": "Check waiver expiry",
+        "number": 15
+      },
+      {
+        "conclusion": "skipped",
+        "name": "Verify immutable Genesis root",
+        "number": 16
+      },
+      {
+        "conclusion": "skipped",
+        "name": "Validate current governed snapshot",
+        "number": 17
+      },
+      {
+        "conclusion": "skipped",
+        "name": "Validate committed mutation delta",
+        "number": 18
+      },
+      {
+        "conclusion": "skipped",
+        "name": "Qualify governance control plane",
+        "number": 19
+      }
+    ],
+    "workflow": "Scnehaux Governance"
+  }
+}

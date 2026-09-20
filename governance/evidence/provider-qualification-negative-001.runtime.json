@@ -1,0 +1,46 @@
+{
+  "authority_service_source_revision": "11d13b4ec7b9dd0051116d73e33d785f3d2651fa",
+  "decision_record": {
+    "decision": "fail",
+    "kind": "codex-authority-decision-evidence",
+    "reasons": [
+      "candidate-qualification-failed"
+    ],
+    "request": {
+      "head_sha": "e1b58e898fe2428faebbc8f5aba2941fc7ef9b1e",
+      "pull_request": 25,
+      "repository": "scnehaux/codex"
+    },
+    "schema_version": 1,
+    "snapshot": {
+      "base_sha": "107f0dc53e873ef6d24a9f12cd28da7348f79331",
+      "changed_files": [
+        "provider-qualification-negative.md"
+      ],
+      "head_sha": "e1b58e898fe2428faebbc8f5aba2941fc7ef9b1e",
+      "pull_request": 25,
+      "repository": "scnehaux/codex",
+      "state": "open"
+    },
+    "source": {
+      "evaluator_source_revision": "23b05a855419b86b61b0c9266805bb66b143c366",
+      "runtime_source_revision": "d835991afe6ada47a66d012a3ddc2c4350cd9ff8"
+    }
+  },
+  "kind": "codex-authority-attested-decision-evidence",
+  "runtime_package": {
+    "blobs": {
+      "attested_runtime.py": "c9a0c3bf2fd3c33be4deb1b1e5fc624d1b0b796a",
+      "evaluator.py": "ab2f152c21bd6d6f22df21172c4d027035ff8c11",
+      "promotion.json": "f8f67280baf1c8725f67592d015ff37be2c4a4c3",
+      "runtime-promotion.json": "83658bf5a44d22804d1628074dd8f27a7047d68e",
+      "runtime.py": "c59911e9c0800c917fed21e6f33f3181c3a61e60"
+    },
+    "entrypoint": "attested_runtime.py",
+    "repository": "scnehaux/codex",
+    "source_revision": "d835991afe6ada47a66d012a3ddc2c4350cd9ff8"
+  },
+  "runtime_result_json": "{\r\n  \"authority_binding_advanced\": false,\r\n  \"base_sha\": \"107f0dc53e873ef6d24a9f12cd28da7348f79331\",\r\n  \"candidate_code_executed\": false,\r\n  \"candidate_evidence\": {\r\n    \"api_changed_file_records\": 1,\r\n    \"base_ref\": \"main\",\r\n    \"changed_files_verified\": true,\r\n    \"files_pages_read\": 1,\r\n    \"identity_verified\": true,\r\n    \"pull_state\": \"open\",\r\n    \"source\": \"github-pull-request-api\",\r\n    \"touched_paths\": 1\r\n  },\r\n  \"candidate_manifest\": {\r\n    \"base_sha\": \"107f0dc53e873ef6d24a9f12cd28da7348f79331\",\r\n    \"changed_files\": [\r\n      \"provider-qualification-negative.md\"\r\n    ],\r\n    \"head_sha\": \"e1b58e898fe2428faebbc8f5aba2941fc7ef9b1e\",\r\n    \"pull_request\": 25,\r\n    \"repository\": \"scnehaux/codex\",\r\n    \"schema_version\": 1\r\n  },\r\n  \"candidate_sha\": \"e1b58e898fe2428faebbc8f5aba2941fc7ef9b1e\",\r\n  \"credentials_used\": false,\r\n  \"effective_enforcement_proven\": false,\r\n  \"evaluator_result\": {\r\n    \"authority_promoted\": false,\r\n    \"authority_source_revision\": \"23b05a855419b86b61b0c9266805bb66b143c366\",\r\n    \"base_sha\": \"107f0dc53e873ef6d24a9f12cd28da7348f79331\",\r\n    \"candidate_code_executed\": false,\r\n    \"candidate_qualification\": \"fail\",\r\n    \"candidate_sha\": \"e1b58e898fe2428faebbc8f5aba2941fc7ef9b1e\",\r\n    \"check_context\": \"Codex Governance Authority\",\r\n    \"credentials_used\": false,\r\n    \"decision_scope\": \"staging-offline\",\r\n    \"effective_enforcement_proven\": false,\r\n    \"facts_provenance_verified\": false,\r\n    \"failure_reasons\": [\r\n      \"candidate-qualification-failed\"\r\n    ],\r\n    \"governance_decision\": \"fail\",\r\n    \"notice\": \"Deterministic staging decision only. Caller-supplied facts have no provenance proof here; the result cannot be published as Codex Governance Authority until a trusted promoted runtime collects them.\",\r\n    \"privileged_validation\": \"not_required\",\r\n    \"protected_mutations\": [],\r\n    \"publish_enabled\": false,\r\n    \"pull_request\": 25,\r\n    \"repository\": \"scnehaux/codex\",\r\n    \"requires_privileged_validation\": false,\r\n    \"schema_version\": 2,\r\n    \"status\": \"evaluation_complete\"\r\n  },\r\n  \"facts_collected_independently\": true,\r\n  \"facts_provenance_verified\": false,\r\n  \"failure_reasons\": [\r\n    \"candidate-qualification-failed\"\r\n  ],\r\n  \"governance_decision\": \"fail\",\r\n  \"kind\": \"codex-attested-runtime-result\",\r\n  \"notice\": \"Candidate capability only. Requires independent promotion and a version-aware Authority adapter; not a publication permit.\",\r\n  \"original_evaluation\": {\r\n    \"evaluator_result\": {\r\n      \"authority_promoted\": false,\r\n      \"authority_source_revision\": \"23b05a855419b86b61b0c9266805bb66b143c366\",\r\n      \"base_sha\": \"107f0dc53e873ef6d24a9f12cd28da7348f79331\",\r\n      \"candidate_code_executed\": false,\r\n      \"candidate_qualification\": \"fail\",\r\n      \"candidate_sha\": \"e1b58e898fe2428faebbc8f5aba2941fc7ef9b1e\",\r\n      \"check_context\": \"Codex Governance Authority\",\r\n      \"credentials_used\": false,\r\n      \"decision_scope\": \"staging-offline\",\r\n      \"effective_enforcement_proven\": false,\r\n      \"facts_provenance_verified\": false,\r\n      \"failure_reasons\": [\r\n        \"candidate-qualification-failed\"\r\n      ],\r\n      \"governance_decision\": \"fail\",\r\n      \"notice\": \"Deterministic staging decision only. Caller-supplied facts have no provenance proof here; the result cannot be published as Codex Governance Authority until a trusted promoted runtime collects them.\",\r\n      \"privileged_validation\": \"not_required\",\r\n      \"protected_mutations\": [],\r\n      \"publish_enabled\": false,\r\n      \"pull_request\": 25,\r\n      \"repository\": \"scnehaux/codex\",\r\n      \"requires_privileged_validation\": false,\r\n      \"schema_version\": 2,\r\n      \"status\": \"evaluation_complete\"\r\n    },\r\n    \"governance_decision\": \"fail\",\r\n    \"runtime_failure_reasons\": []\r\n  },\r\n  \"privileged_validation_evidence\": {\r\n    \"status\": \"not_required\"\r\n  },\r\n  \"publish_enabled\": false,\r\n  \"pull_request\": 25,\r\n  \"qualification_evidence\": {\r\n    \"app_id\": 15368,\r\n    \"app_slug\": \"github-actions\",\r\n    \"check_run_id\": 106095659722,\r\n    \"conclusion\": \"failure\",\r\n    \"details_url\": \"https://github.com/scnehaux/codex/actions/runs/35517446154/job/106095659722\",\r\n    \"head_sha\": \"e1b58e898fe2428faebbc8f5aba2941fc7ef9b1e\",\r\n    \"name\": \"Governance Qualification\",\r\n    \"source\": \"github-checks-api\",\r\n    \"source_verified\": true,\r\n    \"status\": \"completed\"\r\n  },\r\n  \"repository\": \"scnehaux/codex\",\r\n  \"runtime_failure_reasons\": [],\r\n  \"runtime_only_protected_mutations\": [],\r\n  \"runtime_source_promoted\": false,\r\n  \"schema_version\": 2,\r\n  \"source_dependencies\": {\r\n    \"blobs\": {\r\n      \"evaluator.py\": \"ab2f152c21bd6d6f22df21172c4d027035ff8c11\",\r\n      \"promotion.json\": \"f8f67280baf1c8725f67592d015ff37be2c4a4c3\",\r\n      \"runtime-promotion.json\": \"83658bf5a44d22804d1628074dd8f27a7047d68e\",\r\n      \"runtime.py\": \"c59911e9c0800c917fed21e6f33f3181c3a61e60\"\r\n    },\r\n    \"collector_revision\": \"cbd64f78c8f72f28880d4673729a796b249d8eae\",\r\n    \"evaluator_revision\": \"23b05a855419b86b61b0c9266805bb66b143c366\"\r\n  },\r\n  \"status\": \"attested_runtime_evaluation_complete\"\r\n}\r\n",
+  "runtime_result_sha256": "11fc9baebef84a6f56fe4aca4e7ef2b02a90c635ece797f40dec6fbe1e48f811",
+  "schema_version": 1
+}
