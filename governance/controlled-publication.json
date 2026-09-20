@@ -1,57 +1,10 @@
 {
-  "schema_version": 1,
-  "kind": "codex-controlled-publication",
-  "state": "candidate-proof",
-  "activation": {
-    "mode": "attested-v2",
-    "candidate": {
-      "repository": "scnehaux/codex",
-      "pull_request": 26,
-      "base_sha": "107f0dc53e873ef6d24a9f12cd28da7348f79331",
-      "head_sha": "07a393a24c29d19de8da703c49e22a1ce30f6b51"
-    },
-    "runtime_package": {
-      "blobs": {
-        "attested_runtime.py": "c9a0c3bf2fd3c33be4deb1b1e5fc624d1b0b796a",
-        "evaluator.py": "ab2f152c21bd6d6f22df21172c4d027035ff8c11",
-        "promotion.json": "f8f67280baf1c8725f67592d015ff37be2c4a4c3",
-        "runtime-promotion.json": "83658bf5a44d22804d1628074dd8f27a7047d68e",
-        "runtime.py": "c59911e9c0800c917fed21e6f33f3181c3a61e60"
-      },
-      "entrypoint": "attested_runtime.py",
-      "repository": "scnehaux/codex",
-      "source_revision": "d835991afe6ada47a66d012a3ddc2c4350cd9ff8"
-    },
-    "authority_service_source_revision": "360d9729310bf2903f4456f5b4464aaac17f873a",
-    "publisher_source_revision": "360d9729310bf2903f4456f5b4464aaac17f873a",
-    "publisher_source_blobs": {
-      "src/codex_authority/__init__.py": "31549232f3462478b5cb405ed8b5c02486e2a7f2",
-      "src/codex_authority/model.py": "66baa88d159bea10cf57ec15f411af88f3e283c1",
-      "src/codex_authority/ports.py": "786cc0c28557f0f06b52250f1ab48f94e339d4f9",
-      "src/codex_authority/policy.py": "7ca36baf7b0f8d45a7db27eb15e027d8f5d20e61",
-      "src/codex_authority/service.py": "b4825af287dad112b7839616c88ba9a2f906d3b0",
-      "src/codex_authority/publication.py": "340732d326e90637c6a1486ffd2f77068748da32",
-      "src/codex_authority/evidence.py": "516df07c873fc42328b490fe984ac90662d17395",
-      "src/codex_authority/privileged.py": "1a29d15a587d5bc5924e610351d3b10d102e1ff8",
-      "src/codex_authority/attested_contract.py": "94457e76ed297936c528f4f959347a55e306d3fb",
-      "src/codex_authority/attested_handover.py": "bca72f281b9fb20d89627eddbddcdf21f159ecf6",
-      "src/codex_authority/controlled_evidence.py": "08beef826f1a51f41e869c0c51181a858b4f8c1a",
-      "src/codex_authority/adapters/__init__.py": "6be550d778b8c2ea22f72f625e1821f7e2a2b1b5",
-      "src/codex_authority/adapters/promoted_runtime.py": "93811e0dd541a48793eaabb487bea8fb8277be56",
-      "src/codex_authority/adapters/attested_runtime.py": "3173a03d9c483a0a6cc573c90c2be668be393f52",
-      "integrations/github-app-publisher/controlled_publisher.py": "b6abd17cab7ca6721de59810ae2f802c14b9a623",
-      "integrations/github-app-publisher/publisher_contract.py": "4b2ab8d9a5da6bda794586b43255688d7dc961fe",
-      "integrations/github-app-publisher/publisher_transport.py": "03d54b7ea54296e17688eaa40a5ff0de9bbb61ca",
-      "integrations/github-app-publisher/requirements.txt": "2f756e9cdf32147dcb4112754fd490c7bd90e27b"
-    },
-    "permit_digest": "51a00232ede8227ef287af873256ca014d8721c83d837a16c4467ed36af7aa93",
-    "evidence_sha256": "949d31463a22b75b6fdd9d4db07a496c1d21f06bcae85dd2249740a6e8c52247",
-    "receipt_sha256": "f864e570fc91855de79d0f3373cd350624e2603668ed71b5ca01db3ac4e63415",
-    "not_before": "2026-09-20T20:19:29Z",
-    "expires_at": "2026-09-20T20:33:29Z"
-  },
+  "activation": null,
   "claims": {
-    "live_publication_proven": false,
-    "effective_enforcement_proven": false
-  }
+    "effective_enforcement_proven": false,
+    "live_publication_proven": false
+  },
+  "kind": "codex-controlled-publication",
+  "schema_version": 1,
+  "state": "disabled"
 }
