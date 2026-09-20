@@ -75,6 +75,13 @@ isolated control success alone does not close the whole phase.
 No GitHub App private key, installation token, webhook secret, or other credential
 belongs in this repository.
 
+The [qualification and native-Git evidence package](docs/implementation-notes/0017-offline-provider-evidence-package.md)
+adds selected captures for the real Codex PR #25 qualification failure and native
+Git control observations, with 30 offline integrity tests. Its manifest records
+the original packaging-time state; the linked integration follow-up and PR record
+separately track repository integration. No runtime, provider policy or acceptance
+claim is advanced by adding these historical evidence files.
+
 ## Trust boundary
 
 - `scnehaux/codex` owns governance framework semantics and the promoted runtime.

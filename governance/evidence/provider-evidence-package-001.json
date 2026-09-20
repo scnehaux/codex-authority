@@ -1,0 +1,61 @@
+{
+  "acceptance_proposal": {
+    "acceptance_not_implied_by_packaging": true,
+    "id": "REC-D-018",
+    "state": "Proposed"
+  },
+  "artifact_representation": "selected operator-capture projections; not all original files",
+  "artifacts": [
+    {
+      "canonical_data_sha256": "57acd9b9fcea9c100a1f2ef6c496cf7e9074f32e6bad88a3695cb3626801de81",
+      "path": "provider-qualification-negative-001.json"
+    },
+    {
+      "canonical_data_sha256": "af29cd794de7b6655fe3305c3ea3d2f68175ba6b4245c57209b70623bdd1812c",
+      "path": "provider-qualification-negative-001.runtime.json"
+    },
+    {
+      "canonical_data_sha256": "a7575d1bf95eab35ecf561f5028a759ef4e07e274623080c2127cbae59d72d06",
+      "path": "provider-git-transport-001.json"
+    }
+  ],
+  "claims": {
+    "effective_enforcement_proven": false,
+    "full_mirror_equivalence_proven": false,
+    "new_live_test_execution_performed": false,
+    "phase10_acceptance_completed": false,
+    "production_configuration_changed": false,
+    "repository_ci_completed_for_this_package": false
+  },
+  "integration_state": "not_applied_to_repository",
+  "kind": "codex-offline-evidence-review-package",
+  "limitations": [
+    "Package digests bind these selected files, not signatures or independently authenticated evidence.",
+    "The complete ten-pair qualification capture and eighty-pair transport capture remain operator-local.",
+    "The runtime string checksum matches the captured raw wire; enclosing JSON has been reserialized.",
+    "Local branch creation was blocked; this package was produced in the ChatGPT sandbox only.",
+    "No denied operation was retried through another execution channel.",
+    "Repository integration, independent review and complete unchanged CI remain pending."
+  ],
+  "runtime_wire": {
+    "artifact": "provider-qualification-negative-001.runtime.json",
+    "captured_sha256": "11fc9baebef84a6f56fe4aca4e7ef2b02a90c635ece797f40dec6fbe1e48f811",
+    "embedded_string_matches_captured_digest": true,
+    "encoding": "utf-8",
+    "field": "runtime_result_json"
+  },
+  "schema_version": 1,
+  "serialization": {
+    "allow_nan": false,
+    "ensure_ascii": true,
+    "profile": "sorted-compact-ascii-json-plus-lf-v1",
+    "separators": [
+      ",",
+      ":"
+    ],
+    "sort_keys": true,
+    "trailing_lf": true
+  },
+  "target_baseline": "11d13b4ec7b9dd0051116d73e33d785f3d2651fa",
+  "target_repository": "scnehaux/codex-authority"
+}
