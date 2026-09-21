@@ -6,14 +6,12 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE = ROOT / "governance/evidence/phase11-slice11.2-completion-001.json"
-PUBLICATION = ROOT / "governance/controlled-publication.json"
 
 
 class Slice112CompletionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.data = json.loads(EVIDENCE.read_text(encoding="utf-8"))
-        cls.publication = json.loads(PUBLICATION.read_text(encoding="utf-8"))
 
     def test_exact_candidate_and_merge(self):
         candidate = self.data["candidate"]
@@ -61,9 +59,11 @@ class Slice112CompletionTests(unittest.TestCase):
             "051625a811cb91f1d920af3fb66fe716a48ff7b498e5df7b23fdee374d1544e7",
         )
 
-    def test_checked_in_publication_is_disabled_and_unbound(self):
-        self.assertEqual(self.publication["state"], "disabled")
-        self.assertIsNone(self.publication["activation"])
+    def test_completion_record_captures_disarm_without_freezing_future_config(self):
+        lifecycle = self.data["lifecycle"]
+        self.assertEqual(lifecycle["checked_in_publication_target_state"], "disabled")
+        self.assertIsNone(lifecycle["checked_in_activation_target"])
+        self.assertIs(lifecycle["disarm_requires_this_pr_merge"], True)
         self.assertIs(self.data["claims"]["publication_standing_capability"], False)
 
     def test_privileged_bootstrap_remains_disabled(self):
