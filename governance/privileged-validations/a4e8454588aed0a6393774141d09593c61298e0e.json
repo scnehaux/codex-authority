@@ -1,0 +1,49 @@
+{
+  "authority": {
+    "default_branch": "main",
+    "mode": "privileged-explicit",
+    "repository": "scnehaux/codex-authority"
+  },
+  "candidate": {
+    "base_sha": "c26a80d791be2c65b3b4c628435a1e4ee1fdc4c4",
+    "changed_files": [
+      "PLAN.md",
+      "ROADMAP.md",
+      "engine/control/INDEX.md",
+      "engine/control/auditors/registry_integrity_auditor.py",
+      "engine/control/framework/__init__.py",
+      "engine/control/framework/artifacts.py",
+      "engine/control/framework/contracts.py",
+      "engine/control/framework/equivalence.py",
+      "engine/control/framework/executable.py",
+      "engine/control/framework/relationships.py",
+      "engine/control/governance/lifecycle.py",
+      "engine/control/governance/relationships.py",
+      "engine/control/parsing/markdown_ast.py",
+      "engine/control/repository/assembler.py",
+      "engine/control/validators/registry.py",
+      "generators/generate_maturity_dashboard.py",
+      "governance/GDC-001-fitness-functions.md",
+      "governance/framework/README.md",
+      "governance/framework/contract-set.yaml",
+      "governance/framework/source-layout.yaml",
+      "scripts/framework_contract_check.py",
+      "tests/INDEX.md",
+      "tests/control/framework/test_declarative_contracts.py",
+      "tests/control/framework/test_executable_framework.py",
+      "tests/control/framework/test_relationship_runtime.py"
+    ],
+    "head_sha": "a4e8454588aed0a6393774141d09593c61298e0e",
+    "pull_request": 30,
+    "repository": "scnehaux/codex"
+  },
+  "claims": {
+    "candidate_code_executed": false,
+    "credentials_used": false,
+    "exact_candidate_binding": true
+  },
+  "contract_version": 1,
+  "decision": "pass",
+  "kind": "codex-privileged-validation-attestation",
+  "scope": "protected-governance-maintenance"
+}
