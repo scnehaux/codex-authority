@@ -1,0 +1,84 @@
+{
+  "authority": {
+    "attestation_merge_revision": "26ac91801e191432684199c5d7cd86badde767af",
+    "privileged_bootstrap_enabled": false,
+    "publication_activation_merge_revision": "83d8590f8495838fde8bd1db29e574a8056b0dfd",
+    "publisher_source_revision": "26ac91801e191432684199c5d7cd86badde767af",
+    "runtime_source_revision": "d835991afe6ada47a66d012a3ddc2c4350cd9ff8"
+  },
+  "bundle": {
+    "evidence_sha256": "39665d80446d9223605d7ecf43bd8b645fabb11b94b42407b18c3fcd7878d7c2",
+    "permit_digest": "912152d54843d651f7a7fb65f654063c9108577680be3b0b4cf6a1a48b99c54b",
+    "receipt_sha256": "cbae75b81f4bd7375789f1adceef64546222cc393cffe238af1935cec7315a02"
+  },
+  "candidate": {
+    "base_sha": "c26a80d791be2c65b3b4c628435a1e4ee1fdc4c4",
+    "head_sha": "a4e8454588aed0a6393774141d09593c61298e0e",
+    "merge_commit_sha": "f71a51f38aba87a33d8a529400bde6584c9d403d",
+    "pull_request": 30,
+    "repository": "scnehaux/codex"
+  },
+  "claims": {
+    "artifact_layout_lifecycle_runtime_authority_migrated": true,
+    "executable_framework_compiled": true,
+    "phase11_completed": false,
+    "publication_standing_capability": false,
+    "relationship_runtime_authority_migrated": true,
+    "schema_boundary_slice_completed": false,
+    "single_framework_runtime_composition_root": true,
+    "slice11_4_completed": true
+  },
+  "framework": {
+    "contract_sha256": "cbaebcf32b9391eb3d2cf8cbc6d508141006c83307c4165772008c4217a8c2ef",
+    "runtime_authority": "executable-framework",
+    "semantic_sha256": "6f7e79c82aea1342d7f8eed9d2181383bb52b349f30af3cdf7ea3c609cf14980"
+  },
+  "kind": "codex-phase11-slice11.4-completion-evidence",
+  "lifecycle": {
+    "checked_in_activation_target": null,
+    "checked_in_publication_target_state": "disabled",
+    "disarm_requires_this_pr_merge": true
+  },
+  "post_merge": {
+    "observer_drift_state": "aligned",
+    "observer_enforcement_state": "active",
+    "observer_installed_state": "installed",
+    "observer_revision": "f71a51f38aba87a33d8a529400bde6584c9d403d",
+    "push_ci": [
+      {
+        "conclusion": "success",
+        "name": "Scnehaux Governance",
+        "run_id": 35645568892
+      },
+      {
+        "conclusion": "success",
+        "name": "Governance Evaluator Runtime Source Promotion",
+        "run_id": 35645568823
+      },
+      {
+        "conclusion": "success",
+        "name": "Local App Tooling",
+        "run_id": 35645568873
+      }
+    ]
+  },
+  "publication": {
+    "app_id": 4864946,
+    "app_owner": "scnehaux",
+    "app_slug": "scnehaux-codex-authority",
+    "check_name": "Codex Governance Authority",
+    "check_run_id": 106484885476,
+    "conclusion": "success",
+    "head_sha": "a4e8454588aed0a6393774141d09593c61298e0e",
+    "status": "published",
+    "token_revoked": true
+  },
+  "qualification": {
+    "conclusion": "success",
+    "job_id": 106481884610,
+    "name": "Governance Qualification",
+    "workflow_run_id": 35644606181
+  },
+  "recorded_at": "2026-09-21T19:36:00Z",
+  "schema_version": 1
+}
