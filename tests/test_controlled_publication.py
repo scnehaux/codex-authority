@@ -170,19 +170,14 @@ class ControlledPublicationTests(unittest.TestCase):
         self.assertTrue(result["token_revoked"])
         self.assertEqual(len([c for c in transport.calls if c[0] == "POST" and c[1].endswith("/check-runs")]), 1)
 
-    def test_checked_in_config_is_exact_pr28_slice11_2_activation(self):
-        a = target.load_configuration(target.CONFIG_PATH)
-        self.assertIsNotNone(a)
-        self.assertEqual(a["mode"], "attested-v2")
-        self.assertEqual(a["candidate"], {
-            "repository": "scnehaux/codex",
-            "pull_request": 28,
-            "base_sha": "cd1bca012a389626937bd2bfb9808a7412a94f6d",
-            "head_sha": "fc75857f281641215db91b9fd2bcdb1ef5768a8b",
-        })
-        self.assertEqual(a["permit_digest"], "0da1ee853958596b3597982cc6b511bef01b67dd48a73c098a2814a801933cc6")
-        self.assertEqual(a["evidence_sha256"], "8742439df35a827c4b256736004ac95c07545d21c70398bdc948299a57c1a04a")
-        self.assertEqual(a["receipt_sha256"], "b7934ba97f54aa2b6a0c964fa182d9e19b0d22d2d397fa1c61ff481f508aebc8")
+    def test_checked_in_config_is_disabled_after_phase11_slice_11_2(self):
+        with patch.object(target, "make_jwt") as key, patch.object(target, "_request") as request:
+            result = target.execute("absent", "absent", "absent")
+            self.assertEqual(result["status"], "controlled_publication_disabled")
+            with self.assertRaises(HandoverError):
+                target.execute("absent", "absent", "absent", write=True)
+            key.assert_not_called()
+            request.assert_not_called()
 
     def test_disabled_configuration_still_short_circuits(self):
         config = self.directory / "disabled.json"
