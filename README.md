@@ -8,7 +8,7 @@ Check through the dedicated GitHub App.
 
 ## Current state
 
-**Phase 10 is DONE for the declared GitHub reference-provider scope under owner-approved REC-D-018. Phase 11 Slice 11.1 is now merged through Codex PR #27: the versioned declarative framework contract mirror, strict loader, and equivalence gate are installed. This completion change disarms its publication activation; privileged bootstrap stays disabled. Runtime semantic authority remains legacy Python until Slices 11.2/11.3, with compiler cutover deferred to 11.4.**
+**Phase 10 is DONE for the declared GitHub reference-provider scope under owner-approved REC-D-018. Phase 11 Slices 11.1 and 11.2 are complete through governed Codex PRs #27 and #28. Artifact vocabulary, repository layout, lifecycle policy, schema bindings, and validator bindings now derive from the declarative framework runtime view. Relationship semantics remain Python-authored until Slice 11.3; the full deterministic ExecutableFramework compiler remains Slice 11.4. Standing publication and privileged bootstrap are disabled.**
 
 The earlier candidate-scoped publisher proof is captured and disarmed. The
 credential-free runtime adapter produced durable PASS evidence for disposable Codex
@@ -207,11 +207,12 @@ provider enforcement; activating provider enforcement does not invent a trusted
 path for privileged governance mutation; and staging a privileged bootstrap does
 not prove or enable the permanent maintenance path.
 
-The next planned Codex slice is 11.1, Declarative Framework Contract. Preserve
-the active production ruleset, the permanent maintenance boundary and existing
-semantics. Scoped Phase 10 acceptance does not certify later phases, a full mirror,
-independent human review or future provider behavior. Relevant changes require
-reassessment; publication always needs a new exact-candidate authorization.
+The next planned Codex slice is 11.3, Relationship Ontology. Preserve the active
+production ruleset, permanent maintenance boundary, declarative artifact/layout/
+lifecycle authority, and existing relationship meaning during that cutover. Slice
+11.2 completion does not certify the later compiler, repository-ingestion, extension,
+compatibility, or Governance 1.0 phases. Relevant changes require reassessment;
+publication always needs a new exact-candidate authorization.
 
 ## Recommendation and decision records
 
