@@ -8,7 +8,7 @@ Check through the dedicated GitHub App.
 
 ## Current state
 
-**Phase 10 is DONE for the declared GitHub reference-provider scope under owner-approved REC-D-018. Phase 11 Slices 11.1 and 11.2 are complete through governed Codex PRs #27 and #28. Artifact vocabulary, repository layout, lifecycle policy, schema bindings, and validator bindings now derive from the declarative framework runtime view. Relationship semantics remain Python-authored until Slice 11.3; the full deterministic ExecutableFramework compiler remains Slice 11.4. Standing publication and privileged bootstrap are disabled.**
+**Phase 10 is DONE for the declared GitHub reference-provider scope under owner-approved REC-D-018. Phase 11 Slices 11.1, 11.2, and 11.3 are complete through governed Codex PRs #27, #28, and #29. Artifact vocabulary, repository layout, lifecycle policy, schema/validator bindings, and relationship ontology now derive from governed declarative typed runtime views. Python retains compatibility and behavioral execution only for those migrated semantics. The full deterministic ExecutableFramework compiler remains Slice 11.4. Standing publication and privileged bootstrap are disabled.**
 
 The earlier candidate-scoped publisher proof is captured and disarmed. The
 credential-free runtime adapter produced durable PASS evidence for disposable Codex
@@ -207,12 +207,14 @@ provider enforcement; activating provider enforcement does not invent a trusted
 path for privileged governance mutation; and staging a privileged bootstrap does
 not prove or enable the permanent maintenance path.
 
-The next planned Codex slice is 11.3, Relationship Ontology. Preserve the active
-production ruleset, permanent maintenance boundary, declarative artifact/layout/
-lifecycle authority, and existing relationship meaning during that cutover. Slice
-11.2 completion does not certify the later compiler, repository-ingestion, extension,
-compatibility, or Governance 1.0 phases. Relevant changes require reassessment;
-publication always needs a new exact-candidate authorization.
+The next planned Codex slice is 11.4, FrameworkCompiler + ExecutableFramework.
+Preserve the active production ruleset, permanent maintenance boundary, and the
+established declarative artifact/layout/lifecycle/binding and relationship meaning
+while subsuming the temporary typed projections into one deterministic immutable
+runtime authority. Slice 11.3 completion does not certify the later validation,
+repository-ingestion, snapshot, extension, compatibility, or Governance 1.0 phases.
+Relevant changes require reassessment; publication always needs a new exact-candidate
+authorization.
 
 ## Recommendation and decision records
 
