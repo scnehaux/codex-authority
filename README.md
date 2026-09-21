@@ -8,7 +8,7 @@ Check through the dedicated GitHub App.
 
 ## Current state
 
-**Phase 10 is DONE for the declared GitHub reference-provider scope under owner-approved REC-D-018. Codex PR #26 merged through the dedicated App gate. The publication activation is disarmed by this completion change; privileged bootstrap stays disabled. Slice 11.1 is next planned, not implemented.**
+**Phase 10 is DONE for the declared GitHub reference-provider scope under owner-approved REC-D-018. Phase 11 Slice 11.1 is now merged through Codex PR #27: the versioned declarative framework contract mirror, strict loader, and equivalence gate are installed. This completion change disarms its publication activation; privileged bootstrap stays disabled. Runtime semantic authority remains legacy Python until Slices 11.2/11.3, with compiler cutover deferred to 11.4.**
 
 The earlier candidate-scoped publisher proof is captured and disarmed. The
 credential-free runtime adapter produced durable PASS evidence for disposable Codex
