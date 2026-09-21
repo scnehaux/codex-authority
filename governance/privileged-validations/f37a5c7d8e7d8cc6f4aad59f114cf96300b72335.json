@@ -1,0 +1,51 @@
+{
+  "authority": {
+    "default_branch": "main",
+    "mode": "privileged-explicit",
+    "repository": "scnehaux/codex-authority"
+  },
+  "candidate": {
+    "base_sha": "915d24e861ededec0c516e9b9a95b4ca83796651",
+    "changed_files": [
+      "Makefile",
+      "PLAN.md",
+      "ROADMAP.md",
+      "engine/control/INDEX.md",
+      "engine/control/framework/contracts.py",
+      "engine/control/framework/equivalence.py",
+      "engine/control/governance/readiness.py",
+      "governance/GDC-001-fitness-functions.md",
+      "governance/framework/README.md",
+      "governance/framework/contract-set.yaml",
+      "governance/framework/contracts/artifact-types.yaml",
+      "governance/framework/contracts/extensions.yaml",
+      "governance/framework/contracts/governance-policy.yaml",
+      "governance/framework/contracts/identity.yaml",
+      "governance/framework/contracts/lifecycle.yaml",
+      "governance/framework/contracts/relationships.yaml",
+      "governance/framework/contracts/repository-layout.yaml",
+      "governance/framework/contracts/schema-bindings.yaml",
+      "governance/framework/contracts/validator-bindings.yaml",
+      "governance/framework/source-layout.yaml",
+      "scripts/INDEX.md",
+      "scripts/framework_contract_check.py",
+      "scripts/governance_qualify.py",
+      "tests/INDEX.md",
+      "tests/control/framework/test_declarative_contracts.py",
+      "tests/scripts/test_framework_contract_check.py",
+      "tests/scripts/test_makefile_generated_state.py"
+    ],
+    "head_sha": "f37a5c7d8e7d8cc6f4aad59f114cf96300b72335",
+    "pull_request": 27,
+    "repository": "scnehaux/codex"
+  },
+  "claims": {
+    "candidate_code_executed": false,
+    "credentials_used": false,
+    "exact_candidate_binding": true
+  },
+  "contract_version": 1,
+  "decision": "pass",
+  "kind": "codex-privileged-validation-attestation",
+  "scope": "protected-governance-maintenance"
+}
