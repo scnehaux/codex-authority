@@ -209,6 +209,14 @@ python -I scripts/verify_privileged_attestation_history.py
 test -z "$(git status --porcelain --untracked-files=all)"
 ```
 
+Before requesting a new publication activation, run the credential-free environment
+diagnostic with `python -I -B scripts/check_publisher_environment.py`. It checks only
+the current process, never opens a key or accesses the network, and emits no
+publication capability. In particular, a normal-shell PASS says nothing about a
+later sanitized child environment. The pinned historical resolver and any tool
+execution restrictions remain unchanged. See the
+[offline preflight note](docs/implementation-notes/0041-offline-publisher-environment-preflight.md).
+
 The authority core has no third-party runtime dependency. The credential-bearing
 publisher uses separately pinned `PyJWT` and `cryptography` dependencies only
 for an explicit authenticated publication run.

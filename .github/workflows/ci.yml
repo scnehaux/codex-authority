@@ -25,6 +25,9 @@ jobs:
         with:
           python-version: "3.13"
 
+      - name: Offline publisher environment preflight
+        run: python -I -B scripts/check_publisher_environment.py
+
       - name: Compile
         run: python -I -m compileall -q src scripts tests integrations/github-app-publisher
 
@@ -48,3 +51,50 @@ jobs:
 
       - name: Assert verification leaves no tracked or untracked drift
         run: test -z "$(git status --porcelain --untracked-files=all)"
+
+  windows-foundation:
+    name: Windows Offline Preflight
+    runs-on: windows-2025
+    timeout-minutes: 5
+    steps:
+      - name: Checkout without retained credentials
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: "3.13"
+
+      - name: Offline publisher environment preflight
+        run: python -I -B scripts/check_publisher_environment.py
+
+      - name: Compile
+        run: python -I -m compileall -q src scripts tests integrations/github-app-publisher
+
+      - name: Run unit tests
+        run: python -I -m unittest discover -s tests -v
+
+      - name: Verify hardened foundation contracts
+        run: python -I scripts/verify_foundation.py
+
+      - name: Verify staged publisher contracts
+        run: python -I scripts/verify_publisher.py
+
+      - name: Verify candidate-scoped publisher proof
+        run: python -I scripts/verify_publisher_proof.py
+
+      - name: Verify privileged maintenance contracts
+        run: python -I scripts/verify_privileged_maintenance.py
+
+      - name: Verify privileged attestation history
+        run: python -I scripts/verify_privileged_attestation_history.py
+
+      - name: Assert verification leaves no tracked or untracked drift
+        shell: pwsh
+        run: |
+          $status = git status --porcelain --untracked-files=all
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          if ($status) { throw "Verification changed the checkout." }
