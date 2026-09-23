@@ -1,0 +1,4 @@
+# Source-pinned proof verification hashes exact checkout bytes.
+# Keep Python identical to canonical Git blobs, including on Windows.
+*.py text eol=lf
+.gitattributes text eol=lf

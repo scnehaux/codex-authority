@@ -182,6 +182,13 @@ notes and must not masquerade as Codex ADR artifacts.
 
 ## Local verification
 
+Source-pinned publisher proofs compare exact file bytes with historical Git blobs.
+The repository `.gitattributes` requires LF for Python files, including Windows
+checkouts with `core.autocrlf=true`. Existing clones may need a clean re-checkout
+of affected files after saving any local edits; do not normalize inside the hash
+verifier or rewrite historical proof hashes. See the
+[checkout integrity note](docs/implementation-notes/0037-windows-publisher-checkout-bytes.md).
+
 Python 3.13+:
 
 ```bash
