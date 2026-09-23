@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "kind": "codex-phase11-slice11.6-publication-stop-evidence",
+  "recorded_at": "2026-09-23T19:36:15Z",
+  "candidate": {
+    "repository": "scnehaux/codex",
+    "pull_request": 32,
+    "base_sha": "bfea97e841616a2880e28d2cfa177712209520f6",
+    "head_sha": "fa733509974b048c587e9066690cfa7267313b77",
+    "changed_file_count": 18,
+    "state": "open",
+    "merged": false
+  },
+  "authority": {
+    "checkout_fix_merge_revision": "fbadadd78d7a353dfc2b4d62d90628c56e50e5bc",
+    "attestation_merge_revision": "49416a36cae7df0671cc307c5faf40ecf2a97f6d",
+    "publication_activation_merge_revision": "5e1c9415b95a4dd96855347a6bd0eeb0a120c459",
+    "runtime_source_revision": "d835991afe6ada47a66d012a3ddc2c4350cd9ff8",
+    "privileged_bootstrap_enabled": false
+  },
+  "evaluation": {
+    "initial_decision": "fail",
+    "initial_reasons": [
+      "runtime-critical-mutation-requires-privileged-validation"
+    ],
+    "after_attestation_decision": "pass",
+    "attestation_status": "verified",
+    "candidate_code_executed": false,
+    "credentials_used": false,
+    "qualification": {
+      "app_id": 15368,
+      "app_slug": "github-actions",
+      "check_run_id": 107343701998,
+      "conclusion": "success",
+      "details_url": "https://github.com/scnehaux/codex/actions/runs/35908977562/job/107343701998",
+      "head_sha": "fa733509974b048c587e9066690cfa7267313b77",
+      "name": "Governance Qualification",
+      "source": "github-checks-api",
+      "source_verified": true,
+      "status": "completed"
+    }
+  },
+  "bundle": {
+    "permit_digest": "054a0b79f324caecb4093be4406fa874f02e348165087df04f7ecb991deb2e8e",
+    "evidence_sha256": "eb55f0b0e6f06e52970001588d226a69e6d01cb44e4acbee3b5a52788883b23b",
+    "receipt_sha256": "27df80598ce166935aea150fbd1003293ae89705bb6c156567cfd7f35dba089d"
+  },
+  "publication": {
+    "status": "not-published",
+    "check_post_attempted": false,
+    "check_run_id": null,
+    "observed_authority_check_count": 0,
+    "local_attempt_journal_count": 0,
+    "token_issued": false,
+    "token_revoked": null,
+    "first_invocation_failure": "default-key-path-resolution-before-publisher",
+    "offline_diagnostic": "RuntimeError: Could not determine home directory; _publish not called",
+    "corrective_invocation": "blocked-by-tool-safety-before-execution",
+    "blind_retry_performed": false
+  },
+  "claims": {
+    "slice11_6_completed": false,
+    "governed_merge_completed": false,
+    "validated_repository_snapshot_completed": false,
+    "phase11_completed": false,
+    "architecture_admission_open": false,
+    "standing_publication_capability": false
+  },
+  "lifecycle": {
+    "checked_in_publication_target_state": "disabled",
+    "checked_in_activation_target": null,
+    "disarm_requires_this_pr_merge": true,
+    "exported_operational_copy_disabled": true,
+    "resume_requires_new_separately_authorized_activation": true
+  }
+}

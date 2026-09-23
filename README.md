@@ -8,7 +8,14 @@ Check through the dedicated GitHub App.
 
 ## Current state
 
-**Phase 10 is DONE for the declared GitHub reference-provider scope under owner-approved REC-D-018. Phase 11 Slices 11.1 through 11.5 are complete through governed Codex PRs #27–#31. Governed declarative contracts compile into one deterministic immutable ExecutableFramework, JSON Schema is structural-only, and typed candidate validation/promotion prevents invalid candidates from entering repository state. Slice 11.6 is next for provenance-bound repository ingestion. Standing publication and privileged bootstrap are disabled.**
+**Phase 10 is DONE for the declared GitHub reference-provider scope under owner-approved REC-D-018. Phase 11 Slices 11.1 through 11.5 are complete through governed Codex PRs #27â€“#31. Governed declarative contracts compile into one deterministic immutable ExecutableFramework, JSON Schema is structural-only, and typed candidate validation/promotion prevents invalid candidates from entering repository state. Slice 11.6 is next for provenance-bound repository ingestion. Standing publication and privileged bootstrap are disabled.**
+
+Slice 11.6 is now submitted as Codex PR #32 with successful candidate qualification,
+merged exact attestation and a fresh permanent-runtime PASS. Its required
+dedicated-App check was not published because execution stopped before the check
+POST. The [PR #32 stop/disarm record](docs/implementation-notes/0040-pr32-publication-stopped-and-disarmed.md)
+retains the source-bound status; controlled publication is disabled and the Codex
+PR remains unmerged. This does not complete Slice 11.6 or authorize Slice 11.7.
 
 The earlier candidate-scoped publisher proof is captured and disarmed. The
 credential-free runtime adapter produced durable PASS evidence for disposable Codex
