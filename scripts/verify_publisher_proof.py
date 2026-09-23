@@ -74,10 +74,16 @@ def _historical_git(*args: str) -> bytes:
                 *args,
             ],
             env={
-                key: value
-                for key, value in os.environ.items()
-                if not key.upper().startswith("GIT_")
+                **{
+                    key: value
+                    for key, value in os.environ.items()
+                    if not key.upper().startswith("GIT_")
+                },
+                # Object verification must not lazily fetch from a promisor remote.
+                "GIT_ALLOW_PROTOCOL": "",
+                "GIT_TERMINAL_PROMPT": "0",
             },
+            stdin=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
             timeout=10,
         )

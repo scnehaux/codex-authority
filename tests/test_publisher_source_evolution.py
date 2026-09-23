@@ -148,9 +148,15 @@ class PublisherSourceEvolutionTests(unittest.TestCase):
                 run.call_args.args[0][:3],
                 ["git", "--no-replace-objects", "--literal-pathspecs"],
             )
-            self.assertFalse(
-                any(k.upper().startswith("GIT_") for k in run.call_args.kwargs["env"])
+            controlled = {
+                k: v
+                for k, v in run.call_args.kwargs["env"].items()
+                if k.upper().startswith("GIT_")
+            }
+            self.assertEqual(
+                controlled, {"GIT_ALLOW_PROTOCOL": "", "GIT_TERMINAL_PROMPT": "0"}
             )
+            self.assertEqual(run.call_args.kwargs["stdin"], subprocess.DEVNULL)
             self.assertEqual(run.call_args.kwargs["timeout"], 10)
 
     def test_real_git_replacement_refs_cannot_rewrite_historical_evidence(self):
@@ -209,6 +215,19 @@ class PublisherSourceEvolutionTests(unittest.TestCase):
                 self.assertEqual(
                     TARGET.read_historical_publisher_source("example.py"), original
                 )
+
+    def test_object_reader_disallows_even_local_remote_transport(self):
+        with tempfile.TemporaryDirectory() as directory:
+            # Local-only fixture: no network endpoint or credential is involved.
+            subprocess.run(
+                ["git", "init", "--bare", "--quiet", directory],
+                check=True,
+                capture_output=True,
+            )
+            with self.assertRaisesRegex(
+                SystemExit, "historical publisher Git source unavailable"
+            ):
+                TARGET._historical_git("ls-remote", directory)
 
     def test_missing_historical_revision_never_falls_back_to_head(self):
         with (

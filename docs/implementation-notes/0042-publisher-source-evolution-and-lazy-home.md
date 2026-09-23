@@ -31,7 +31,8 @@ introduced by resolution. The existing private-key and transport boundaries rema
 Keep `PUBLISHER_FILES` and `AUTHORITY_REVISION` unchanged as the historical proof
 identity. `read_historical_publisher_source` now verifies original commit/path,
 regular-file mode, blob ID, bounded size and raw bytes using Git objects. Replacement
-objects and inherited GIT_* redirection are disabled. Missing history fails closed;
+objects and inherited GIT_* redirection are disabled. Fixed process-local protocol
+and prompt denial prevent lazy-fetch transport, including on Git 2.39. Missing history fails closed;
 there is no fallback to HEAD, checkout content or network fetching.
 
 `CURRENT_PUBLISHER_FILES` separately pins development-checkout bytes. Its only
@@ -64,7 +65,7 @@ future source-maintenance PRs; activation remains separately pinned and gated.
 Eight resolver tests reproduce failure before the fix and pass after it, including
 a native minimal Windows process with LOCALAPPDATA but no home variables. Invalid
 explicit configuration and absence of both supported locations remain blocked.
-Ten source-evolution tests preserve original hashes and test current-file mutation,
+Eleven source-evolution tests preserve original hashes and test current-file mutation,
 missing history, bad tree/mode/path/blob/size, redacted Git errors and real commit/blob
 replacement refs. The offline preflight's missing-both-locations denial is explicit.
 All tests use synthetic locations and do not access operator credentials.
@@ -91,6 +92,7 @@ https://docs.python.org/3.13/library/pathlib.html#pathlib.Path.home
 Git documents object inspection and replacement-object controls:
 https://git-scm.com/docs/git-cat-file
 https://git-scm.com/docs/git-replace
+https://git-scm.com/docs/git/2.39.0 (GIT_ALLOW_PROTOCOL)
 These references support the mechanics, not this project's operational readiness.
 This recommendation refines REC-D-001/004; it does not supersede their separation
 between source changes, promotion and effective execution.
