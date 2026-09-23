@@ -1,0 +1,42 @@
+{
+  "authority": {
+    "default_branch": "main",
+    "mode": "privileged-explicit",
+    "repository": "scnehaux/codex-authority"
+  },
+  "candidate": {
+    "base_sha": "bfea97e841616a2880e28d2cfa177712209520f6",
+    "changed_files": [
+      "PLAN.md",
+      "ROADMAP.md",
+      "engine/control/INDEX.md",
+      "engine/control/fs/source_path.py",
+      "engine/control/repository/__init__.py",
+      "engine/control/repository/assembler.py",
+      "engine/control/repository/git_ingestion.py",
+      "engine/control/validation/pipeline.py",
+      "engine/core/knowledge/provenance.py",
+      "engine/core/metamodel/artifact.py",
+      "governance/GDC-001-fitness-functions.md",
+      "governance/framework/README.md",
+      "governance/framework/source-layout.yaml",
+      "tests/INDEX.md",
+      "tests/control/repository/test_git_ingestion.py",
+      "tests/control/repository/test_git_ingestion_regressions.py",
+      "tests/core/knowledge/test_provenance.py",
+      "tests/core/metamodel/test_artifact.py"
+    ],
+    "head_sha": "fa733509974b048c587e9066690cfa7267313b77",
+    "pull_request": 32,
+    "repository": "scnehaux/codex"
+  },
+  "claims": {
+    "candidate_code_executed": false,
+    "credentials_used": false,
+    "exact_candidate_binding": true
+  },
+  "contract_version": 1,
+  "decision": "pass",
+  "kind": "codex-privileged-validation-attestation",
+  "scope": "protected-governance-maintenance"
+}
