@@ -11,7 +11,7 @@ PUBLISHER_ROOT = ROOT / "integrations/github-app-publisher"
 
 
 def _load_resolver():
-    # Reuse the historical verifier's pins; do not create a second source authority.
+    # Reuse current development source pins; historical proof stays revision-bound.
     spec = importlib.util.spec_from_file_location(
         "_publisher_preflight_proof", ROOT / "scripts/verify_publisher_proof.py"
     )
@@ -19,7 +19,7 @@ def _load_resolver():
         raise RuntimeError("proof-verifier-unavailable")
     proof = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(proof)
-    for name, expected in proof.PUBLISHER_FILES.items():
+    for name, expected in proof.CURRENT_PUBLISHER_FILES.items():
         if proof.git_blob_sha(PUBLISHER_ROOT / name) != expected:
             raise RuntimeError("publisher-source-mismatch")
     sys.path.insert(0, str(PUBLISHER_ROOT))

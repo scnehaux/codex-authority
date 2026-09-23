@@ -30,10 +30,22 @@ TOKEN_PERMISSIONS = {
 REQUIRED_INSTALLATION_PERMISSIONS = dict(TOKEN_PERMISSIONS)
 
 def default_key_path() -> Path:
+    # Do not evaluate an unused home fallback for a configured local-data root.
     if os.name == "nt":
-        root = Path(os.environ.get("LOCALAPPDATA", str(Path.home() / "AppData/Local")))
-        return root / "scnehaux-codex-authority/secrets/github-app.pem"
-    return Path.home() / ".local/share/scnehaux-codex-authority/secrets/github-app.pem"
+        local_data = os.environ.get("LOCALAPPDATA")
+        root = Path.home() / "AppData/Local" if local_data is None else Path(local_data)
+    else:
+        root = Path.home() / ".local/share"
+    if (
+        not root.is_absolute()
+        or ".." in root.parts
+        or any(ord(char) < 32 or ord(char) == 127 for char in str(root))
+    ):
+        raise PublisherError(
+            "key-location",
+            "Default credential location must be absolute and free of traversal or control characters.",
+        )
+    return root / "scnehaux-codex-authority/secrets/github-app.pem"
 
 
 def make_jwt(key_path: Path, client_id: str) -> str:

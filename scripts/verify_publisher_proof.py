@@ -2,8 +2,10 @@ from __future__ import annotations
 
 from hashlib import sha1
 import json
+import os
 from pathlib import Path
 import stat
+import subprocess
 import sys
 
 
@@ -19,6 +21,11 @@ PUBLISHER_FILES = {
     "github_app_publisher.py": "4ee2e9937b17bb157b702bcc8f6d10a33ca71e6c",
     "publisher_contract.py": "4b2ab8d9a5da6bda794586b43255688d7dc961fe",
     "publisher_transport.py": "03d54b7ea54296e17688eaa40a5ff0de9bbb61ca",
+}
+# Reviewed development bytes, NOT operational promotion or historical proof.
+CURRENT_PUBLISHER_FILES = {
+    **PUBLISHER_FILES,
+    "publisher_transport.py": "038522fe95710dd2e6192ded5e1d61a612eb0206",
 }
 AUTHORITY_REVISION = "6b89e95b63fa000482a1c5cac82f22864a81eeeb"
 RUNTIME_REVISION = "cbd64f78c8f72f28880d4673729a796b249d8eae"
@@ -48,6 +55,68 @@ def git_blob_sha(path: Path) -> str:
     return sha1(f"blob {len(raw)}\0".encode("ascii") + raw).hexdigest()
 
 
+def verify_current_publisher_sources() -> None:
+    """Qualify the development checkout; this never promotes publisher execution."""
+    for name, expected in CURRENT_PUBLISHER_FILES.items():
+        if git_blob_sha(PUBLISHER_ROOT / name) != expected:
+            raise SystemExit(f"current publisher source blob drifted: {name}")
+
+
+def _historical_git(*args: str) -> bytes:
+    try:
+        return subprocess.check_output(
+            [
+                "git",
+                "--no-replace-objects",
+                "--literal-pathspecs",
+                "-C",
+                str(ROOT),
+                *args,
+            ],
+            env={
+                **{
+                    key: value
+                    for key, value in os.environ.items()
+                    if not key.upper().startswith("GIT_")
+                },
+                # Object verification must not lazily fetch from a promisor remote.
+                "GIT_ALLOW_PROTOCOL": "",
+                "GIT_TERMINAL_PROMPT": "0",
+            },
+            stdin=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            timeout=10,
+        )
+    except (OSError, subprocess.SubprocessError):
+        raise SystemExit("historical publisher Git source unavailable") from None
+
+
+def read_historical_publisher_source(name: str) -> bytes:
+    """Bind the proof to its original commit/tree/blob, never to mutable HEAD."""
+    if name not in PUBLISHER_FILES:
+        raise SystemExit("unknown historical publisher source")
+    expected = PUBLISHER_FILES[name]
+    relative = "integrations/github-app-publisher/" + name
+    entry = _historical_git("ls-tree", "-z", AUTHORITY_REVISION, "--", relative)
+    allowed = {
+        f"{mode} blob {expected}\t{relative}\0".encode("ascii")
+        for mode in ("100644", "100755")
+    }
+    if entry not in allowed:
+        raise SystemExit("historical publisher commit/path/blob binding drifted")
+    try:
+        size = int(_historical_git("cat-file", "-s", expected))
+    except ValueError:
+        raise SystemExit("historical publisher source size invalid") from None
+    if not 0 < size <= 1_000_000:
+        raise SystemExit("historical publisher source size invalid")
+    raw = _historical_git("cat-file", "blob", expected)
+    actual = sha1(f"blob {len(raw)}\0".encode("ascii") + raw).hexdigest()
+    if len(raw) != size or actual != expected:
+        raise SystemExit("historical publisher source bytes drifted")
+    return raw
+
+
 def main() -> int:
     proof = load_object(PROOF_GOVERNANCE)
     generic = load_object(GENERIC_GOVERNANCE)
@@ -56,7 +125,9 @@ def main() -> int:
     default_config = load_object(DEFAULT_CONFIG)
 
     if PROOF_CONFIG.exists():
-        raise SystemExit("candidate-proof config must be removed after live proof capture")
+        raise SystemExit(
+            "candidate-proof config must be removed after live proof capture"
+        )
 
     expected_blobs = dict(PUBLISHER_FILES)
     expected_proof = {
@@ -162,22 +233,33 @@ def main() -> int:
         "effective_enforcement_claimed": False,
         "proof_permit_digest": None,
     }:
-        raise SystemExit("generic publisher governance must remain unadvanced by candidate proof")
+        raise SystemExit(
+            "generic publisher governance must remain unadvanced by candidate proof"
+        )
 
     if promotion.get("publisher") != {
         "enabled": False,
         "live_proven": False,
         "publication_permit_required": True,
     }:
-        raise SystemExit("generic publisher promotion must remain unadvanced after candidate proof")
-    if promotion.get("source_identity", {}).get("publisher_source_revision") is not None:
-        raise SystemExit("generic publisher source must remain unpromoted after candidate proof")
+        raise SystemExit(
+            "generic publisher promotion must remain unadvanced after candidate proof"
+        )
+    if (
+        promotion.get("source_identity", {}).get("publisher_source_revision")
+        is not None
+    ):
+        raise SystemExit(
+            "generic publisher source must remain unpromoted after candidate proof"
+        )
 
-    for name, expected in PUBLISHER_FILES.items():
-        if git_blob_sha(PUBLISHER_ROOT / name) != expected:
-            raise SystemExit(f"publisher source blob drifted after live proof: {name}")
+    for name in PUBLISHER_FILES:
+        read_historical_publisher_source(name)
+    verify_current_publisher_sources()
 
-    print("[PASS] live publisher proof is evidenced, disarmed, and generic publication remains disabled")
+    print(
+        "[PASS] historical proof and current publisher source verified; publication remains disabled"
+    )
     return 0
 
 

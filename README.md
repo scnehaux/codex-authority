@@ -189,7 +189,11 @@ notes and must not masquerade as Codex ADR artifacts.
 
 ## Local verification
 
-Source-pinned publisher proofs compare exact file bytes with historical Git blobs.
+Publisher proof verification checks the original commit/path/blob for historical
+evidence and separately checks current development bytes against explicit source
+pins. The historical commit must be available locally; no HEAD fallback or network
+fetch is used. Neither check promotes a new publisher runtime. See the
+[source-evolution note](docs/implementation-notes/0042-publisher-source-evolution-and-lazy-home.md).
 The repository `.gitattributes` requires LF for Python files, including Windows
 checkouts with `core.autocrlf=true`. Existing clones may need a clean re-checkout
 of affected files after saving any local edits; do not normalize inside the hash
@@ -213,8 +217,9 @@ Before requesting a new publication activation, run the credential-free environm
 diagnostic with `python -I -B scripts/check_publisher_environment.py`. It checks only
 the current process, never opens a key or accesses the network, and emits no
 publication capability. In particular, a normal-shell PASS says nothing about a
-later sanitized child environment. The pinned historical resolver and any tool
-execution restrictions remain unchanged. See the
+later sanitized child environment. The current resolver no longer evaluates an
+unused home fallback; historical proof bytes and tool execution restrictions remain
+unchanged. This is a source fix, not operational deployment. See the
 [offline preflight note](docs/implementation-notes/0041-offline-publisher-environment-preflight.md).
 
 The authority core has no third-party runtime dependency. The credential-bearing
