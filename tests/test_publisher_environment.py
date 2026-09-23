@@ -158,7 +158,7 @@ class PublisherEnvironmentTests(unittest.TestCase):
                     "publisher-source-unverified", codes(TARGET.inspect_environment())
                 )
 
-    def test_existing_windows_fallback_bug_is_reproduced_without_secrets(self):
+    def test_windows_localappdata_avoids_unused_home(self):
         resolver = TARGET._load_resolver()
         transport = sys.modules[resolver.__module__]
         fake_os = SimpleNamespace(
@@ -166,17 +166,15 @@ class PublisherEnvironmentTests(unittest.TestCase):
         )
         with (
             patch.object(transport, "os", fake_os),
-            patch.object(
-                transport.Path,
-                "home",
-                side_effect=RuntimeError("synthetic missing home"),
-            ) as home,
+            patch.object(transport, "Path") as paths,
         ):
+            paths.side_effect = PureWindowsPath
+            paths.home.side_effect = RuntimeError("synthetic missing home")
             result = inspected(resolver)
-        home.assert_called_once_with()
-        self.assertEqual(result["status"], "blocked")
-        self.assertIn("home-directory-unresolvable", codes(result))
+            paths.home.assert_not_called()
+        self.assertEqual(result["status"], "pass")
         self.assertFalse(result["boundaries"]["publisher_invoked"])
+        self.assertFalse(result["boundaries"]["publication_authorized"])
 
     def test_cli_json_and_exit_codes(self):
         for location, expected in (
@@ -235,7 +233,7 @@ class PublisherEnvironmentTests(unittest.TestCase):
         self.assertIn("execution-tool-authorization", report["unassessed"])
 
     @unittest.skipUnless(os.name == "nt", "native Windows home-resolution behavior")
-    def test_native_windows_missing_home_is_caught_before_activation(self):
+    def test_native_windows_localappdata_survives_missing_home(self):
         environment = synthetic_environment()
         del environment["USERPROFILE"]
         result = subprocess.run(
@@ -246,10 +244,25 @@ class PublisherEnvironmentTests(unittest.TestCase):
             text=True,
             timeout=20,
         )
-        self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
-        report = json.loads(result.stdout)
-        self.assertIn("home-directory-unresolvable", codes(report))
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(json.loads(result.stdout)["status"], "pass")
         self.assertNotIn("offline-synthetic-user", result.stdout + result.stderr)
+
+    @unittest.skipUnless(os.name == "nt", "native Windows home-resolution behavior")
+    def test_native_windows_both_locations_missing_remains_blocked(self):
+        environment = synthetic_environment()
+        del environment["USERPROFILE"]
+        del environment["LOCALAPPDATA"]
+        result = subprocess.run(
+            [sys.executable, "-I", "-B", str(SCRIPT)],
+            cwd=ROOT,
+            env=environment,
+            capture_output=True,
+            text=True,
+            timeout=20,
+        )
+        self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
+        self.assertIn("home-directory-unresolvable", codes(json.loads(result.stdout)))
 
     def test_real_diagnostic_cannot_open_keys_spawn_or_connect(self):
         program = "\n".join(

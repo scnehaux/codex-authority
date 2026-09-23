@@ -53,7 +53,7 @@ class PublisherCheckoutTests(unittest.TestCase):
             if attributes.exists():
                 (root / ".gitattributes").write_bytes(attributes.read_bytes())
             paths = []
-            for name in PROOF.PUBLISHER_FILES:
+            for name in PROOF.CURRENT_PUBLISHER_FILES:
                 relative = Path("integrations/github-app-publisher") / name
                 path = root / relative
                 path.parent.mkdir(parents=True, exist_ok=True)
@@ -76,7 +76,8 @@ class PublisherCheckoutTests(unittest.TestCase):
             for path in paths:
                 with self.subTest(source=path.name):
                     self.assertEqual(
-                        PROOF.git_blob_sha(path), PROOF.PUBLISHER_FILES[path.name]
+                        PROOF.git_blob_sha(path),
+                        PROOF.CURRENT_PUBLISHER_FILES[path.name],
                     )
                     self.assertNotIn(b"\r\n", path.read_bytes())
             git("diff", "--exit-code")

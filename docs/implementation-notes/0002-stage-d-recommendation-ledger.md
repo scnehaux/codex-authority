@@ -425,3 +425,14 @@ widening the production App installation. No obligation is waived and the blocke
 full mirror remains blocked. [Note 0019](0019-phase10-scoped-acceptance.md) records
 the fresh preflight, row-by-row assessment, residual limits, and separation of
 system acceptance from component self-reports and the later Codex status closure.
+
+
+## REC-D-019 - Current source and historical publisher proof are distinct
+
+Recorded 2026-09-24. Source-maintenance proposal implemented and tested for protected
+PR review; deployment and publication remain unauthorized by this change.
+[Note 0042](0042-publisher-source-evolution-and-lazy-home.md) records the observed
+eager home-resolution bug, in-place repair, immutable historical proof verification,
+separate current checkout pins, alternatives, tests, costs and abort boundaries.
+This refines REC-D-001/004; it does not replace their independent-promotion invariant.
+The execution-tool restriction is unchanged and must not be bypassed.
