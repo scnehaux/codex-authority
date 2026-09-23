@@ -8,7 +8,7 @@ Check through the dedicated GitHub App.
 
 ## Current state
 
-**Phase 10 is DONE for the declared GitHub reference-provider scope under owner-approved REC-D-018. Phase 11 Slices 11.1 through 11.4 are complete through governed Codex PRs #27–#30. Governed declarative contracts now compile into one deterministic immutable ExecutableFramework that owns artifact/layout/lifecycle/binding, relationship, governance/severity, and extension runtime semantics. Fragment views remain compatibility projections only. Slice 11.5 is next for the schema/validation boundary. Standing publication and privileged bootstrap are disabled.**
+**Phase 10 is DONE for the declared GitHub reference-provider scope under owner-approved REC-D-018. Phase 11 Slices 11.1 through 11.5 are complete through governed Codex PRs #27–#31. Governed declarative contracts compile into one deterministic immutable ExecutableFramework, JSON Schema is structural-only, and typed candidate validation/promotion prevents invalid candidates from entering repository state. Slice 11.6 is next for provenance-bound repository ingestion. Standing publication and privileged bootstrap are disabled.**
 
 The earlier candidate-scoped publisher proof is captured and disarmed. The
 credential-free runtime adapter produced durable PASS evidence for disposable Codex
@@ -207,12 +207,13 @@ provider enforcement; activating provider enforcement does not invent a trusted
 path for privileged governance mutation; and staging a privileged bootstrap does
 not prove or enable the permanent maintenance path.
 
-The next planned Codex slice is 11.5, Schema Boundary & Validation Pipeline.
-Preserve the active production ruleset, permanent maintenance boundary, compiled
-ExecutableFramework identity, and existing runtime semantics while restoring JSON
-Schema to structural-shape responsibility only. Slice 11.4 completion does not
-certify the later ingestion, validated-snapshot, extension-pack, compatibility, or
-Governance 1.0 phases. Relevant changes require reassessment; publication always
+The next planned Codex slice is 11.6, Provenance-Bound Repository Ingestion.
+Preserve the active production ruleset, permanent maintenance boundary,
+ExecutableFramework authority, structural-only schema boundary, and candidate
+validation/promotion semantics while binding Git-backed ingestion to immutable
+repository identity, revision, source path, and content digest. Slice 11.5
+completion does not certify the validated-snapshot, extension-pack, compatibility,
+or Governance 1.0 phases. Relevant changes require reassessment; publication always
 needs a new exact-candidate authorization.
 
 ## Recommendation and decision records
