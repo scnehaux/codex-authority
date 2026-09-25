@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "kind": "codex-phase11-slice11.6-completion-evidence",
+  "recorded_at": "2026-09-25T06:36:14Z",
+  "candidate": {
+    "repository": "scnehaux/codex",
+    "pull_request": 32,
+    "base_sha": "bfea97e841616a2880e28d2cfa177712209520f6",
+    "head_sha": "fa733509974b048c587e9066690cfa7267313b77",
+    "merge_commit_sha": "f13baed132b3acedefd953bb2128a0becb409352"
+  },
+  "authority": {
+    "publication_activation_merge_revision": "830ae5e80c931228d2e1e42404c2c0c9df690ff6",
+    "publisher_source_revision": "fe8c93c3ec9b9ee99ac9f524d20fe7d629538821",
+    "privileged_bootstrap_enabled": false
+  },
+  "bundle": {
+    "permit_digest": "8e16cbe86a556d3f484b45201731e2772ad58db948455e2f0a0cc9a3ad573cc8",
+    "evidence_sha256": "44f7fef0b443012ea755c296a3692e3ad0f149b53ad6d41bd69e39e6def78c64",
+    "receipt_sha256": "e9bf6ea534a509c0a1b004cedd22929d754f9d7763bdee40571e7ce82eeb8383"
+  },
+  "publication": {
+    "status": "published",
+    "check_run_id": 107970800821,
+    "check_name": "Codex Governance Authority",
+    "app_id": 4864946,
+    "head_sha": "fa733509974b048c587e9066690cfa7267313b77",
+    "conclusion": "success",
+    "token_revoked": true
+  },
+  "claims": {
+    "slice11_6_completed": true,
+    "provenance_bound_git_ingestion_completed": true,
+    "validated_repository_snapshot_completed": false,
+    "phase11_completed": false,
+    "publication_standing_capability": false
+  },
+  "lifecycle": {
+    "checked_in_publication_target_state": "disabled",
+    "checked_in_activation_target": null,
+    "disarm_requires_this_pr_merge": true
+  }
+}
