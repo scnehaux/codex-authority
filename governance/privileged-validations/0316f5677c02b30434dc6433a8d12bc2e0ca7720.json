@@ -1,0 +1,47 @@
+{
+  "authority": {
+    "default_branch": "main",
+    "mode": "privileged-explicit",
+    "repository": "scnehaux/codex-authority"
+  },
+  "candidate": {
+    "base_sha": "78dbaefd9d5c047aea6f451800dafc08c48d0432",
+    "changed_files": [
+      "PLAN.md",
+      "ROADMAP.md",
+      "engine/control/INDEX.md",
+      "engine/control/framework/contracts.py",
+      "engine/control/framework/equivalence.py",
+      "engine/control/framework/executable.py",
+      "engine/control/framework/relationships.py",
+      "engine/control/framework/versioning.py",
+      "engine/control/repository/snapshot.py",
+      "governance/GDC-001-fitness-functions.md",
+      "governance/framework/README.md",
+      "governance/framework/company-packs/README.md",
+      "governance/framework/contract-set.yaml",
+      "governance/framework/contracts/extensions.yaml",
+      "governance/framework/contracts/identity.yaml",
+      "governance/framework/contracts/relationships.yaml",
+      "tests/INDEX.md",
+      "tests/control/framework/test_company_packs.py",
+      "tests/control/framework/test_declarative_contracts.py",
+      "tests/control/framework/test_executable_framework.py",
+      "tests/control/framework/test_relationship_runtime.py",
+      "tests/control/framework/test_versioning.py",
+      "tests/control/repository/test_validated_snapshot.py"
+    ],
+    "head_sha": "0316f5677c02b30434dc6433a8d12bc2e0ca7720",
+    "pull_request": 35,
+    "repository": "scnehaux/codex"
+  },
+  "claims": {
+    "candidate_code_executed": false,
+    "credentials_used": false,
+    "exact_candidate_binding": true
+  },
+  "contract_version": 1,
+  "decision": "pass",
+  "kind": "codex-privileged-validation-attestation",
+  "scope": "protected-governance-maintenance"
+}
