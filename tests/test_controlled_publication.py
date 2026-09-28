@@ -170,13 +170,15 @@ class ControlledPublicationTests(unittest.TestCase):
         self.assertTrue(result["token_revoked"])
         self.assertEqual(len([c for c in transport.calls if c[0] == "POST" and c[1].endswith("/check-runs")]), 1)
 
-    def test_checked_in_config_is_exact_pr38_activation(self):
-        a = target.load_configuration(target.CONFIG_PATH)
-        self.assertIsNotNone(a)
-        self.assertEqual(a["mode"], "attested-v2")
-        self.assertEqual(a["candidate"]["pull_request"], 38)
-        self.assertEqual(a["candidate"]["head_sha"], "f5eca709f05247f85b577c6549188b880d998139")
-        self.assertEqual(a["permit_digest"], "be4bc249e74a1958ddff684990b660f7366ade3b6997e120110930600b0c30e5")
+    def test_checked_in_config_is_disabled_after_pr38_completion(self):
+        with patch.object(target, "make_jwt") as key, patch.object(target, "_request") as request:
+            result = target.execute("absent", "absent", "absent")
+            self.assertEqual(result["status"], "controlled_publication_disabled")
+            with self.assertRaises(HandoverError):
+                target.execute("absent", "absent", "absent", write=True)
+            key.assert_not_called()
+            request.assert_not_called()
+
 
 
 
