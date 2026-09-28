@@ -1,0 +1,41 @@
+{
+  "authority": {
+    "default_branch": "main",
+    "mode": "privileged-explicit",
+    "repository": "scnehaux/codex-authority"
+  },
+  "candidate": {
+    "base_sha": "9bbc9a576f652e33413508da92da42e6e1af9233",
+    "changed_files": [
+      ".github/workflows/governance.yml",
+      "Makefile",
+      "PLAN.md",
+      "ROADMAP.md",
+      "engine/control/INDEX.md",
+      "engine/control/governance/dependency_update.py",
+      "engine/control/governance/readiness.py",
+      "governance/GDC-001-fitness-functions.md",
+      "governance/dependency-update-policy.json",
+      "governance/framework/source-layout.yaml",
+      "governance/reproducibility-policy.json",
+      "scripts/INDEX.md",
+      "scripts/dependency_update_check.py",
+      "scripts/governance_qualify.py",
+      "tests/INDEX.md",
+      "tests/control/governance/test_dependency_update.py",
+      "tests/scripts/test_dependency_update_check.py"
+    ],
+    "head_sha": "b0e2fb076a19d456d18e487657b0cd99ab1a1ddc",
+    "pull_request": 40,
+    "repository": "scnehaux/codex"
+  },
+  "claims": {
+    "candidate_code_executed": false,
+    "credentials_used": false,
+    "exact_candidate_binding": true
+  },
+  "contract_version": 1,
+  "decision": "pass",
+  "kind": "codex-privileged-validation-attestation",
+  "scope": "protected-governance-maintenance"
+}
