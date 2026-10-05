@@ -7,10 +7,10 @@
       "pull_request": 44,
       "repository": "scnehaux/codex"
     },
-    "evidence_sha256": "ea89f327644e781c267df8ad8b29b5306b69ec4b1b82fb7ea7b765e19fb38058",
-    "expires_at": "2026-10-05T07:46:32Z",
+    "evidence_sha256": "e6aec52bd27f1248c4e3b7020b767c9c6dec6befc097e46f3d10b512a7db4855",
+    "expires_at": "2026-10-05T07:52:12Z",
     "mode": "attested-v2",
-    "not_before": "2026-10-05T07:31:32Z",
+    "not_before": "2026-10-05T07:37:12Z",
     "permit_digest": "a2e34b47bea44ba0dd391bbd9f714e8b352b3d08c5a1faefc6784f22ded9614d",
     "publisher_source_blobs": {
       "integrations/github-app-publisher/controlled_publisher.py": "b6abd17cab7ca6721de59810ae2f802c14b9a623",
@@ -33,7 +33,7 @@
       "src/codex_authority/service.py": "b4825af287dad112b7839616c88ba9a2f906d3b0"
     },
     "publisher_source_revision": "11430d73f30ebd2282d966506d9ca1dae885c4f1",
-    "receipt_sha256": "e3cfa89072a22e9b948844075463405019ae520cf654adae136b53b0c1f196b0",
+    "receipt_sha256": "3a6cabf7265caed3bf238654e8b8b2130cb60e286a7829344c5c045db57fc6e7",
     "runtime_package": {
       "blobs": {
         "attested_runtime.py": "c9a0c3bf2fd3c33be4deb1b1e5fc624d1b0b796a",
