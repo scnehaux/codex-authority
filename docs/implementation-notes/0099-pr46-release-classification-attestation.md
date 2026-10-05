@@ -1,0 +1,9 @@
+# Codex PR #46: release-classification-attestation
+
+Recorded: 2026-10-05 (Asia/Jakarta). Implementation-local, non-normative.
+
+Attests exact Codex PR #46, head `9638a82b0dc40a6404dfbd5970a32c417810696f`, base `db18d03440afa2097f926314df53749a5d2bd7aa`, and the complete 12-path changed-file manifest. Local Git objects and independently fetched GitHub PR metadata agree on the candidate.
+
+Static assessment: all 166 normative controls carry one explicit release class and a reviewable rationale according to owner-accepted REC-13-001. Classification is not inferred from severity. The candidate defines 72 root-of-trust, 11 governance-content and 83 consumer-artifact controls. Registry validation rejects absent or unknown classes and absent rationales; readiness reports all 29 unverified root controls and cannot satisfy that criterion on malformed or empty-root registries. Implementation qualification remains separate from Governance 1.0 readiness. Every previous control field, normative statement, source fingerprint, evidence mapping and status is preserved (82 verified / 84 pending), including the missing historical pre-root qualification record. PLAN records the owner acceptance of REC-13-001 through REC-13-003 and observed closure of PR #45 with check 111729656469 and Authority disarm #110. GDC-001 advances to 0.1.18 for generated documentation. No individual GDC approval, Governance 1.0 release, architecture admission, standing publication capability, threshold or trust-boundary policy change is claimed.
+
+The static assessment uses no candidate executable code or publisher credential. Candidate regression and repository gates run separately without publisher credentials. Exact-head GitHub qualification, an independently promoted runtime, durable permit/evidence/receipt and a separately reviewed fifteen-minute activation are still required. This attestation grants no standing publication capability.
