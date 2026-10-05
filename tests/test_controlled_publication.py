@@ -176,8 +176,8 @@ class ControlledPublicationTests(unittest.TestCase):
         self.assertEqual(a["mode"], "attested-v2")
         self.assertEqual(a['candidate'], {'repository': 'scnehaux/codex', 'pull_request': 44, 'head_sha': '2a8a25c763270baaec9e673dcb9c2f1944fad03f', 'base_sha': '043c1d51fd621428e59a5988cb383a857e690bd1'})
         self.assertEqual(a['permit_digest'], 'a2e34b47bea44ba0dd391bbd9f714e8b352b3d08c5a1faefc6784f22ded9614d')
-        self.assertEqual(a['evidence_sha256'], 'ea89f327644e781c267df8ad8b29b5306b69ec4b1b82fb7ea7b765e19fb38058')
-        self.assertEqual(a['receipt_sha256'], 'e3cfa89072a22e9b948844075463405019ae520cf654adae136b53b0c1f196b0')
+        self.assertEqual(a['evidence_sha256'], 'e6aec52bd27f1248c4e3b7020b767c9c6dec6befc097e46f3d10b512a7db4855')
+        self.assertEqual(a['receipt_sha256'], '3a6cabf7265caed3bf238654e8b8b2130cb60e286a7829344c5c045db57fc6e7')
         self.assertEqual(a['authority_service_source_revision'], '11430d73f30ebd2282d966506d9ca1dae885c4f1')
         self.assertEqual(a['publisher_source_revision'], '11430d73f30ebd2282d966506d9ca1dae885c4f1')
 
