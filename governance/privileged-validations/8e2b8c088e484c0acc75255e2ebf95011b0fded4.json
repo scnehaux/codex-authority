@@ -1,0 +1,58 @@
+{
+  "authority": {
+    "default_branch": "main",
+    "mode": "privileged-explicit",
+    "repository": "scnehaux/codex-authority"
+  },
+  "candidate": {
+    "base_sha": "4abb77f9aa84db31dac37fc10b3cfbcb507f2570",
+    "changed_files": [
+      ".github/workflows/governance.yml",
+      "PLAN.md",
+      "ROADMAP.md",
+      "engine/control/INDEX.md",
+      "engine/control/auditors/graph_auditor.py",
+      "engine/control/framework/artifacts.py",
+      "engine/control/framework/executable.py",
+      "engine/control/governance/corpus.py",
+      "engine/control/governance/lifecycle.py",
+      "engine/control/governance/relationships.py",
+      "engine/control/linting/facade.py",
+      "engine/control/repository/assembler.py",
+      "engine/control/repository/git_ingestion.py",
+      "engine/control/repository/snapshot.py",
+      "engine/control/validation/pipeline.py",
+      "engine/control/validators/base.py",
+      "engine/control/validators/global_rules.py",
+      "engine/control/validators/metadata_rules.py",
+      "engine/control/validators/registry.py",
+      "engine/core/knowledge/__init__.py",
+      "engine/core/knowledge/compiler.py",
+      "engine/interfaces/cli.py",
+      "governance/GDC-001-fitness-functions.md",
+      "governance/GDC-005-gdc-guideline.md",
+      "scripts/governance_qualify.py",
+      "tests/INDEX.md",
+      "tests/control/framework/test_artifact_runtime.py",
+      "tests/control/governance/test_corpus.py",
+      "tests/control/validation/test_pipeline.py",
+      "tests/control/validators/test_base.py",
+      "tests/control/validators/test_global_rules.py",
+      "tests/core/knowledge/test_graph.py",
+      "tests/interfaces/test_cli.py",
+      "tests/scripts/test_governance_qualify.py"
+    ],
+    "head_sha": "8e2b8c088e484c0acc75255e2ebf95011b0fded4",
+    "pull_request": 45,
+    "repository": "scnehaux/codex"
+  },
+  "claims": {
+    "candidate_code_executed": false,
+    "credentials_used": false,
+    "exact_candidate_binding": true
+  },
+  "contract_version": 1,
+  "decision": "pass",
+  "kind": "codex-privileged-validation-attestation",
+  "scope": "protected-governance-maintenance"
+}

@@ -1,0 +1,9 @@
+# Codex PR #45: runtime-authority-attestation
+
+Recorded: 2026-10-05 (Asia/Jakarta). Implementation-local, non-normative.
+
+Attests exact Codex PR #45, head `8e2b8c088e484c0acc75255e2ebf95011b0fded4`, base `4abb77f9aa84db31dac37fc10b3cfbcb507f2570`, and the complete 34-path changed-file manifest. Local Git objects and independently fetched GitHub PR metadata agree on the candidate.
+
+Static assessment: the clean-checkout qualification gate builds a commit-bound validated snapshot of all twelve required GDCs and rejects corrupt or missing candidates, duplicate identities and repository drift. The executable framework is threaded through candidate assembly, validator bindings, lifecycle, schema resources, relationships and DAG promotion. Public raw-artifact graph compilers are retired; private graph mechanics retain their regression coverage. TDD directory semantics come only from the declarative layout. Governance CI runs the complete repository lint/audit entrypoint. Eleven stale GDC links are corrected, GDC-001 advances to 0.1.17 and GDC-005 to 0.1.1. Existing admission, normative control statuses, trust-boundary policy, toolchain pins, coverage thresholds and publisher capability are preserved. PLAN and ROADMAP distinguish the merged PR #44 evidence from this implementation candidate. REC-13-001 through REC-13-003 remain owner decisions; no GDC approval or Governance 1.0 release is claimed.
+
+The static assessment uses no candidate executable code or publisher credential. Candidate regression and repository gates run separately without publisher credentials. Exact-head GitHub qualification, an independently promoted runtime, durable permit/evidence/receipt and a separately reviewed fifteen-minute activation are still required. This attestation grants no standing publication capability.
