@@ -1,0 +1,36 @@
+{
+  "authority": {
+    "default_branch": "main",
+    "mode": "privileged-explicit",
+    "repository": "scnehaux/codex-authority"
+  },
+  "candidate": {
+    "base_sha": "db18d03440afa2097f926314df53749a5d2bd7aa",
+    "changed_files": [
+      "PLAN.md",
+      "ROADMAP.md",
+      "engine/control/INDEX.md",
+      "engine/control/governance/controls.py",
+      "engine/control/governance/readiness.py",
+      "governance/GDC-001-fitness-functions.md",
+      "governance/normative-control-registry.yaml",
+      "scripts/governance_qualify.py",
+      "tests/INDEX.md",
+      "tests/control/governance/test_controls.py",
+      "tests/control/governance/test_readiness.py",
+      "tests/scripts/test_governance_qualify.py"
+    ],
+    "head_sha": "9638a82b0dc40a6404dfbd5970a32c417810696f",
+    "pull_request": 46,
+    "repository": "scnehaux/codex"
+  },
+  "claims": {
+    "candidate_code_executed": false,
+    "credentials_used": false,
+    "exact_candidate_binding": true
+  },
+  "contract_version": 1,
+  "decision": "pass",
+  "kind": "codex-privileged-validation-attestation",
+  "scope": "protected-governance-maintenance"
+}
