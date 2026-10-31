@@ -170,14 +170,16 @@ class ControlledPublicationTests(unittest.TestCase):
         self.assertTrue(result["token_revoked"])
         self.assertEqual(len([c for c in transport.calls if c[0] == "POST" and c[1].endswith("/check-runs")]), 1)
 
-    def test_checked_in_config_is_disabled_after_pr47_publication(self):
-        with patch.object(target, "make_jwt") as key, patch.object(target, "_request") as request:
-            result = target.execute("absent", "absent", "absent")
-            self.assertEqual(result["status"], "controlled_publication_disabled")
-            with self.assertRaises(HandoverError):
-                target.execute("absent", "absent", "absent", write=True)
-            key.assert_not_called()
-            request.assert_not_called()
+    def test_checked_in_config_is_exact_pr48_activation(self):
+        a = target.load_configuration(target.CONFIG_PATH)
+        self.assertIsNotNone(a)
+        self.assertEqual(a["mode"], "attested-v2")
+        self.assertEqual(a['candidate'], {'repository': 'scnehaux/codex', 'pull_request': 48, 'head_sha': 'f01908ef03e361b60b5b298c75378d5ee60c53b3', 'base_sha': '0582d15b4c77dbc3c7eab8314a22c4db6a1c6c49'})
+        self.assertEqual(a['permit_digest'], 'e180a3cb9297c6647f1a080a89b447fdd6c40074d0e7ea9bbe748fc88ca05667')
+        self.assertEqual(a['evidence_sha256'], '16b42d8064fc2a4e193208abe5d8f93d659d7f221976c08f9029c74c91059e36')
+        self.assertEqual(a['receipt_sha256'], 'fb940b7951598297ecb75444abaf0b6ba51bf2b63514ae9a5f5333edc3754aad')
+        self.assertEqual(a['authority_service_source_revision'], 'ee724deb2a496ad55227c08c1f62d169832d9a23')
+        self.assertEqual(a['publisher_source_revision'], 'ee724deb2a496ad55227c08c1f62d169832d9a23')
 
     def test_disabled_configuration_still_short_circuits(self):
         config = self.directory / "disabled.json"
