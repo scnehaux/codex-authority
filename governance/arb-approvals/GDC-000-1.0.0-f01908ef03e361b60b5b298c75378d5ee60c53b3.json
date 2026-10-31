@@ -1,0 +1,33 @@
+{
+  "approver": {
+    "github": "anshacerbia2",
+    "name": "Ansha Cerbia",
+    "role": "repository owner acting as ARB (GDC-003 section 3.2)"
+  },
+  "decision": "approve",
+  "kind": "codex-arb-approval-record",
+  "review": {
+    "date": "2026-10-29",
+    "notes": "Owner assessment: 10/10. Criterion 1 judged Pass: the section 1.1-1.2 statements are aspirational goals of the constitution, not testable requirements; all testable obligations are quantified elsewhere. Criteria 2-10 Pass as proposed on Codex PR #48.",
+    "rubric": "GDC-002",
+    "score": "10/10"
+  },
+  "review_exception": {
+    "author_is_approver": true,
+    "exit_condition": "independent qualified reviewer count reaches 2",
+    "reason": "fewer than 2 independent qualified reviewers",
+    "status": "active-zero-mandatory-approvals"
+  },
+  "schema_version": 1,
+  "sequence_deviation": "Recorded on 2026-10-31, after Codex #48 merged at 2026-10-31T10:22:34Z. PLAN REC-13-003 required this record before publication and merge; the owner chose to record it post-merge rather than revert, because governed versions cannot regress below 1.0.0.",
+  "subject": {
+    "base_sha": "0582d15b4c77dbc3c7eab8314a22c4db6a1c6c49",
+    "document": "GDC-000",
+    "head_sha": "f01908ef03e361b60b5b298c75378d5ee60c53b3",
+    "merge_sha": "a8ea1e313000883a5186db8d7e0675c6e2ce00f5",
+    "pull_request": 48,
+    "repository": "scnehaux/codex",
+    "status": "approved",
+    "version": "1.0.0"
+  }
+}
