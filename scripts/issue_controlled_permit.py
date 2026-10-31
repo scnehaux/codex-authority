@@ -14,6 +14,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
+from codex_authority.arb_gate import ArbGateError, check as check_arb_approvals
 from codex_authority.attested_contract import REPOSITORY, sha
 from codex_authority.attested_handover import _write_bound, prepare_attested_permit
 from codex_authority.controlled_evidence import prepare_bootstrap_permit
@@ -29,6 +30,7 @@ def main(argv=None):
     parser.add_argument("--evidence-out", type=Path, required=True)
     parser.add_argument("--receipt-out", type=Path, required=True)
     parser.add_argument("--permit-out", type=Path, required=True)
+    parser.add_argument("--codex-repo", type=Path, help="local scnehaux/codex clone holding the candidate base and head")
     args = parser.parse_args(argv)
     try:
         request = CandidateRef(REPOSITORY, args.pull_request, sha(args.head_sha))
@@ -37,6 +39,13 @@ def main(argv=None):
         if result.permit is None:
             print(json.dumps({"status": "blocked", "reasons": list(result.outcome.reasons),
                               "evidence_recorded": result.outcome.evidence_recorded}))
+            return 2
+        # REC-13-003: a GDC promotion needs the owner's exact-head ARB record before any permit leaves.
+        try:
+            check_arb_approvals(result.outcome.snapshot, args.codex_repo)
+        except ArbGateError as exc:
+            print(json.dumps({"status": "blocked", "reasons": [exc.reason], "evidence_recorded": True,
+                              "permit_exported": False}))
             return 2
         _write_bound(args.permit_out, result.permit.to_mapping())
         print(json.dumps({"status": "controlled_permit_prepared", "mode": args.mode,
