@@ -1,0 +1,31 @@
+{
+  "approver": {
+    "github": "anshacerbia2",
+    "name": "Ansha Cerbia",
+    "role": "repository owner acting as ARB (GDC-003 section 3.2)"
+  },
+  "decision": "approve",
+  "kind": "codex-arb-approval-record",
+  "review": {
+    "date": "2026-11-03",
+    "notes": "Owner review of Codex PR 51 score sheet: GDC-002 cross-references match GDC-001/003/011; filler wording accepted.",
+    "rubric": "GDC-002",
+    "score": "9/10"
+  },
+  "review_exception": {
+    "author_is_approver": true,
+    "exit_condition": "independent qualified reviewer count reaches 2",
+    "reason": "fewer than 2 independent qualified reviewers",
+    "status": "active-zero-mandatory-approvals"
+  },
+  "schema_version": 1,
+  "subject": {
+    "base_sha": "785977e8afc4e2596a2d82c9e0aaf2bdb18e1be1",
+    "document": "GDC-002",
+    "head_sha": "19988ad917a07f19aba9d19c41ee0ec5d64e4c63",
+    "pull_request": 51,
+    "repository": "scnehaux/codex",
+    "status": "approved",
+    "version": "1.0.0"
+  }
+}
