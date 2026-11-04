@@ -1,0 +1,31 @@
+{
+  "approver": {
+    "github": "anshacerbia2",
+    "name": "Ansha Cerbia",
+    "role": "repository owner acting as ARB (GDC-003 section 3.2)"
+  },
+  "decision": "approve",
+  "kind": "codex-arb-approval-record",
+  "review": {
+    "date": "2026-11-04",
+    "notes": "Owner review of Codex PR 52 score sheet: GDC-003 now matches GDC-002/004/011, radar schema, lifecycle contract and SCM policy; filler wording accepted.",
+    "rubric": "GDC-002",
+    "score": "9/10"
+  },
+  "review_exception": {
+    "author_is_approver": true,
+    "exit_condition": "independent qualified reviewer count reaches 2",
+    "reason": "fewer than 2 independent qualified reviewers",
+    "status": "active-zero-mandatory-approvals"
+  },
+  "schema_version": 1,
+  "subject": {
+    "base_sha": "7ead894fc19fdf72c0160e0cc2bf87420d63966e",
+    "document": "GDC-003",
+    "head_sha": "0c992ccdd9a961082d0ff87e4b5635a1a45ce7a0",
+    "pull_request": 52,
+    "repository": "scnehaux/codex",
+    "status": "approved",
+    "version": "1.0.0"
+  }
+}
