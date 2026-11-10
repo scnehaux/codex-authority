@@ -1,0 +1,31 @@
+{
+  "approver": {
+    "github": "anshacerbia2",
+    "name": "Ansha Cerbia",
+    "role": "repository owner acting as ARB (GDC-003 section 3.2)"
+  },
+  "decision": "approve",
+  "kind": "codex-arb-approval-record",
+  "review": {
+    "date": "2026-11-04",
+    "notes": "Owner review of Codex PR 53 score sheet: GDC-004 now matches the engine, GDC-001/010, radar schema and severities; missing sunset_date grace check accepted as a documented gap.",
+    "rubric": "GDC-002",
+    "score": "9/10"
+  },
+  "review_exception": {
+    "author_is_approver": true,
+    "exit_condition": "independent qualified reviewer count reaches 2",
+    "reason": "fewer than 2 independent qualified reviewers",
+    "status": "active-zero-mandatory-approvals"
+  },
+  "schema_version": 1,
+  "subject": {
+    "base_sha": "6e016957eb4ce5d883940d787952a234ff2189cc",
+    "document": "GDC-004",
+    "head_sha": "3e10ea381becb55b7d581a8da14872a98ec94fb0",
+    "pull_request": 53,
+    "repository": "scnehaux/codex",
+    "status": "approved",
+    "version": "1.0.0"
+  }
+}
