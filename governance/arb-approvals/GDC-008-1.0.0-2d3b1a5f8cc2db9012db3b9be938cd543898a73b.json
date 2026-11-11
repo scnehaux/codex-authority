@@ -1,0 +1,31 @@
+{
+  "approver": {
+    "github": "anshacerbia2",
+    "name": "Ansha Cerbia",
+    "role": "repository owner acting as ARB (GDC-003 section 3.2)"
+  },
+  "decision": "approve",
+  "kind": "codex-arb-approval-record",
+  "review": {
+    "date": "2026-11-11",
+    "notes": "Owner review of Codex PR 57 score sheet: GDC-008 now matches GDC-000, pad.schema.json, pad_validator.py, relationships.yaml and lifecycle.yaml; CTRL-GDC-008-001 and CTRL-GDC-008-004 rebinds accepted (schema filename regex, lowercase convention); filler wording and the listed follow-ups accepted.",
+    "rubric": "GDC-002",
+    "score": "9/10"
+  },
+  "review_exception": {
+    "author_is_approver": true,
+    "exit_condition": "independent qualified reviewer count reaches 2",
+    "reason": "fewer than 2 independent qualified reviewers",
+    "status": "active-zero-mandatory-approvals"
+  },
+  "schema_version": 1,
+  "subject": {
+    "base_sha": "9c5f45dc218cf8ab8b96db95d42ba62eb688858a",
+    "document": "GDC-008",
+    "head_sha": "2d3b1a5f8cc2db9012db3b9be938cd543898a73b",
+    "pull_request": 57,
+    "repository": "scnehaux/codex",
+    "status": "approved",
+    "version": "1.0.0"
+  }
+}
