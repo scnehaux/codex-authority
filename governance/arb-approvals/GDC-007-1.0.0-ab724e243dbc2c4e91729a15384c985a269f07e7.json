@@ -1,0 +1,31 @@
+{
+  "approver": {
+    "github": "anshacerbia2",
+    "name": "Ansha Cerbia",
+    "role": "repository owner acting as ARB (GDC-003 section 3.2)"
+  },
+  "decision": "approve",
+  "kind": "codex-arb-approval-record",
+  "review": {
+    "date": "2026-11-11",
+    "notes": "Owner review of Codex PR 56 score sheet: GDC-007 now matches std.schema.json, std_validator.py, relationships.yaml and lifecycle.yaml; CTRL-GDC-007-010 rebind accepted (authorizing ADR cited in Design Principles, not governed_by); filler wording and the four listed follow-ups accepted.",
+    "rubric": "GDC-002",
+    "score": "9/10"
+  },
+  "review_exception": {
+    "author_is_approver": true,
+    "exit_condition": "independent qualified reviewer count reaches 2",
+    "reason": "fewer than 2 independent qualified reviewers",
+    "status": "active-zero-mandatory-approvals"
+  },
+  "schema_version": 1,
+  "subject": {
+    "base_sha": "6e8236b8e715dc3296f86831644c50932b33539d",
+    "document": "GDC-007",
+    "head_sha": "ab724e243dbc2c4e91729a15384c985a269f07e7",
+    "pull_request": 56,
+    "repository": "scnehaux/codex",
+    "status": "approved",
+    "version": "1.0.0"
+  }
+}
