@@ -1,0 +1,31 @@
+{
+  "approver": {
+    "github": "anshacerbia2",
+    "name": "Ansha Cerbia",
+    "role": "repository owner acting as ARB (GDC-003 section 3.2)"
+  },
+  "decision": "approve",
+  "kind": "codex-arb-approval-record",
+  "review": {
+    "date": "2026-11-10",
+    "notes": "Owner review of Codex PR 55 score sheet: GDC-006 now matches GDC-000 (C0), ead.schema.json, ead_validator.py and lifecycle.yaml; EAD-001 to EAD-006 ids and CTRL-GDC-006-003 rebind accepted; filler wording and 95% SLA example accepted.",
+    "rubric": "GDC-002",
+    "score": "9/10"
+  },
+  "review_exception": {
+    "author_is_approver": true,
+    "exit_condition": "independent qualified reviewer count reaches 2",
+    "reason": "fewer than 2 independent qualified reviewers",
+    "status": "active-zero-mandatory-approvals"
+  },
+  "schema_version": 1,
+  "subject": {
+    "base_sha": "fda84648ac11937f72487c8afbd6fcc7789b5b26",
+    "document": "GDC-006",
+    "head_sha": "9b5876dc90fe15173e63835b6e0a0ccfeb6b8b05",
+    "pull_request": 55,
+    "repository": "scnehaux/codex",
+    "status": "approved",
+    "version": "1.0.0"
+  }
+}
