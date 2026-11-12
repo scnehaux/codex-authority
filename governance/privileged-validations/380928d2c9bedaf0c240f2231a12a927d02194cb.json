@@ -1,0 +1,32 @@
+{
+  "authority": {
+    "default_branch": "main",
+    "mode": "privileged-explicit",
+    "repository": "scnehaux/codex-authority"
+  },
+  "candidate": {
+    "base_sha": "2e84573acd574ab7dfc076bc200a30938ab8b9e5",
+    "changed_files": [
+      "MATURITY.md",
+      "PLAN.md",
+      "ROADMAP.md",
+      "governance/github/evidence/registry-reconciliation-002.json",
+      "governance/normative-control-registry.yaml",
+      "tests/INDEX.md",
+      "tests/control/governance/test_registry_reconciliation.py",
+      "tests/control/validators/domains/test_all_domains.py"
+    ],
+    "head_sha": "380928d2c9bedaf0c240f2231a12a927d02194cb",
+    "pull_request": 61,
+    "repository": "scnehaux/codex"
+  },
+  "claims": {
+    "candidate_code_executed": false,
+    "credentials_used": false,
+    "exact_candidate_binding": true
+  },
+  "contract_version": 1,
+  "decision": "pass",
+  "kind": "codex-privileged-validation-attestation",
+  "scope": "protected-governance-maintenance"
+}
