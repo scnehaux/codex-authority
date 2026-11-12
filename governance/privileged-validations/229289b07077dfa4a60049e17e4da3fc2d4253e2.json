@@ -1,0 +1,28 @@
+{
+  "authority": {
+    "default_branch": "main",
+    "mode": "privileged-explicit",
+    "repository": "scnehaux/codex-authority"
+  },
+  "candidate": {
+    "base_sha": "879dffb7f64c4e088c06a9da0043562105d23692",
+    "changed_files": [
+      "PLAN.md",
+      "ROADMAP.md",
+      "governance/GDC-009-sad-guideline.md",
+      "governance/normative-control-registry.yaml"
+    ],
+    "head_sha": "229289b07077dfa4a60049e17e4da3fc2d4253e2",
+    "pull_request": 58,
+    "repository": "scnehaux/codex"
+  },
+  "claims": {
+    "candidate_code_executed": false,
+    "credentials_used": false,
+    "exact_candidate_binding": true
+  },
+  "contract_version": 1,
+  "decision": "pass",
+  "kind": "codex-privileged-validation-attestation",
+  "scope": "protected-governance-maintenance"
+}
