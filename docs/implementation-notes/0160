@@ -1,0 +1,11 @@
+# Codex PR #61: registry-evidence-002 publication disarm
+
+Recorded: 2026-11-12 (Asia/Jakarta). Implementation-local, non-normative.
+
+The dedicated App published exact-head success check [131221594671](https://github.com/scnehaux/codex/runs/131221594671) and revoked its installation token. The retained outcome is [the immutable candidate record](../../governance/publications/380928d2c9bedaf0c240f2231a12a927d02194cb.json), copied byte for byte from the sole durable journal outcome. The local attempt/outcome and permit/evidence/receipt stay outside Git and are never overwritten or replayed.
+
+Restore disabled state and null activation. No standing publication capability, release, GDC approval or admission is granted.
+
+- Codex [#61](https://github.com/scnehaux/codex/pull/61) squash merged at `af5255f9c6c91c2dd2b6f983513c0853744118e5`.
+- Permit digest `9954a8bed0d7ce5d13c9f29f9a91f34e66abe3a7065c5b2025e6d3c93e0d3cfb`; activation digest `c8ad279da14d7ac1a49ed9eecdb6edb8c72af13c2fdff757e9763a89498d00a1`.
+- Offline preview: `controlled_publication_preview`, `remote_mutations: 0`; one published attempt; `token_revoked: true`.
